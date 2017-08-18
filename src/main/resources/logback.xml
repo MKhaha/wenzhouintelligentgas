@@ -3,7 +3,7 @@
 
     <property name="APP_Name" value="iecloudwms" />
     <!--请自行修改日志存放地址-->
-    <property name="LOG_HOME" value="E:/xieguotao/01.work/01.java/04.project/java_log" />
+    <property name="LOG_HOME" value="C:/java_log" />
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoding>UTF-8</encoding>
