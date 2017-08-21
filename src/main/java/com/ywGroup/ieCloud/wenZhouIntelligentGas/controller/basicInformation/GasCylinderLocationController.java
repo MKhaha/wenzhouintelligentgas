@@ -19,16 +19,16 @@ public class GasCylinderLocationController {
     @Autowired
     private IGasCylinderLocationService iGasCylinderLocationService;
 
-    @RequestMapping(value = "showGasCylinderLocation.do",method = RequestMethod.POST)
+    @RequestMapping(value = "checkGasCylinderLocation.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<GasCylinderLocation> showGasCylinderLocation(Integer id){
-        return iGasCylinderLocationService.showGasCylinderLocation(id);
+    public ServerResponse<GasCylinderLocation> checkGasCylinderLocation(Integer id){
+        return iGasCylinderLocationService.checkGasCylinderLocation(id);
     }
 
-    @RequestMapping(value = "setGasCylinderLocation.do",method = RequestMethod.POST)
+    @RequestMapping(value = "insertGasCylinderLocation.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<String> setGasCylinderLocation(GasCylinderLocation gasCylinderLocation){
-        return iGasCylinderLocationService.setGasCylinderLocation(gasCylinderLocation);
+    public ServerResponse<String> insertGasCylinderLocation(GasCylinderLocation gasCylinderLocation){
+        return iGasCylinderLocationService.insertGasCylinderLocation(gasCylinderLocation);
     }
 
     @RequestMapping(value = "updateGasCylinderLocation.do",method = RequestMethod.POST)
@@ -37,4 +37,9 @@ public class GasCylinderLocationController {
         return iGasCylinderLocationService.updateGasCylinderLocation(gasCylinderLocation);
     }
 
+    @RequestMapping(value = "deleteGasCylinderLocation.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse<String> deleteGasCylinderLocation(Integer id){
+        return iGasCylinderLocationService.deleteGasCylinderLocation(id);
+    }
 }

@@ -17,7 +17,7 @@ public class GasCylinderInformationServiceImpl implements IGasCylinderInformatio
     private GasCylinderInformationMapper gasCylinderInformationMapper;
 
     @Override
-    public ServerResponse<GasCylinderInformation> updateGasCylinderInformation(GasCylinderInformation gasCylinderInformation) {
+    public ServerResponse<String> updateGasCylinderInformation(GasCylinderInformation gasCylinderInformation) {
         int resultCount = gasCylinderInformationMapper.updateByPrimaryKey(gasCylinderInformation);
         if(resultCount > 0) {
             return ServerResponse.createBySuccessMessage("信息更新成功");

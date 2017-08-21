@@ -7,7 +7,7 @@ import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasCylinderInformation;
  * Created by lenovo on 2017/8/18.
  */
 public interface IGasCylinderInformationService {
-    ServerResponse<GasCylinderInformation> updateGasCylinderInformation(GasCylinderInformation gasCylinderInformation);
+    ServerResponse<String> updateGasCylinderInformation(GasCylinderInformation gasCylinderInformation);
 
     ServerResponse<GasCylinderInformation> checkGasCylinderInformation(Integer id);
 

@@ -20,7 +20,7 @@ public class GasCylinderLocationServiceImpl implements IGasCylinderLocationServi
     private GasCylinderLocationMapper gasCylinderLocationMapper;
 
     @Override
-    public ServerResponse<GasCylinderLocation> showGasCylinderLocation(Integer id) {
+    public ServerResponse<GasCylinderLocation> checkGasCylinderLocation(Integer id) {
         GasCylinderLocation gasCylinderLocation = gasCylinderLocationMapper.selectByPrimaryKey(id);
         if(null != gasCylinderLocation) {
             return ServerResponse.createBySuccess("地理位置获取成功",gasCylinderLocation);
@@ -29,7 +29,7 @@ public class GasCylinderLocationServiceImpl implements IGasCylinderLocationServi
     }
 
     @Override
-    public ServerResponse<String> setGasCylinderLocation(GasCylinderLocation gasCylinderLocation) {
+    public ServerResponse<String> insertGasCylinderLocation(GasCylinderLocation gasCylinderLocation) {
         int resultCount = gasCylinderLocationMapper.insert(gasCylinderLocation);
         if (resultCount > 0) {
             return ServerResponse.createBySuccessMessage("位置信息设置成功");
@@ -44,5 +44,14 @@ public class GasCylinderLocationServiceImpl implements IGasCylinderLocationServi
              return ServerResponse.createBySuccessMessage("更新地理位置成功");
         }
         return ServerResponse.createByErrorMessage("更新地理位置失败");
+    }
+
+    @Override
+    public ServerResponse<String> deleteGasCylinderLocation(Integer id) {
+        int resultCount = gasCylinderLocationMapper.deleteByPrimaryKey(id);
+        if(resultCount > 0) {
+            return ServerResponse.createBySuccessMessage("删除地理位置成功");
+        }
+        return ServerResponse.createByErrorMessage("删除地理位置失败");
     }
 }

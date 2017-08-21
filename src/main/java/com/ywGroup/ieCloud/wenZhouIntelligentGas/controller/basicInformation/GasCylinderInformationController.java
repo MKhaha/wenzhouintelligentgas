@@ -21,7 +21,7 @@ public class GasCylinderInformationController {
 
     @RequestMapping(value = "updateGasCylinderInformation.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<GasCylinderInformation> updateGasCylinderInformation(GasCylinderInformation gasCylinderInformation){
+    public ServerResponse<String> updateGasCylinderInformation(GasCylinderInformation gasCylinderInformation){
         return iGasCylinderInformationService.updateGasCylinderInformation(gasCylinderInformation);
     }
 

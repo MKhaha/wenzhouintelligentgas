@@ -72,7 +72,7 @@
     update location
     set latitude = #{latitude,jdbcType=DECIMAL},
       longitude = #{longitude,jdbcType=DECIMAL},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

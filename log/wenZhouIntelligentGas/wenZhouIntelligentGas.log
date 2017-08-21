@@ -435,3 +435,415 @@
 [10:18:02.290][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderInformationMapper.xml]'
 [10:18:02.307][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderLocationMapper.xml]'
 [10:18:02.322][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderSpecificationMapper.xml]'
+[13:51:22.839][DEBUG][org.apache.ibatis.logging.LogFactory][localhost-startStop-2] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[13:51:22.941][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][localhost-startStop-2] Property `configuration` or 'configLocation' not specified, using default MyBatis Configuration
+[13:51:23.005][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][localhost-startStop-2] Registered plugin: 'com.github.pagehelper.PageHelper@6506a881'
+[13:51:23.162][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][localhost-startStop-2] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderInformationMapper.xml]'
+[13:51:23.174][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][localhost-startStop-2] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderLocationMapper.xml]'
+[13:51:23.187][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][localhost-startStop-2] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderSpecificationMapper.xml]'
+[15:01:09.623][DEBUG][org.apache.ibatis.logging.LogFactory][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[15:01:09.703][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Property `configuration` or 'configLocation' not specified, using default MyBatis Configuration
+[15:01:09.758][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Registered plugin: 'com.github.pagehelper.PageHelper@2eae643d'
+[15:01:09.864][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\CompanyMapper.xml]'
+[15:01:09.877][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\DistributionCarMapper.xml]'
+[15:01:09.889][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderInformationMapper.xml]'
+[15:01:09.901][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderLocationMapper.xml]'
+[15:01:09.911][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderSpecificationMapper.xml]'
+[15:01:09.929][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\IntelligentGasCustomerAddressMapper.xml]'
+[15:01:09.945][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\IntelligentGasCustomerMapper.xml]'
+[15:01:32.148][DEBUG][org.apache.ibatis.logging.LogFactory][RMI TCP Connection(3)-127.0.0.1] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[15:01:32.277][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Property `configuration` or 'configLocation' not specified, using default MyBatis Configuration
+[15:01:32.344][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Registered plugin: 'com.github.pagehelper.PageHelper@138b4142'
+[15:01:32.510][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\CompanyMapper.xml]'
+[15:01:32.526][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\DistributionCarMapper.xml]'
+[15:01:32.546][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderInformationMapper.xml]'
+[15:01:32.561][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderLocationMapper.xml]'
+[15:01:32.577][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderSpecificationMapper.xml]'
+[15:01:32.596][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\IntelligentGasCustomerAddressMapper.xml]'
+[15:01:32.625][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\IntelligentGasCustomerMapper.xml]'
+[15:13:51.376][DEBUG][org.apache.ibatis.logging.LogFactory][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[15:13:51.445][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Property `configuration` or 'configLocation' not specified, using default MyBatis Configuration
+[15:13:51.486][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Registered plugin: 'com.github.pagehelper.PageHelper@3fc5f627'
+[15:13:51.589][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\CompanyMapper.xml]'
+[15:13:51.601][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\DistributionCarMapper.xml]'
+[15:13:51.614][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderInformationMapper.xml]'
+[15:13:51.622][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderLocationMapper.xml]'
+[15:13:51.629][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderSpecificationMapper.xml]'
+[15:13:51.637][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\IntelligentGasCustomerAddressMapper.xml]'
+[15:13:51.645][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\IntelligentGasCustomerMapper.xml]'
+[15:14:11.938][DEBUG][org.apache.ibatis.logging.LogFactory][RMI TCP Connection(3)-127.0.0.1] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[15:14:12.034][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Property `configuration` or 'configLocation' not specified, using default MyBatis Configuration
+[15:14:12.083][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Registered plugin: 'com.github.pagehelper.PageHelper@5ff5b95'
+[15:14:12.223][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\CompanyMapper.xml]'
+[15:14:12.240][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\DistributionCarMapper.xml]'
+[15:14:12.259][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderInformationMapper.xml]'
+[15:14:12.273][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderLocationMapper.xml]'
+[15:14:12.288][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderSpecificationMapper.xml]'
+[15:14:12.303][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\IntelligentGasCustomerAddressMapper.xml]'
+[15:14:12.320][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\IntelligentGasCustomerMapper.xml]'
+[15:24:07.767][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] Creating a new SqlSession
+[15:24:07.788][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3aa963e] was not registered for synchronization because synchronization is not active
+[15:24:08.628][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-5] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:24:08.633][DEBUG][c.y.i.w.dao.CompanyMapper.insert][http-nio-8080-exec-5] ==>  Preparing: insert into company (company_number, company_name, company_type, phone, fax, email, contact_name, address, creater_user, is_delete, create_time, update_time, description) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now(), ?) 
+[15:24:08.656][DEBUG][c.y.i.w.dao.CompanyMapper.insert][http-nio-8080-exec-5] ==> Parameters: 111(String), 222(String), null, null, null, null, null, null, null, 333(Integer), null
+[15:24:08.690][DEBUG][c.y.i.w.dao.CompanyMapper.insert][http-nio-8080-exec-5] <==    Updates: 1
+[15:24:08.691][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3aa963e]
+[15:25:40.289][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Creating a new SqlSession
+[15:25:40.289][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c23bb1b] was not registered for synchronization because synchronization is not active
+[15:25:40.308][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-3] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:25:40.309][DEBUG][c.y.i.w.dao.CompanyMapper.insert][http-nio-8080-exec-3] ==>  Preparing: insert into company (company_number, company_name, company_type, phone, fax, email, contact_name, address, creater_user, is_delete, create_time, update_time, description) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now(), ?) 
+[15:25:40.310][DEBUG][c.y.i.w.dao.CompanyMapper.insert][http-nio-8080-exec-3] ==> Parameters: 111(String), 222(String), 444(Integer), 555(String), 666(String), 777(String), 888(String), 999(String), 000(String), 333(Integer), java.io.StringReader@3d956d4(StringReader)
+[15:25:40.346][DEBUG][c.y.i.w.dao.CompanyMapper.insert][http-nio-8080-exec-3] <==    Updates: 1
+[15:25:40.346][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c23bb1b]
+[15:27:55.011][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] Creating a new SqlSession
+[15:27:55.013][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c7fb788] was not registered for synchronization because synchronization is not active
+[15:27:56.538][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-1] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:27:56.539][DEBUG][c.y.i.w.dao.CompanyMapper.insert][http-nio-8080-exec-1] ==>  Preparing: insert into company (company_number, company_name, company_type, phone, fax, email, contact_name, address, creater_user, is_delete, create_time, update_time, description) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now(), ?) 
+[15:27:56.540][DEBUG][c.y.i.w.dao.CompanyMapper.insert][http-nio-8080-exec-1] ==> Parameters: 111(String), 222(String), 444(Integer), 555(String), 666(String), 777(String), 888(String), 999(String), 000(String), 333(Integer), java.io.StringReader@66559f07(StringReader)
+[15:27:57.510][DEBUG][c.y.i.w.dao.CompanyMapper.insert][http-nio-8080-exec-1] <==    Updates: 1
+[15:27:57.510][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c7fb788]
+[15:28:38.938][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] Creating a new SqlSession
+[15:28:38.938][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4de83f0f] was not registered for synchronization because synchronization is not active
+[15:28:39.048][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-8] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:28:39.048][DEBUG][c.y.i.w.d.C.selectByPrimaryKey][http-nio-8080-exec-8] ==>  Preparing: select id, company_number, company_name, company_type, phone, fax, email, contact_name, address, creater_user, is_delete, create_time, update_time , description from company where id = ? 
+[15:28:39.048][DEBUG][c.y.i.w.d.C.selectByPrimaryKey][http-nio-8080-exec-8] ==> Parameters: 2(Integer)
+[15:28:39.072][DEBUG][c.y.i.w.d.C.selectByPrimaryKey][http-nio-8080-exec-8] <==      Total: 1
+[15:28:39.075][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4de83f0f]
+[15:28:43.851][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] Creating a new SqlSession
+[15:28:43.851][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33ed67ac] was not registered for synchronization because synchronization is not active
+[15:28:44.244][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-2] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:28:44.245][DEBUG][c.y.i.w.d.C.selectByPrimaryKey][http-nio-8080-exec-2] ==>  Preparing: select id, company_number, company_name, company_type, phone, fax, email, contact_name, address, creater_user, is_delete, create_time, update_time , description from company where id = ? 
+[15:28:44.245][DEBUG][c.y.i.w.d.C.selectByPrimaryKey][http-nio-8080-exec-2] ==> Parameters: 4(Integer)
+[15:28:44.250][DEBUG][c.y.i.w.d.C.selectByPrimaryKey][http-nio-8080-exec-2] <==      Total: 0
+[15:28:44.251][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33ed67ac]
+[15:28:48.351][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] Creating a new SqlSession
+[15:28:48.351][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6b9b34f5] was not registered for synchronization because synchronization is not active
+[15:28:49.066][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-6] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:28:49.067][DEBUG][c.y.i.w.d.C.selectByPrimaryKey][http-nio-8080-exec-6] ==>  Preparing: select id, company_number, company_name, company_type, phone, fax, email, contact_name, address, creater_user, is_delete, create_time, update_time , description from company where id = ? 
+[15:28:49.067][DEBUG][c.y.i.w.d.C.selectByPrimaryKey][http-nio-8080-exec-6] ==> Parameters: 2(Integer)
+[15:28:50.619][DEBUG][c.y.i.w.d.C.selectByPrimaryKey][http-nio-8080-exec-6] <==      Total: 1
+[15:28:50.619][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6b9b34f5]
+[15:29:40.241][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] Creating a new SqlSession
+[15:29:40.242][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2b507ab5] was not registered for synchronization because synchronization is not active
+[15:29:40.253][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-5] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:29:40.253][DEBUG][c.y.i.w.d.C.updateByPrimaryKey][http-nio-8080-exec-5] ==>  Preparing: update company set company_number = ?, company_name = ?, company_type = ?, phone = ?, fax = ?, email = ?, contact_name = ?, address = ?, creater_user = ?, is_delete = ?, update_time = now() where id = ? 
+[15:29:40.254][DEBUG][c.y.i.w.d.C.updateByPrimaryKey][http-nio-8080-exec-5] ==> Parameters: 111(String), 222(String), 444(Integer), 555(String), 666(String), 777(String), 888(String), 999(String), 000(String), 333(Integer), 1(Integer)
+[15:29:40.278][DEBUG][c.y.i.w.d.C.updateByPrimaryKey][http-nio-8080-exec-5] <==    Updates: 1
+[15:29:40.279][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2b507ab5]
+[15:30:10.276][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Creating a new SqlSession
+[15:30:10.276][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a5035f3] was not registered for synchronization because synchronization is not active
+[15:30:10.282][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-3] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:30:10.283][DEBUG][c.y.i.w.d.C.deleteByPrimaryKey][http-nio-8080-exec-3] ==>  Preparing: delete from company where id = ? 
+[15:30:10.283][DEBUG][c.y.i.w.d.C.deleteByPrimaryKey][http-nio-8080-exec-3] ==> Parameters: 1(Integer)
+[15:30:10.295][DEBUG][c.y.i.w.d.C.deleteByPrimaryKey][http-nio-8080-exec-3] <==    Updates: 1
+[15:30:10.295][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a5035f3]
+[15:35:33.333][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] Creating a new SqlSession
+[15:35:33.333][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4362804a] was not registered for synchronization because synchronization is not active
+[15:35:33.345][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-1] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:35:33.346][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-1] ==>  Preparing: insert into distribution_car (car_serial_number, detail, responsible_id, responsible_name, gps_id, create_time, update_time) values (?, ?, ?, ?, ?, now(), now()) 
+[15:35:33.347][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-1] ==> Parameters: 1(String), 2(String), 3(Integer), 4(String), 5(Integer)
+[15:35:33.394][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-1] <==    Updates: 1
+[15:35:33.394][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4362804a]
+[15:36:22.168][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] Creating a new SqlSession
+[15:36:22.168][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f9efc0] was not registered for synchronization because synchronization is not active
+[15:36:22.328][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-8] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:36:22.328][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-8] ==>  Preparing: update distribution_car set car_serial_number = ?, detail = ?, responsible_id = ?, responsible_name = ?, gps_id = ?, now() where id = ? 
+[15:36:22.329][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-8] ==> Parameters: 11(String), 22(String), 33(Integer), 44(String), 55(Integer), 1(Integer)
+[15:36:23.163][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f9efc0]
+[15:36:52.001][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] Creating a new SqlSession
+[15:36:52.001][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28e94f80] was not registered for synchronization because synchronization is not active
+[15:36:52.670][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-2] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:36:52.670][DEBUG][c.y.i.w.d.D.selectByPrimaryKey][http-nio-8080-exec-2] ==>  Preparing: select id, car_serial_number, detail, responsible_id, responsible_name, gps_id, create_time, update_time from distribution_car where id = ? 
+[15:36:52.671][DEBUG][c.y.i.w.d.D.selectByPrimaryKey][http-nio-8080-exec-2] ==> Parameters: 1(Integer)
+[15:36:54.277][DEBUG][c.y.i.w.d.D.selectByPrimaryKey][http-nio-8080-exec-2] <==      Total: 1
+[15:36:54.278][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28e94f80]
+[15:37:08.409][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] Creating a new SqlSession
+[15:37:08.409][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eeb8537] was not registered for synchronization because synchronization is not active
+[15:37:08.443][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-6] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:37:08.444][DEBUG][c.y.i.w.d.D.selectByPrimaryKey][http-nio-8080-exec-6] ==>  Preparing: select id, car_serial_number, detail, responsible_id, responsible_name, gps_id, create_time, update_time from distribution_car where id = ? 
+[15:37:08.444][DEBUG][c.y.i.w.d.D.selectByPrimaryKey][http-nio-8080-exec-6] ==> Parameters: 1(Integer)
+[15:37:08.465][DEBUG][c.y.i.w.d.D.selectByPrimaryKey][http-nio-8080-exec-6] <==      Total: 1
+[15:37:08.465][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eeb8537]
+[15:37:29.276][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] Creating a new SqlSession
+[15:37:29.276][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fa49159] was not registered for synchronization because synchronization is not active
+[15:37:29.287][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-10] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:37:29.287][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-10] ==>  Preparing: insert into distribution_car (car_serial_number, detail, responsible_id, responsible_name, gps_id, create_time, update_time) values (?, ?, ?, ?, ?, now(), now()) 
+[15:37:29.288][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-10] ==> Parameters: 11(String), 22(String), 33(Integer), 44(String), 55(Integer)
+[15:37:29.325][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fa49159]
+[15:37:35.388][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] Creating a new SqlSession
+[15:37:35.389][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5693f7ab] was not registered for synchronization because synchronization is not active
+[15:37:35.396][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-5] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:37:35.396][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-5] ==>  Preparing: insert into distribution_car (car_serial_number, detail, responsible_id, responsible_name, gps_id, create_time, update_time) values (?, ?, ?, ?, ?, now(), now()) 
+[15:37:35.396][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-5] ==> Parameters: 11(String), 22(String), 33(Integer), 44(String), 55(Integer)
+[15:37:35.424][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5693f7ab]
+[15:40:05.517][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-9] Creating a new SqlSession
+[15:40:05.517][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-9] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3a4c4ce6] was not registered for synchronization because synchronization is not active
+[15:40:05.538][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-9] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:40:05.539][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-9] ==>  Preparing: insert into distribution_car (car_serial_number, detail, responsible_id, responsible_name, gps_id, create_time, update_time) values (?, ?, ?, ?, ?, now(), now()) 
+[15:40:05.539][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-9] ==> Parameters: 11(String), 22(String), 33(Integer), 44(String), 55(Integer)
+[15:40:05.567][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-9] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3a4c4ce6]
+[15:44:02.180][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Creating a new SqlSession
+[15:44:02.181][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32e05109] was not registered for synchronization because synchronization is not active
+[15:44:02.203][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-3] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:44:02.203][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-3] ==>  Preparing: insert into distribution_car (car_serial_number, detail, responsible_id, responsible_name, gps_id, create_time, update_time) values (?, ?, ?, ?, ?, now(), now()) 
+[15:44:02.204][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-3] ==> Parameters: 11(String), 22(String), 3(Integer), 44(String), 55(Integer)
+[15:44:02.235][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-3] <==    Updates: 1
+[15:44:02.235][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32e05109]
+[15:44:39.165][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] Creating a new SqlSession
+[15:44:39.165][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73fc66c9] was not registered for synchronization because synchronization is not active
+[15:44:39.186][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-1] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:44:39.187][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-1] ==>  Preparing: insert into distribution_car (car_serial_number, detail, responsible_id, responsible_name, gps_id, create_time, update_time) values (?, ?, ?, ?, ?, now(), now()) 
+[15:44:39.187][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-1] ==> Parameters: 11(String), 22(String), 2(Integer), 44(String), 55(Integer)
+[15:44:39.217][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-1] <==    Updates: 1
+[15:44:39.217][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73fc66c9]
+[15:45:13.176][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] Creating a new SqlSession
+[15:45:13.177][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@697aed8e] was not registered for synchronization because synchronization is not active
+[15:45:13.183][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-8] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:45:13.184][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-8] ==>  Preparing: update distribution_car set car_serial_number = ?, detail = ?, responsible_id = ?, responsible_name = ?, gps_id = ?, now() where id = ? 
+[15:45:13.184][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-8] ==> Parameters: 32(String), 23(String), 2(Integer), 32(String), 532(Integer), null
+[15:45:13.196][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@697aed8e]
+[15:45:16.771][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] Creating a new SqlSession
+[15:45:16.771][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7ecb9bfa] was not registered for synchronization because synchronization is not active
+[15:45:16.787][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-2] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:45:16.787][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-2] ==>  Preparing: update distribution_car set car_serial_number = ?, detail = ?, responsible_id = ?, responsible_name = ?, gps_id = ?, now() where id = ? 
+[15:45:16.787][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-2] ==> Parameters: 32(String), 23(String), 2(Integer), 32(String), 5(Integer), null
+[15:45:16.801][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7ecb9bfa]
+[15:45:31.798][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] Creating a new SqlSession
+[15:45:31.798][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@75efec78] was not registered for synchronization because synchronization is not active
+[15:45:31.805][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-6] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:45:31.806][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-6] ==>  Preparing: update distribution_car set car_serial_number = ?, detail = ?, responsible_id = ?, responsible_name = ?, gps_id = ?, now() where id = ? 
+[15:45:31.806][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-6] ==> Parameters: 3(String), 2(String), 2(Integer), 3(String), 5(Integer), 1(Integer)
+[15:45:31.813][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@75efec78]
+[15:45:34.839][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] Creating a new SqlSession
+[15:45:34.839][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@46696df1] was not registered for synchronization because synchronization is not active
+[15:45:34.852][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-10] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:45:34.853][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-10] ==>  Preparing: update distribution_car set car_serial_number = ?, detail = ?, responsible_id = ?, responsible_name = ?, gps_id = ?, now() where id = ? 
+[15:45:34.853][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-10] ==> Parameters: 3(String), 2(String), 2(Integer), 3(String), 5(Integer), 2(Integer)
+[15:45:34.859][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@46696df1]
+[15:46:47.892][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] Creating a new SqlSession
+[15:46:47.892][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@388ad5c9] was not registered for synchronization because synchronization is not active
+[15:46:47.899][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-5] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:46:47.900][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-5] ==>  Preparing: insert into distribution_car (car_serial_number, detail, responsible_id, responsible_name, gps_id, create_time, update_time) values (?, ?, ?, ?, ?, now(), now()) 
+[15:46:47.900][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-5] ==> Parameters: 32(String), 22(String), 2(Integer), 44(String), 55(Integer)
+[15:46:47.916][DEBUG][c.y.i.w.dao.DistributionCarMapper.insert][http-nio-8080-exec-5] <==    Updates: 1
+[15:46:47.916][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@388ad5c9]
+[15:47:13.568][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Creating a new SqlSession
+[15:47:13.569][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61feb16a] was not registered for synchronization because synchronization is not active
+[15:47:13.585][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-3] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:47:13.585][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-3] ==>  Preparing: update distribution_car set car_serial_number = ?, detail = ?, responsible_id = ?, responsible_name = ?, gps_id = ?, now() where id = ? 
+[15:47:13.586][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-3] ==> Parameters: 32(String), 22(String), 2(Integer), 44(String), 55(Integer), 2(Integer)
+[15:47:13.591][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61feb16a]
+[15:49:12.152][DEBUG][org.apache.ibatis.logging.LogFactory][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[15:49:12.252][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Property `configuration` or 'configLocation' not specified, using default MyBatis Configuration
+[15:49:12.313][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Registered plugin: 'com.github.pagehelper.PageHelper@4c7df0d5'
+[15:49:12.441][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\CompanyMapper.xml]'
+[15:49:12.451][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\DistributionCarMapper.xml]'
+[15:49:12.465][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderInformationMapper.xml]'
+[15:49:12.650][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderLocationMapper.xml]'
+[15:49:12.660][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderSpecificationMapper.xml]'
+[15:49:12.669][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\IntelligentGasCustomerAddressMapper.xml]'
+[15:49:12.679][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][ContainerBackgroundProcessor[StandardEngine[Catalina]]] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\IntelligentGasCustomerMapper.xml]'
+[15:49:31.646][DEBUG][org.apache.ibatis.logging.LogFactory][RMI TCP Connection(3)-127.0.0.1] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[15:49:31.737][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Property `configuration` or 'configLocation' not specified, using default MyBatis Configuration
+[15:49:31.788][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Registered plugin: 'com.github.pagehelper.PageHelper@f8487bc'
+[15:49:31.923][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\CompanyMapper.xml]'
+[15:49:31.948][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\DistributionCarMapper.xml]'
+[15:49:31.973][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderInformationMapper.xml]'
+[15:49:31.987][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderLocationMapper.xml]'
+[15:49:32.003][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\GasCylinderSpecificationMapper.xml]'
+[15:49:32.018][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\IntelligentGasCustomerAddressMapper.xml]'
+[15:49:32.037][DEBUG][org.mybatis.spring.SqlSessionFactoryBean][RMI TCP Connection(3)-127.0.0.1] Parsed mapper file: 'file [D:\wamp\apache-tomcat-8.5.12\webapps\ROOT\WEB-INF\classes\mappers\IntelligentGasCustomerMapper.xml]'
+[15:49:52.160][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] Creating a new SqlSession
+[15:49:52.181][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@39151913] was not registered for synchronization because synchronization is not active
+[15:49:53.204][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-6] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:49:53.211][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-6] ==>  Preparing: update distribution_car set car_serial_number = ?, detail = ?, responsible_id = ?, responsible_name = ?, gps_id = ?, update_time = now() where id = ? 
+[15:49:53.235][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-6] ==> Parameters: 32(String), 22(String), 2(Integer), 44(String), 55(Integer), 2(Integer)
+[15:49:53.256][DEBUG][c.y.i.w.d.D.updateByPrimaryKey][http-nio-8080-exec-6] <==    Updates: 1
+[15:49:53.256][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@39151913]
+[15:50:08.682][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-7] Creating a new SqlSession
+[15:50:08.682][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-7] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f751c8b] was not registered for synchronization because synchronization is not active
+[15:50:08.709][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-7] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:50:08.709][DEBUG][c.y.i.w.d.D.deleteByPrimaryKey][http-nio-8080-exec-7] ==>  Preparing: delete from distribution_car where id = ? 
+[15:50:08.710][DEBUG][c.y.i.w.d.D.deleteByPrimaryKey][http-nio-8080-exec-7] ==> Parameters: 2(Integer)
+[15:50:08.728][DEBUG][c.y.i.w.d.D.deleteByPrimaryKey][http-nio-8080-exec-7] <==    Updates: 1
+[15:50:08.728][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-7] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f751c8b]
+[15:56:44.522][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Creating a new SqlSession
+[15:56:44.523][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6580e0d1] was not registered for synchronization because synchronization is not active
+[15:56:45.220][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-3] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:56:45.220][DEBUG][c.y.i.w.d.G.insert][http-nio-8080-exec-3] ==>  Preparing: insert into gas_cylinder_information (cylinder_serial_number, production_date, scrapped_date, charging_date, cylinder_specification, serial_number_person_belonging, name_person_belonging, serial_number_company_belonging, name_company_belonging, serial_number_associated_order, location_id, create_time, update_time) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now()) 
+[15:56:45.222][DEBUG][c.y.i.w.d.G.insert][http-nio-8080-exec-3] ==> Parameters: 11(String), 2017-08-21 00:00:00.0(Timestamp), 2017-08-21 00:00:00.0(Timestamp), 2017-08-21 00:00:00.0(Timestamp), 22(String), 33(String), 44(String), 55(String), 2017-08-21 00:00:00.0(Timestamp), 66(String), 77(Integer)
+[15:56:47.117][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6580e0d1]
+[15:56:59.637][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] Creating a new SqlSession
+[15:56:59.637][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73598a0e] was not registered for synchronization because synchronization is not active
+[15:57:00.287][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-2] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:57:00.287][DEBUG][c.y.i.w.d.G.insert][http-nio-8080-exec-2] ==>  Preparing: insert into gas_cylinder_information (cylinder_serial_number, production_date, scrapped_date, charging_date, cylinder_specification, serial_number_person_belonging, name_person_belonging, serial_number_company_belonging, name_company_belonging, serial_number_associated_order, location_id, create_time, update_time) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now()) 
+[15:57:00.288][DEBUG][c.y.i.w.d.G.insert][http-nio-8080-exec-2] ==> Parameters: 1(String), 2017-08-21 00:00:00.0(Timestamp), 2017-08-21 00:00:00.0(Timestamp), 2017-08-21 00:00:00.0(Timestamp), 2(String), 3(String), 4(String), 5(String), 2017-08-21 00:00:00.0(Timestamp), 6(String), 7(Integer)
+[15:57:00.316][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73598a0e]
+[15:58:07.347][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-4] Creating a new SqlSession
+[15:58:07.348][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-4] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2cbef7b2] was not registered for synchronization because synchronization is not active
+[15:58:07.515][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-4] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:58:07.515][DEBUG][c.y.i.w.d.G.insert][http-nio-8080-exec-4] ==>  Preparing: insert into gas_cylinder_information (cylinder_serial_number, production_date, scrapped_date, charging_date, cylinder_specification, serial_number_person_belonging, name_person_belonging, serial_number_company_belonging, name_company_belonging, serial_number_associated_order, location_id, create_time, update_time) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now()) 
+[15:58:07.516][DEBUG][c.y.i.w.d.G.insert][http-nio-8080-exec-4] ==> Parameters: 1(String), 2017-08-21 00:00:00.0(Timestamp), 2017-08-21 00:00:00.0(Timestamp), 2017-08-21 00:00:00.0(Timestamp), 2(String), 3(String), 4(String), 5(String), 2017-08-21 00:00:00.0(Timestamp), 6(String), 1(Integer)
+[15:58:07.797][DEBUG][c.y.i.w.d.G.insert][http-nio-8080-exec-4] <==    Updates: 1
+[15:58:07.797][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-4] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2cbef7b2]
+[15:58:36.574][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] Creating a new SqlSession
+[15:58:36.574][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5131dd2a] was not registered for synchronization because synchronization is not active
+[15:58:36.581][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-8] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:58:36.581][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-8] ==>  Preparing: update gas_cylinder_information set cylinder_serial_number = ?, production_date = ?, scrapped_date = ?, charging_date = ?, cylinder_specification = ?, serial_number_person_belonging = ?, name_person_belonging = ?, serial_number_company_belonging = ?, name_company_belonging = ?, serial_number_associated_order = ?, location_id = ?, update_time = now() where id = ? 
+[15:58:36.583][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-8] ==> Parameters: 1(String), 2017-08-23 00:00:00.0(Timestamp), 2017-08-24 00:00:00.0(Timestamp), 2017-08-25 00:00:00.0(Timestamp), 2(String), 3(String), 4(String), 5(String), 2017-08-21 00:00:00.0(Timestamp), 6(String), 1(Integer), null
+[15:58:36.598][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-8] <==    Updates: 0
+[15:58:36.598][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5131dd2a]
+[15:59:04.731][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] Creating a new SqlSession
+[15:59:04.731][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7bdfb2e8] was not registered for synchronization because synchronization is not active
+[15:59:04.747][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-10] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[15:59:04.748][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-10] ==>  Preparing: update gas_cylinder_information set cylinder_serial_number = ?, production_date = ?, scrapped_date = ?, charging_date = ?, cylinder_specification = ?, serial_number_person_belonging = ?, name_person_belonging = ?, serial_number_company_belonging = ?, name_company_belonging = ?, serial_number_associated_order = ?, location_id = ?, update_time = now() where id = ? 
+[15:59:04.750][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-10] ==> Parameters: 1(String), 2017-08-23 00:00:00.0(Timestamp), 2017-08-24 00:00:00.0(Timestamp), 2017-08-25 00:00:00.0(Timestamp), 2(String), 3(String), 4(String), 5(String), 2017-08-21 00:00:00.0(Timestamp), 6(String), 1(Integer), 1(Integer)
+[15:59:04.774][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-10] <==    Updates: 0
+[15:59:04.774][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7bdfb2e8]
+[16:00:36.546][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-9] Creating a new SqlSession
+[16:00:36.546][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-9] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7ccedbd7] was not registered for synchronization because synchronization is not active
+[16:00:36.560][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-9] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:00:36.561][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-9] ==>  Preparing: update gas_cylinder_information set cylinder_serial_number = ?, production_date = ?, scrapped_date = ?, charging_date = ?, cylinder_specification = ?, serial_number_person_belonging = ?, name_person_belonging = ?, serial_number_company_belonging = ?, name_company_belonging = ?, serial_number_associated_order = ?, location_id = ?, update_time = now() where id = ? 
+[16:00:36.561][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-9] ==> Parameters: 1(String), 2017-08-21 00:00:00.0(Timestamp), 2017-08-21 00:00:00.0(Timestamp), 2017-08-21 00:00:00.0(Timestamp), 22(String), 322(String), 433(String), 5(String), 2017-08-21 00:00:00.0(Timestamp), 6(String), 1(Integer), 1(Integer)
+[16:00:36.570][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-9] <==    Updates: 0
+[16:00:36.571][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-9] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7ccedbd7]
+[16:00:53.509][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] Creating a new SqlSession
+[16:00:53.510][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6d4ba5e8] was not registered for synchronization because synchronization is not active
+[16:00:53.515][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-1] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:00:53.515][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-1] ==>  Preparing: update gas_cylinder_information set cylinder_serial_number = ?, production_date = ?, scrapped_date = ?, charging_date = ?, cylinder_specification = ?, serial_number_person_belonging = ?, name_person_belonging = ?, serial_number_company_belonging = ?, name_company_belonging = ?, serial_number_associated_order = ?, location_id = ?, update_time = now() where id = ? 
+[16:00:53.517][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-1] ==> Parameters: 1(String), 2017-08-21 00:00:00.0(Timestamp), 2017-08-21 00:00:00.0(Timestamp), 2017-08-21 00:00:00.0(Timestamp), 22(String), 322(String), 433(String), 5(String), 2017-08-21 00:00:00.0(Timestamp), 6(String), 1(Integer), 3(Integer)
+[16:00:53.541][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-1] <==    Updates: 1
+[16:00:53.541][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6d4ba5e8]
+[16:01:08.885][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Creating a new SqlSession
+[16:01:08.885][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@711d6d03] was not registered for synchronization because synchronization is not active
+[16:01:08.896][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-3] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:01:08.896][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-3] ==>  Preparing: update gas_cylinder_information set cylinder_serial_number = ?, production_date = ?, scrapped_date = ?, charging_date = ?, cylinder_specification = ?, serial_number_person_belonging = ?, name_person_belonging = ?, serial_number_company_belonging = ?, name_company_belonging = ?, serial_number_associated_order = ?, location_id = ?, update_time = now() where id = ? 
+[16:01:08.897][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-3] ==> Parameters: 333(String), 2017-08-21 00:00:00.0(Timestamp), 2017-08-21 00:00:00.0(Timestamp), 2017-08-21 00:00:00.0(Timestamp), 22(String), 322(String), 433(String), 5(String), 2017-08-21 00:00:00.0(Timestamp), 6(String), 1(Integer), 3(Integer)
+[16:01:08.922][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-3] <==    Updates: 1
+[16:01:08.922][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@711d6d03]
+[16:01:26.142][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] Creating a new SqlSession
+[16:01:26.143][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@685d2392] was not registered for synchronization because synchronization is not active
+[16:01:26.175][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-2] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:01:26.176][DEBUG][c.y.i.w.d.G.deleteByPrimaryKey][http-nio-8080-exec-2] ==>  Preparing: delete from gas_cylinder_information where id = ? 
+[16:01:26.176][DEBUG][c.y.i.w.d.G.deleteByPrimaryKey][http-nio-8080-exec-2] ==> Parameters: 2(Integer)
+[16:01:26.207][DEBUG][c.y.i.w.d.G.deleteByPrimaryKey][http-nio-8080-exec-2] <==    Updates: 0
+[16:01:26.207][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-2] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@685d2392]
+[16:01:35.621][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-4] Creating a new SqlSession
+[16:01:35.621][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-4] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40dfe022] was not registered for synchronization because synchronization is not active
+[16:01:35.627][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-4] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:01:35.628][DEBUG][c.y.i.w.d.G.deleteByPrimaryKey][http-nio-8080-exec-4] ==>  Preparing: delete from gas_cylinder_information where id = ? 
+[16:01:35.628][DEBUG][c.y.i.w.d.G.deleteByPrimaryKey][http-nio-8080-exec-4] ==> Parameters: 3(Integer)
+[16:01:35.660][DEBUG][c.y.i.w.d.G.deleteByPrimaryKey][http-nio-8080-exec-4] <==    Updates: 1
+[16:01:35.660][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-4] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40dfe022]
+[16:04:10.815][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] Creating a new SqlSession
+[16:04:10.815][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@39f2817a] was not registered for synchronization because synchronization is not active
+[16:04:10.821][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-8] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:04:10.821][DEBUG][c.y.i.w.d.G.insert][http-nio-8080-exec-8] ==>  Preparing: insert into location (latitude, longitude, create_time) values (?, ?, now()) 
+[16:04:10.821][DEBUG][c.y.i.w.d.G.insert][http-nio-8080-exec-8] ==> Parameters: 11(BigDecimal), 22(BigDecimal)
+[16:04:10.855][DEBUG][c.y.i.w.d.G.insert][http-nio-8080-exec-8] <==    Updates: 1
+[16:04:10.855][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@39f2817a]
+[16:04:53.106][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] Creating a new SqlSession
+[16:04:53.106][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5dbbfa3] was not registered for synchronization because synchronization is not active
+[16:04:53.115][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-10] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:04:53.116][DEBUG][c.y.i.w.d.G.selectByPrimaryKey][http-nio-8080-exec-10] ==>  Preparing: select id, latitude, longitude, create_time from location where id = ? 
+[16:04:53.116][DEBUG][c.y.i.w.d.G.selectByPrimaryKey][http-nio-8080-exec-10] ==> Parameters: 8(Integer)
+[16:04:53.134][DEBUG][c.y.i.w.d.G.selectByPrimaryKey][http-nio-8080-exec-10] <==      Total: 1
+[16:04:53.135][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5dbbfa3]
+[16:05:10.740][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] Creating a new SqlSession
+[16:05:10.740][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15c4919e] was not registered for synchronization because synchronization is not active
+[16:05:10.749][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-5] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:05:10.749][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-5] ==>  Preparing: update location set latitude = ?, longitude = ?, create_time = now() where id = ? 
+[16:05:10.750][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-5] ==> Parameters: 113(BigDecimal), 33(BigDecimal), 1(Integer)
+[16:05:10.794][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-5] <==    Updates: 1
+[16:05:10.794][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15c4919e]
+[16:05:20.330][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-9] Creating a new SqlSession
+[16:05:20.330][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-9] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@413deb60] was not registered for synchronization because synchronization is not active
+[16:05:20.340][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-9] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:05:20.341][DEBUG][c.y.i.w.d.G.deleteByPrimaryKey][http-nio-8080-exec-9] ==>  Preparing: delete from location where id = ? 
+[16:05:20.342][DEBUG][c.y.i.w.d.G.deleteByPrimaryKey][http-nio-8080-exec-9] ==> Parameters: 1(Integer)
+[16:05:20.374][DEBUG][c.y.i.w.d.G.deleteByPrimaryKey][http-nio-8080-exec-9] <==    Updates: 1
+[16:05:20.374][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-9] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@413deb60]
+[16:07:44.324][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Creating a new SqlSession
+[16:07:44.324][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33b1acc8] was not registered for synchronization because synchronization is not active
+[16:07:44.408][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-3] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:07:44.408][DEBUG][c.y.i.w.d.G.insert][http-nio-8080-exec-3] ==>  Preparing: insert into gas_cylinder_specification (specification_number, specification_code, weight, description, price, create_time, update_time) values (?, ?, ?, ?, ?, now(), now()) 
+[16:07:44.409][DEBUG][c.y.i.w.d.G.insert][http-nio-8080-exec-3] ==> Parameters: 11(String), 22(String), 33.0(Float), 44(String), 55.0(Float)
+[16:07:44.435][DEBUG][c.y.i.w.d.G.insert][http-nio-8080-exec-3] <==    Updates: 1
+[16:07:44.435][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33b1acc8]
+[16:08:22.324][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-4] Creating a new SqlSession
+[16:08:22.325][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-4] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@72586e3] was not registered for synchronization because synchronization is not active
+[16:08:22.332][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-4] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:08:22.333][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-4] ==>  Preparing: update gas_cylinder_specification set specification_number = ?, specification_code = ?, weight = ?, description = ?, price = ?, update_time = now() where id = ? 
+[16:08:22.334][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-4] ==> Parameters: 111(String), 222(String), 333.0(Float), 444(String), 555.0(Float), 1(Integer)
+[16:08:22.427][DEBUG][c.y.i.w.d.G.updateByPrimaryKey][http-nio-8080-exec-4] <==    Updates: 1
+[16:08:22.428][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-4] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@72586e3]
+[16:08:32.511][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] Creating a new SqlSession
+[16:08:32.511][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2ae4555f] was not registered for synchronization because synchronization is not active
+[16:08:32.522][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-6] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:08:32.523][DEBUG][c.y.i.w.d.G.selectByPrimaryKey][http-nio-8080-exec-6] ==>  Preparing: select id, specification_number, specification_code, weight, description, price, create_time, update_time from gas_cylinder_specification where id = ? 
+[16:08:32.523][DEBUG][c.y.i.w.d.G.selectByPrimaryKey][http-nio-8080-exec-6] ==> Parameters: 1(Integer)
+[16:08:32.530][DEBUG][c.y.i.w.d.G.selectByPrimaryKey][http-nio-8080-exec-6] <==      Total: 1
+[16:08:32.531][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-6] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2ae4555f]
+[16:08:40.845][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] Creating a new SqlSession
+[16:08:40.845][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7aaa5655] was not registered for synchronization because synchronization is not active
+[16:08:40.850][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-8] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:08:40.850][DEBUG][c.y.i.w.d.G.deleteByPrimaryKey][http-nio-8080-exec-8] ==>  Preparing: delete from gas_cylinder_specification where id = ? 
+[16:08:40.851][DEBUG][c.y.i.w.d.G.deleteByPrimaryKey][http-nio-8080-exec-8] ==> Parameters: 1(Integer)
+[16:08:40.868][DEBUG][c.y.i.w.d.G.deleteByPrimaryKey][http-nio-8080-exec-8] <==    Updates: 1
+[16:08:40.868][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7aaa5655]
+[16:11:40.066][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] Creating a new SqlSession
+[16:11:40.066][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e96d5cd] was not registered for synchronization because synchronization is not active
+[16:11:40.142][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-10] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:11:40.142][DEBUG][c.y.i.w.d.I.insert][http-nio-8080-exec-10] ==>  Preparing: insert into intelligent_gas_customer_address (serial_number, customer_number, contact, phone, address, is_delete, create_user, remark, create_time, update_time) values (?, ?, ?, ?, ?, ?, ?, ?, now(),now()) 
+[16:11:40.142][DEBUG][c.y.i.w.d.I.insert][http-nio-8080-exec-10] ==> Parameters: 1(String), 2(String), 3(String), 4(String), 5(String), 6(Integer), 7(String), 8(String)
+[16:11:40.175][DEBUG][c.y.i.w.d.I.insert][http-nio-8080-exec-10] <==    Updates: 1
+[16:11:40.176][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e96d5cd]
+[16:12:14.194][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-9] Creating a new SqlSession
+[16:12:14.194][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-9] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44d6cebb] was not registered for synchronization because synchronization is not active
+[16:12:14.207][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-9] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:12:14.207][DEBUG][c.y.i.w.d.I.updateByPrimaryKey][http-nio-8080-exec-9] ==>  Preparing: update intelligent_gas_customer_address set serial_number = ?, customer_number = ?, contact = ?, phone = ?, address = ?, is_delete = ?, create_user = ?, remark = ?, update_time = now() where id = ? 
+[16:12:14.208][DEBUG][c.y.i.w.d.I.updateByPrimaryKey][http-nio-8080-exec-9] ==> Parameters: 11(String), 22(String), 33(String), 44(String), 55(String), 66(Integer), 77(String), 88(String), 1(Integer)
+[16:12:14.240][DEBUG][c.y.i.w.d.I.updateByPrimaryKey][http-nio-8080-exec-9] <==    Updates: 1
+[16:12:14.240][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-9] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44d6cebb]
+[16:12:27.765][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] Creating a new SqlSession
+[16:12:27.765][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74981faf] was not registered for synchronization because synchronization is not active
+[16:12:27.772][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-1] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:12:27.772][DEBUG][c.y.i.w.d.I.selectByPrimaryKey][http-nio-8080-exec-1] ==>  Preparing: select id, serial_number, customer_number, contact, phone, address, is_delete, create_user, remark, create_time, update_time from intelligent_gas_customer_address where id = ? 
+[16:12:27.773][DEBUG][c.y.i.w.d.I.selectByPrimaryKey][http-nio-8080-exec-1] ==> Parameters: 1(Integer)
+[16:12:27.778][DEBUG][c.y.i.w.d.I.selectByPrimaryKey][http-nio-8080-exec-1] <==      Total: 1
+[16:12:27.779][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-1] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74981faf]
+[16:12:33.861][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Creating a new SqlSession
+[16:12:33.861][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@64f810c5] was not registered for synchronization because synchronization is not active
+[16:12:33.883][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-3] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:12:33.883][DEBUG][c.y.i.w.d.I.deleteByPrimaryKey][http-nio-8080-exec-3] ==>  Preparing: delete from intelligent_gas_customer_address where id = ? 
+[16:12:33.883][DEBUG][c.y.i.w.d.I.deleteByPrimaryKey][http-nio-8080-exec-3] ==> Parameters: 1(Integer)
+[16:12:33.899][DEBUG][c.y.i.w.d.I.deleteByPrimaryKey][http-nio-8080-exec-3] <==    Updates: 1
+[16:12:33.899][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-3] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@64f810c5]
+[16:14:44.400][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-4] Creating a new SqlSession
+[16:14:44.400][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-4] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1064565e] was not registered for synchronization because synchronization is not active
+[16:14:44.407][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-4] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:14:44.408][DEBUG][c.y.i.w.d.I.insert][http-nio-8080-exec-4] ==>  Preparing: insert into intelligent_gas_customer (customer_number, customer_name, phone, email, fax, address, customer_type, is_delete, create_user, remark, create_time, update_time) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,now(), now()) 
+[16:14:44.409][DEBUG][c.y.i.w.d.I.insert][http-nio-8080-exec-4] ==> Parameters: 1(String), 2(String), 3(String), 4(String), 5(String), 6(String), 7(Integer), 8(Integer), 9(String), 0(String)
+[16:14:44.443][DEBUG][c.y.i.w.d.I.insert][http-nio-8080-exec-4] <==    Updates: 1
+[16:14:44.443][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-4] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1064565e]
+[16:15:26.160][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] Creating a new SqlSession
+[16:15:26.160][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@197f3e44] was not registered for synchronization because synchronization is not active
+[16:15:26.167][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-8] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:15:26.167][DEBUG][c.y.i.w.d.I.updateByPrimaryKey][http-nio-8080-exec-8] ==>  Preparing: update intelligent_gas_customer set customer_number = ?, customer_name = ?, phone = ?, email = ?, fax = ?, address = ?, customer_type = ?, is_delete = ?, create_user = ?, remark = ?, update_time = now() where id = ? 
+[16:15:26.168][DEBUG][c.y.i.w.d.I.updateByPrimaryKey][http-nio-8080-exec-8] ==> Parameters: 11(String), 22(String), 33(String), 44(String), 55(String), 66(String), 77(Integer), 88(Integer), 99(String), 00(String), 1(Integer)
+[16:15:26.190][DEBUG][c.y.i.w.d.I.updateByPrimaryKey][http-nio-8080-exec-8] <==    Updates: 1
+[16:15:26.191][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-8] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@197f3e44]
+[16:15:59.394][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] Creating a new SqlSession
+[16:15:59.395][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c469af0] was not registered for synchronization because synchronization is not active
+[16:15:59.402][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-10] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:15:59.402][DEBUG][c.y.i.w.d.I.selectByPrimaryKey][http-nio-8080-exec-10] ==>  Preparing: select id, customer_number, customer_name, phone, email, fax, address, customer_type, is_delete, create_user, remark, create_time, update_time from intelligent_gas_customer where id = ? 
+[16:15:59.402][DEBUG][c.y.i.w.d.I.selectByPrimaryKey][http-nio-8080-exec-10] ==> Parameters: 1(Integer)
+[16:15:59.408][DEBUG][c.y.i.w.d.I.selectByPrimaryKey][http-nio-8080-exec-10] <==      Total: 1
+[16:15:59.408][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-10] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c469af0]
+[16:16:06.173][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] Creating a new SqlSession
+[16:16:06.173][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@47b3c673] was not registered for synchronization because synchronization is not active
+[16:16:06.179][DEBUG][o.m.s.t.SpringManagedTransaction][http-nio-8080-exec-5] JDBC Connection [jdbc:mysql://192.168.1.107:3306/wen_zhou_intelligent_gas?characterEncoding=utf-8, UserName=root@lenovo-PC, MySQL Connector Java] will not be managed by Spring
+[16:16:06.179][DEBUG][c.y.i.w.d.I.deleteByPrimaryKey][http-nio-8080-exec-5] ==>  Preparing: delete from intelligent_gas_customer where id = ? 
+[16:16:06.182][DEBUG][c.y.i.w.d.I.deleteByPrimaryKey][http-nio-8080-exec-5] ==> Parameters: 1(Integer)
+[16:16:06.209][DEBUG][c.y.i.w.d.I.deleteByPrimaryKey][http-nio-8080-exec-5] <==    Updates: 1
+[16:16:06.209][DEBUG][org.mybatis.spring.SqlSessionUtils][http-nio-8080-exec-5] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@47b3c673]

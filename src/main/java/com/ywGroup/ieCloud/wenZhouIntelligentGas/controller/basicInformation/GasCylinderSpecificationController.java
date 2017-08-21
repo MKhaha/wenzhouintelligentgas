@@ -20,9 +20,9 @@ public class GasCylinderSpecificationController {
    @Autowired
    private IGasCylinderSpecificationService iGasCylinderSpecificationService;
 
-    @RequestMapping(value = "getGasCylinderSpecification.do",method = RequestMethod.POST)
+    @RequestMapping(value = "checkGasCylinderSpecification.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<GasCylinderSpecification> getGasCylinderSpecification(Integer id){
+    public ServerResponse<GasCylinderSpecification> checkGasCylinderSpecification(Integer id){
         return iGasCylinderSpecificationService.checkGasCylinderSpecification(id);
     }
 
