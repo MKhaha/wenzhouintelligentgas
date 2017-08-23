@@ -22,6 +22,7 @@
 
   <dependencies>
 
+
     <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api -->
     <dependency>
       <groupId>org.apache.tomcat</groupId>
@@ -302,6 +303,9 @@
           <source>1.8</source>
           <target>1.8</target>
           <encoding>UTF-8</encoding>
+          <compilerArguments>
+            <extdirs>${project.basedir}/src/main/webapp/WEB-INF/lib</extdirs>
+          </compilerArguments>
         </configuration>
       </plugin>
     </plugins>

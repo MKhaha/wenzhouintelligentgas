@@ -18,4 +18,8 @@ public interface RoleResourceRelationMapper {
     int updateByPrimaryKey(RoleResourceRelation record);
 
     List<String> selectByRoleNumber(String roleNumber);
+
+    int deleteByRoleNumber(String roleNumber);
+
+    int insertRelations(List RoleResourceRelations);
 }

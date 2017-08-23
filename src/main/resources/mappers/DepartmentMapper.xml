@@ -141,4 +141,17 @@
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="checkDepartment" parameterType="string" resultType="int">
+    SELECT count(1)
+    FROM system_department
+    WHERE department_number = #{number}
+  </select>
+
+  <delete id="deleteByDepartmentNumber" parameterType="string" >
+    delete from system_department
+    where department_number = #{departmentnumber}
+  </delete>
+
+
 </mapper>

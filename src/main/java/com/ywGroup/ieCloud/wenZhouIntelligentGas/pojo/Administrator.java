@@ -31,6 +31,8 @@ public class Administrator {
 
     private Integer status;
 
+    private String company;
+
     private String department;
 
     private String parentCode;
@@ -43,7 +45,7 @@ public class Administrator {
 
     private Date updateTime;
 
-    public Administrator(Integer id, String userName, String password, String userCode, String realName, String email, String mobile, String phone, String createIp, String createUser, Integer loginCount, String picture, Integer isDelete, Integer status, String department, String parentCode, String roleNumber, String remark, Date createTime, Date updateTime) {
+    public Administrator(Integer id, String userName, String password, String userCode, String realName, String email, String mobile, String phone, String createIp, String createUser, Integer loginCount, String picture, Integer isDelete, Integer status, String company, String department, String parentCode, String roleNumber, String remark, Date createTime, Date updateTime) {
         this.id = id;
         this.userName = userName;
         this.password = password;
@@ -58,6 +60,7 @@ public class Administrator {
         this.picture = picture;
         this.isDelete = isDelete;
         this.status = status;
+        this.company = company;
         this.department = department;
         this.parentCode = parentCode;
         this.roleNumber = roleNumber;
@@ -180,6 +183,14 @@ public class Administrator {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company == null ? null : company.trim();
     }
 
     public String getDepartment() {

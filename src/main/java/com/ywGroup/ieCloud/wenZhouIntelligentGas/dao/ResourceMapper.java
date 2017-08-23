@@ -17,4 +17,9 @@ public interface ResourceMapper {
 
     int updateByPrimaryKey(Resource record);
 
+    Resource selectByResourceNumber(String resourceNumber);
+
+    List<Resource> selectByParentNumber(String parentNumber);
+
+    List<String> selectUrlByNumber(String roleNumber);
 }

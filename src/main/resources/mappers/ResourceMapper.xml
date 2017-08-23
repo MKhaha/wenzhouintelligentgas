@@ -283,4 +283,29 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
+  <select id="selectByResourceNumber" parameterType="string" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM system_resource
+    WHERE resource_number = #{resourceNumber}
+  </select>
+
+  <select id="selectByParentNumber" parameterType="string" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM system_resource
+    WHERE parent_number = #{parentNumber}
+  </select>
+
+  <select id="selectUrlByNumber" resultType="string" parameterType="string">
+    SELECT url
+    FROM system_resource
+    WHERE resource_number IN (
+      SELECT resource_number
+      FROM system_role_resource_relation
+      WHERE role_number = #{roleNumber}
+    )
+  </select>
+
+
 </mapper>
