@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.ResourceMapper" >
+  <resultMap id="BaseResultMap" type="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Resource" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="resource_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="resource_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="parent_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="depth_number" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="parent_path" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="child_count" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="sort" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="is_hide" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="is_delete" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="url" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="css_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="resource_position" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="resource_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="create_user" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="update_user" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_ip" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="update_ip" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, resource_number, resource_name, parent_number, depth_number, parent_path, child_count, 
+    sort, is_hide, is_delete, url, css_name, resource_position, resource_type, create_user, 
+    update_user, create_ip, update_ip, remark, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from system_resource
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from system_resource
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Resource" >
+    insert into system_resource (id, resource_number, resource_name, 
+      parent_number, depth_number, parent_path, 
+      child_count, sort, is_hide, 
+      is_delete, url, css_name, 
+      resource_position, resource_type, create_user, 
+      update_user, create_ip, update_ip, 
+      remark, create_time, update_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{resourceNumber,jdbcType=VARCHAR}, #{resourceName,jdbcType=VARCHAR}, 
+      #{parentNumber,jdbcType=VARCHAR}, #{depthNumber,jdbcType=INTEGER}, #{parentPath,jdbcType=VARCHAR}, 
+      #{childCount,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}, #{isHide,jdbcType=INTEGER}, 
+      #{isDelete,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{cssName,jdbcType=VARCHAR}, 
+      #{resourcePosition,jdbcType=INTEGER}, #{resourceType,jdbcType=INTEGER}, #{createUser,jdbcType=VARCHAR}, 
+      #{updateUser,jdbcType=VARCHAR}, #{createIp,jdbcType=VARCHAR}, #{updateIp,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, now(), now()
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Resource" >
+    insert into system_resource
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="resourceNumber != null" >
+        resource_number,
+      </if>
+      <if test="resourceName != null" >
+        resource_name,
+      </if>
+      <if test="parentNumber != null" >
+        parent_number,
+      </if>
+      <if test="depthNumber != null" >
+        depth_number,
+      </if>
+      <if test="parentPath != null" >
+        parent_path,
+      </if>
+      <if test="childCount != null" >
+        child_count,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="isHide != null" >
+        is_hide,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="cssName != null" >
+        css_name,
+      </if>
+      <if test="resourcePosition != null" >
+        resource_position,
+      </if>
+      <if test="resourceType != null" >
+        resource_type,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+      <if test="createIp != null" >
+        create_ip,
+      </if>
+      <if test="updateIp != null" >
+        update_ip,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="resourceNumber != null" >
+        #{resourceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentNumber != null" >
+        #{parentNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="depthNumber != null" >
+        #{depthNumber,jdbcType=INTEGER},
+      </if>
+      <if test="parentPath != null" >
+        #{parentPath,jdbcType=VARCHAR},
+      </if>
+      <if test="childCount != null" >
+        #{childCount,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="isHide != null" >
+        #{isHide,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="cssName != null" >
+        #{cssName,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcePosition != null" >
+        #{resourcePosition,jdbcType=INTEGER},
+      </if>
+      <if test="resourceType != null" >
+        #{resourceType,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createIp != null" >
+        #{createIp,jdbcType=VARCHAR},
+      </if>
+      <if test="updateIp != null" >
+        #{updateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        now(),
+      </if>
+      <if test="updateTime != null" >
+        now(),
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Resource" >
+    update system_resource
+    <set >
+      <if test="resourceNumber != null" >
+        resource_number = #{resourceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceName != null" >
+        resource_name = #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentNumber != null" >
+        parent_number = #{parentNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="depthNumber != null" >
+        depth_number = #{depthNumber,jdbcType=INTEGER},
+      </if>
+      <if test="parentPath != null" >
+        parent_path = #{parentPath,jdbcType=VARCHAR},
+      </if>
+      <if test="childCount != null" >
+        child_count = #{childCount,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="isHide != null" >
+        is_hide = #{isHide,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="cssName != null" >
+        css_name = #{cssName,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcePosition != null" >
+        resource_position = #{resourcePosition,jdbcType=INTEGER},
+      </if>
+      <if test="resourceType != null" >
+        resource_type = #{resourceType,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createIp != null" >
+        create_ip = #{createIp,jdbcType=VARCHAR},
+      </if>
+      <if test="updateIp != null" >
+        update_ip = #{updateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = now(),
+      </if>
+      <if test="updateTime != null" >
+        update_time = now(),
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Resource" >
+    update system_resource
+    set resource_number = #{resourceNumber,jdbcType=VARCHAR},
+      resource_name = #{resourceName,jdbcType=VARCHAR},
+      parent_number = #{parentNumber,jdbcType=VARCHAR},
+      depth_number = #{depthNumber,jdbcType=INTEGER},
+      parent_path = #{parentPath,jdbcType=VARCHAR},
+      child_count = #{childCount,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      is_hide = #{isHide,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=INTEGER},
+      url = #{url,jdbcType=VARCHAR},
+      css_name = #{cssName,jdbcType=VARCHAR},
+      resource_position = #{resourcePosition,jdbcType=INTEGER},
+      resource_type = #{resourceType,jdbcType=INTEGER},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      create_ip = #{createIp,jdbcType=VARCHAR},
+      update_ip = #{updateIp,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_time = now(),
+      update_time = now()
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+</mapper>
