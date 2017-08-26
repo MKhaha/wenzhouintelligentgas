@@ -19,6 +19,8 @@ public interface RoleMapper {
 
     int checkByNumber(String roleNumber);
 
+    String checkName(String roleNumber);
+
     int deleteByRoleNumber(String roleNumber);
 
     List<Role> getRoles(String company);

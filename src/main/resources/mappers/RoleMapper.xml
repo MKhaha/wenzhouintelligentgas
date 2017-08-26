@@ -133,6 +133,12 @@
     WHERE role_number = #{roleNumber}
   </select>
 
+  <select id="checkName" parameterType="string" resultType="string">
+    SELECT role_name
+    FROM system_role
+    WHERE role_number = #{roleNumber}
+  </select>
+
   <delete id="deleteByRoleNumber" parameterType="string">
     DELETE FROM system_role
     where role_number = #{roleNumber}
