@@ -1,12 +1,13 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
  * Created by Administrator on 2017-8-21.
  */
-public class ResourceTreeVO {
+public class ResourceVO {
 
     private String resourceNumber;
 
@@ -14,9 +15,17 @@ public class ResourceTreeVO {
 
     private String parentNumber;
 
+    private String parentName;
+
+    private int sort;
+
     private String url;
 
-    private List resources = new ArrayList();
+    private Date createTime;
+
+    private int resouceType;
+
+    private String remark;
 
     public String getResourceNumber() {
         return resourceNumber;
@@ -50,11 +59,44 @@ public class ResourceTreeVO {
         this.url = url;
     }
 
-    public List getResources() {
-        return resources;
+    public String getParentName() {
+        return parentName;
     }
 
-    public void setResources(List resources) {
-        this.resources = resources;
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public int getSort() {
+        return sort;
+    }
+
+    public void setSort(int sort) {
+        this.sort = sort;
+    }
+
+    public int getResouceType() {
+        return resouceType;
+    }
+
+    public void setResouceType(int resouceType) {
+        this.resouceType = resouceType;
     }
 }

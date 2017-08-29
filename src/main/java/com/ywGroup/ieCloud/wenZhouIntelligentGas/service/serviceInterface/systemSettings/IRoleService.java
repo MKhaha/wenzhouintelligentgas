@@ -13,6 +13,7 @@ import java.util.List;
 public interface IRoleService {
     ServerResponse<String> addRole(Role role);
     ServerResponse<String> delRole(String roleNumber);
-    ServerResponse<PageHelperUtil> getRoles(HttpSession session, int pageNumber, int pageSize);
-    ServerResponse<String> setRole(Integer userid,String roleNumber);
+    ServerResponse<PageHelperUtil> getRoles(HttpSession session, int pageNumber, int pageSize, String roleName, String remark);
+    ServerResponse<String> setRole(Integer userid, String roleNumber);
+    ServerResponse<String> updateRole(Role role);
 }

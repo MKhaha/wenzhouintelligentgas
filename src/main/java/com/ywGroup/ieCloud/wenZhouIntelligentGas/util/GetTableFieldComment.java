@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class GetTableFieldComment {
 
-    private static String urlMysql = "jdbc:mysql://localhost:3306/";
+    private static String urlMysql = "jdbc:mysql://192.168.1.107:3306/";
     private static String dataBaseName = "wen_zhou_intelligent_gas";
     private static String username = "root";
     private static String passwordMysql = "MKhaha_05050909";
@@ -25,12 +25,12 @@ public class GetTableFieldComment {
     private static String tableFieldCommentTableName = "table_field_comment";
     private static String tableFieldCommentTableField1 = "table_name";
     private static String tableFieldCommentTableField2 = "field_comment";
-    private static Map<String, Map<String, String>> tableFiledComments = null;
+    private static Map<String, Map<String, String>> tableFiledComments = new HashMap<>();
 
     public static final char UNDERLINE='_';
 
     public static Map<String, Map<String, String>> getTableFieldComments() throws SQLException, ClassNotFoundException, IOException {
-        if (tableFiledComments == null) {
+        if (tableFiledComments.isEmpty()) {
             //调用Class.forName()方法加载驱动程序
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("成功加载MySQL驱动！");
@@ -168,8 +168,12 @@ public class GetTableFieldComment {
 
     public static void main(String[] args){
         try {
-            getTableFieldComments();
-            insertFieldComments(tableFiledComments);
+            //getTableFieldComments();
+            //insertFieldComments(tableFiledComments);
+            List<String> str = new ArrayList<>();
+            str.add("system_role_resource_relation");
+           // str.add("system_role");
+            getFieldComments(str);
 
         } catch (Exception e) {
             e.printStackTrace();

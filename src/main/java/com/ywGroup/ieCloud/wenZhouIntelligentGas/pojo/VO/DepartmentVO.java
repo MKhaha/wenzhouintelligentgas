@@ -1,8 +1,11 @@
-package com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo;
+package com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO;
 
 import java.util.Date;
 
-public class Department {
+/**
+ * Created by Administrator on 2017-8-29.
+ */
+public class DepartmentVO {
     private Integer id;
 
     private String departmentNumber;
@@ -11,25 +14,13 @@ public class Department {
 
     private String parentNumber;
 
+    private String parentName;
+
     private Integer isDelete;
 
     private Date createTime;
 
     private Date updateTime;
-
-    public Department(Integer id, String departmentNumber, String departmentName, String parentNumber, Integer isDelete, Date createTime, Date updateTime) {
-        this.id = id;
-        this.departmentNumber = departmentNumber;
-        this.departmentName = departmentName;
-        this.parentNumber = parentNumber;
-        this.isDelete = isDelete;
-        this.createTime = createTime;
-        this.updateTime = updateTime;
-    }
-
-    public Department() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -44,7 +35,7 @@ public class Department {
     }
 
     public void setDepartmentNumber(String departmentNumber) {
-        this.departmentNumber = departmentNumber == null ? null : departmentNumber.trim();
+        this.departmentNumber = departmentNumber;
     }
 
     public String getDepartmentName() {
@@ -52,7 +43,7 @@ public class Department {
     }
 
     public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName == null ? null : departmentName.trim();
+        this.departmentName = departmentName;
     }
 
     public String getParentNumber() {
@@ -60,7 +51,15 @@ public class Department {
     }
 
     public void setParentNumber(String parentNumber) {
-        this.parentNumber = parentNumber == null ? null : parentNumber.trim();
+        this.parentNumber = parentNumber;
+    }
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
     }
 
     public Integer getIsDelete() {

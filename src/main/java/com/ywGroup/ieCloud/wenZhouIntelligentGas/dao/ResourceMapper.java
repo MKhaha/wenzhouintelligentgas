@@ -1,6 +1,7 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.dao;
 
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Resource;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -17,9 +18,11 @@ public interface ResourceMapper {
 
     int updateByPrimaryKey(Resource record);
 
-    Resource selectByResourceNumber(String resourceNumber);
+    List<Resource> selectByResourceNumber(@Param("resourceName") String resourceName,@Param("remark") String remark);
 
     List<Resource> selectByParentNumber(String parentNumber);
 
     List<String> selectUrlByNumber(String roleNumber);
+
+    String selectParentName(String partentNumber);
 }
