@@ -17,4 +17,11 @@ public interface RoleMapper {
 
     int updateByPrimaryKey(Role record);
 
+    int checkByNumber(String roleNumber);
+
+    String checkName(String roleNumber);
+
+    int deleteByRoleNumber(String roleNumber);
+
+    List<Role> getRoles(String company);
 }

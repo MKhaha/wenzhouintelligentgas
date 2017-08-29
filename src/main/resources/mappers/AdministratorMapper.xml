@@ -17,6 +17,7 @@
       <arg column="picture" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="is_delete" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="company" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="department" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="parent_code" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="role_number" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -27,8 +28,8 @@
   </resultMap>
   <sql id="Base_Column_List" >
     id, user_name, password, user_code, real_name, email, mobile, phone, create_ip, create_user, 
-    login_count, picture, is_delete, status, department, parent_code, role_number, remark, 
-    create_time, update_time
+    login_count, picture, is_delete, status, company, department, parent_code, role_number, 
+    remark, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -45,16 +46,18 @@
       user_code, real_name, email, 
       mobile, phone, create_ip, 
       create_user, login_count, picture, 
-      is_delete, status, department, 
-      parent_code, role_number, remark, 
-      create_time, update_time)
+      is_delete, status, company, 
+      department, parent_code, role_number, 
+      remark, create_time, update_time
+      )
     values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{userCode,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{mobile,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{createIp,jdbcType=VARCHAR}, 
       #{createUser,jdbcType=VARCHAR}, #{loginCount,jdbcType=INTEGER}, #{picture,jdbcType=VARCHAR}, 
-      #{isDelete,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{department,jdbcType=VARCHAR}, 
-      #{parentCode,jdbcType=VARCHAR}, #{roleNumber,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
-      now(), now())
+      #{isDelete,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{company,jdbcType=VARCHAR}, 
+      #{department,jdbcType=VARCHAR}, #{parentCode,jdbcType=VARCHAR}, #{roleNumber,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, now(),now()
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Administrator" >
     insert into administrator
@@ -100,6 +103,9 @@
       </if>
       <if test="status != null" >
         status,
+      </if>
+      <if test="company != null" >
+        company,
       </if>
       <if test="department != null" >
         department,
@@ -163,6 +169,9 @@
       <if test="status != null" >
         #{status,jdbcType=INTEGER},
       </if>
+      <if test="company != null" >
+        #{company,jdbcType=VARCHAR},
+      </if>
       <if test="department != null" >
         #{department,jdbcType=VARCHAR},
       </if>
@@ -176,10 +185,10 @@
         #{remark,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
-        now(),
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
-        now(),
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -225,6 +234,9 @@
       <if test="status != null" >
         status = #{status,jdbcType=INTEGER},
       </if>
+      <if test="company != null" >
+        company = #{company,jdbcType=VARCHAR},
+      </if>
       <if test="department != null" >
         department = #{department,jdbcType=VARCHAR},
       </if>
@@ -238,9 +250,11 @@
         remark = #{remark,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
-        create_time = now(),
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-        update_time = now(),
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -259,6 +273,7 @@
       picture = #{picture,jdbcType=VARCHAR},
       is_delete = #{isDelete,jdbcType=INTEGER},
       status = #{status,jdbcType=INTEGER},
+      company = #{company,jdbcType=VARCHAR},
       department = #{department,jdbcType=VARCHAR},
       parent_code = #{parentCode,jdbcType=VARCHAR},
       role_number = #{roleNumber,jdbcType=VARCHAR},
@@ -280,5 +295,43 @@
     SET login_count = login_count + 1
     WHERE id = #{id};
   </update>
+
+  <select id="checkPhone" parameterType="string" resultType="int">
+    SELECT COUNT(1)
+    FROM administrator
+    WHERE mobile = #{phoneNumber}
+  </select>
+
+  <update id="updateByRestCode" parameterType="map" >
+    update administrator
+    set password = #{mdPassword},
+    update_time = now()
+    where mobile = #{phoneNumber}
+  </update>
+
+  <update id="setRole" parameterType="map">
+    UPDATE administrator
+    SET role_number = #{roleNumber}
+    WHERE id = #{userid};
+  </update>
+
+  <select id="getAdministrators" parameterType="string" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"/>
+    FROM administrator
+    WHERE company = #{company}
+    AND is_delete = 0
+  </select>
+
+  <update id="deleteById" parameterType="int">
+    UPDATE administrator
+    SET is_delete = 1
+    WHERE id = #{userid};
+  </update>
+
+  <select id="checkByRoleNumber" resultType="int" parameterType="string">
+    SELECT count(1)
+    FROM administrator
+    WHERE role_number = #{roleNumber}
+  </select>
 
 </mapper>

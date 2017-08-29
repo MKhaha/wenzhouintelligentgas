@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by Administrator on 2017-8-18.
  */
-public class UserVO {
+public class AdministatorVO {
     private Integer id;
 
     private String userName;//用户名
@@ -24,6 +24,8 @@ public class UserVO {
 
     private Integer status;//状态
 
+    private String company;//公司
+
     private String department;//部门
 
     private String parentCode;//所属员工编号
@@ -32,7 +34,7 @@ public class UserVO {
 
     private String remark;//备注
 
-    private String[] roles;//角色组
+    private String[] resources;//资源组
 
     public Integer getId() {
         return id;
@@ -106,6 +108,14 @@ public class UserVO {
         this.status = status;
     }
 
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
     public String getDepartment() {
         return department;
     }
@@ -138,11 +148,11 @@ public class UserVO {
         this.remark = remark;
     }
 
-    public String[] getRoles() {
-        return roles;
+    public String[] getResources() {
+        return resources;
     }
 
-    public void setRoles(String[] roles) {
-        this.roles = roles;
+    public void setResources(String[] resources) {
+        this.resources = resources;
     }
 }
