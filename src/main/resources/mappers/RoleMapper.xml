@@ -144,11 +144,27 @@
     where role_number = #{roleNumber}
   </delete>
 
-  <select id="getRoles" parameterType="string" resultMap="BaseResultMap">
+  <select id="getRoles" parameterType="map" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List"/>
     FROM system_role
     WHERE company_number = #{company}
+    <if test="roleName!=''">
+      AND role_name like '%${roleName}%'
+    </if>
+    <if test="remark!=''">
+      AND remark like '%${remark}%'
+    </if>
     AND is_delete = 0
+  </select>
+
+  <select id="selectByRoleNumber" resultType="string" parameterType="string">
+    SELECT role_name
+    FROM system_role
+    WHERE role_number = #{roleNumber}
+  </select>
+
+  <select id="selectBylastID" resultType="int">
+    SELECT MAX(id) FROM system_role
   </select>
 </mapper>

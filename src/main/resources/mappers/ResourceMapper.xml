@@ -283,11 +283,17 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="selectByResourceNumber" parameterType="string" resultMap="BaseResultMap">
+  <select id="selectByResourceNumber" parameterType="map" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List"/>
     FROM system_resource
-    WHERE resource_number = #{resourceNumber}
+    WHERE 1=1
+    <if test="resourceName!=''">
+     AND resource_name LIKE '%${resourceName}%'
+    </if>
+    <if test="remark!=''">
+      AND remark LIKE '%${remark}%'
+    </if>
   </select>
 
   <select id="selectByParentNumber" parameterType="string" resultMap="BaseResultMap">
@@ -307,5 +313,10 @@
     )
   </select>
 
+  <select id="selectParentName" parameterType="string" resultType="string">
+    SELECT resource_name
+    FROM system_resource
+    WHERE resource_number = #{resource_number}
+  </select>
 
 </mapper>

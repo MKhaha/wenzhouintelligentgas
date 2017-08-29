@@ -8,5 +8,5 @@ import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.PageHelperUtil;
  */
 public interface IResourceService {
     ServerResponse<PageHelperUtil> getResources(Integer pageNumber, Integer pageSize, String resourceName, String remark);
-    ServerResponse setResources(String[] resources,String roleNumber);
+    ServerResponse setResources(String[] resources, String roleNumber);
 }

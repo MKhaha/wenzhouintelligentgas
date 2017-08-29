@@ -15,11 +15,11 @@ import java.util.Map;
  * Created by Administrator on 2017-8-25.
  */
 public interface IActivitiService {
-    ProcessInstance startWorkflow(Supervision supervision, Integer userid, Map<String ,Object> variables);
-    List<SupervisionTask> getpagedepttask(String userid, int firstrow, int rowcount,String group,String name);
-    int getalldepttask(String userid,String group,String name);
-    PageHelperUtil getTask(PageHelperUtil grid, int rowCount, int current, List<SupervisionTask> results, int totalsize );
-    boolean insertPlan(String taskid,String plan);
-    boolean insertResult(String taskid,String result);
+    ProcessInstance startWorkflow(Supervision supervision, Integer userid, Map<String, Object> variables);
+    List<SupervisionTask> getpagedepttask(String userid, int firstrow, int rowcount, String group, String name);
+    int getalldepttask(String userid, String group, String name);
+    PageHelperUtil getTask(PageHelperUtil grid, int rowCount, int current, List<SupervisionTask> results, int totalsize);
+    boolean insertPlan(String taskid, String plan);
+    boolean insertResult(String taskid, String result);
     List<String> getHighLightedFlows(ProcessDefinitionEntity processDefinitionEntity, List<HistoricActivityInstance> historicActivityInstances);
 }
