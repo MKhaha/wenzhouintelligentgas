@@ -9,7 +9,7 @@ public class Role {
 
     private String roleName;
 
-    private String department;
+    private String companyNumber;
 
     private Integer isDelete;
 
@@ -19,11 +19,11 @@ public class Role {
 
     private Date updateTime;
 
-    public Role(Integer id, String roleNumber, String roleName, String department, Integer isDelete, String remark, Date createTime, Date updateTime) {
+    public Role(Integer id, String roleNumber, String roleName, String companyNumber, Integer isDelete, String remark, Date createTime, Date updateTime) {
         this.id = id;
         this.roleNumber = roleNumber;
         this.roleName = roleName;
-        this.department = department;
+        this.companyNumber = companyNumber;
         this.isDelete = isDelete;
         this.remark = remark;
         this.createTime = createTime;
@@ -58,12 +58,12 @@ public class Role {
         this.roleName = roleName == null ? null : roleName.trim();
     }
 
-    public String getDepartment() {
-        return department;
+    public String getCompanyNumber() {
+        return companyNumber;
     }
 
-    public void setDepartment(String department) {
-        this.department = department == null ? null : department.trim();
+    public void setCompanyNumber(String companyNumber) {
+        this.companyNumber = companyNumber == null ? null : companyNumber.trim();
     }
 
     public Integer getIsDelete() {

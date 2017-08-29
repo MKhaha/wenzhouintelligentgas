@@ -6,7 +6,7 @@
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="role_number" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="role_name" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="department" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="company_number" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="is_delete" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
@@ -14,7 +14,7 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, role_number, role_name, department, is_delete, remark, create_time, update_time
+    id, role_number, role_name, company_number, is_delete, remark, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -28,11 +28,11 @@
   </delete>
   <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Role" >
     insert into system_role (id, role_number, role_name, 
-      department, is_delete, remark, 
+      company_number, is_delete, remark, 
       create_time, update_time)
     values (#{id,jdbcType=INTEGER}, #{roleNumber,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, 
-      #{department,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
-      now(), now())
+      #{companyNumber,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      now(),now())
   </insert>
   <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Role" >
     insert into system_role
@@ -46,8 +46,8 @@
       <if test="roleName != null" >
         role_name,
       </if>
-      <if test="department != null" >
-        department,
+      <if test="companyNumber != null" >
+        company_number,
       </if>
       <if test="isDelete != null" >
         is_delete,
@@ -72,8 +72,8 @@
       <if test="roleName != null" >
         #{roleName,jdbcType=VARCHAR},
       </if>
-      <if test="department != null" >
-        #{department,jdbcType=VARCHAR},
+      <if test="companyNumber != null" >
+        #{companyNumber,jdbcType=VARCHAR},
       </if>
       <if test="isDelete != null" >
         #{isDelete,jdbcType=INTEGER},
@@ -82,10 +82,10 @@
         #{remark,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
-        now(),
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
-        now(),
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -98,8 +98,8 @@
       <if test="roleName != null" >
         role_name = #{roleName,jdbcType=VARCHAR},
       </if>
-      <if test="department != null" >
-        department = #{department,jdbcType=VARCHAR},
+      <if test="companyNumber != null" >
+        company_number = #{companyNumber,jdbcType=VARCHAR},
       </if>
       <if test="isDelete != null" >
         is_delete = #{isDelete,jdbcType=INTEGER},
@@ -108,10 +108,10 @@
         remark = #{remark,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
-        create_time = now(),
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
-        update_time = now(),
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -120,11 +120,35 @@
     update system_role
     set role_number = #{roleNumber,jdbcType=VARCHAR},
       role_name = #{roleName,jdbcType=VARCHAR},
-      department = #{department,jdbcType=VARCHAR},
+      company_number = #{companyNumber,jdbcType=VARCHAR},
       is_delete = #{isDelete,jdbcType=INTEGER},
       remark = #{remark,jdbcType=VARCHAR},
-      create_time = now(),
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="checkByNumber" parameterType="string" resultType="int">
+    SELECT count(1)
+    FROM system_role
+    WHERE role_number = #{roleNumber}
+  </select>
+
+  <select id="checkName" parameterType="string" resultType="string">
+    SELECT role_name
+    FROM system_role
+    WHERE role_number = #{roleNumber}
+  </select>
+
+  <delete id="deleteByRoleNumber" parameterType="string">
+    DELETE FROM system_role
+    where role_number = #{roleNumber}
+  </delete>
+
+  <select id="getRoles" parameterType="string" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM system_role
+    WHERE company_number = #{company}
+    AND is_delete = 0
+  </select>
 </mapper>

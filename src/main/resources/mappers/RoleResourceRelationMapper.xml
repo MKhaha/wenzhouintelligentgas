@@ -88,4 +88,16 @@
     WHERE role_number = #{roleNumber}
   </select>
 
+  <delete id="deleteByRoleNumber" parameterType="string">
+    DELETE FROM system_role_resource_relation
+    WHERE role_number = #{roleNumber}
+  </delete>
+
+  <insert id="insertRelations" parameterType="list">
+    insert into system_role_resource_relation (role_number,resource_number) VALUES
+    <foreach collection="list" item="RoleResourceRelations" index="index" separator=",">
+      (#{RoleResourceRelations.roleNumber},#{RoleResourceRelations.resourceNumber})
+    </foreach>
+  </insert>
+
 </mapper>
