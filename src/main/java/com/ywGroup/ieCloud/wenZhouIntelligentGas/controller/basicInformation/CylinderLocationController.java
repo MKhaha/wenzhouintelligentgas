@@ -21,9 +21,16 @@ public class CylinderLocationController {
     @Autowired
     private ICylinderLocationService iCylinderLocationService;
 
-    @RequestMapping(value = "checkByCylinderSerialNumber.do",method = RequestMethod.POST)
+    @RequestMapping(value = "queryCylinderLocationByCylinderSerialNumber.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<CylinderLocation> checkByCylinderSerialNumber(@RequestParam(value = "cylinderSerialNumber",defaultValue = "")String cylinderSerialNumber){
-        return iCylinderLocationService.checkByCylinderSerialNumber(cylinderSerialNumber);
+    public ServerResponse<CylinderLocation> queryCylinderLocationByCylinderSerialNumber(@RequestParam(value = "cylinderSerialNumber",defaultValue = "")String cylinderSerialNumber){
+        return iCylinderLocationService.queryCylinderLocationByCylinderSerialNumber(cylinderSerialNumber);
+    }
+
+    @RequestMapping(value = "queryAllCylinderLocation.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse queryAllCylinderLocation(@RequestParam(value = "pageNumber",defaultValue = "1") int pageNumber,
+                                                   @RequestParam(value = "pageSize",defaultValue = "10") int pageSize){
+        return iCylinderLocationService.queryAllCylinderLocation(pageNumber,pageSize);
     }
 }

@@ -2,6 +2,8 @@ package com.ywGroup.ieCloud.wenZhouIntelligentGas.dao;
 
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.CylinderLocation;
 
+import java.util.List;
+
 public interface CylinderLocationMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -15,5 +17,7 @@ public interface CylinderLocationMapper {
 
     int updateByPrimaryKey(CylinderLocation record);
 
-    CylinderLocation checkByCylinderSerialNumber(String cylinderSerialNumber);
+    CylinderLocation queryCylinderLocationByCylinderSerialNumber(String cylinderSerialNumber);
+
+    List<CylinderLocation> queryAllCylinderLocation();
 }

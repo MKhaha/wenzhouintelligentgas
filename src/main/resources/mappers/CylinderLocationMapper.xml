@@ -92,10 +92,15 @@
       cylinder_serial_number = #{cylinderSerialNumber,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="checkByCylinderSerialNumber" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="queryCylinderLocationByCylinderSerialNumber" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  select
+  <include refid="Base_Column_List" />
+  from cylinder_location
+  where cylinder_serial_number = #{cylinderSerialNumber,jdbcType=VARCHAR}
+</select>
+  <select id="queryAllCylinderLocation" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from cylinder_location
-    where cylinder_serial_number = #{cylinderSerialNumber,jdbcType=VARCHAR}
   </select>
 </mapper>
