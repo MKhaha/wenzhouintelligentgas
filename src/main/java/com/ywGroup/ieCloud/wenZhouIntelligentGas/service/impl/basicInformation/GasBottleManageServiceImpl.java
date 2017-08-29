@@ -8,14 +8,10 @@ import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.TableFieldCommentMapper;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasBottleManager;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.TableFieldComment;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.basicInformation.IGasBottleManageService;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.GetTableFieldComment;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.PageHelperUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -48,6 +44,7 @@ public class GasBottleManageServiceImpl implements IGasBottleManageService {
         System.out.println(System.currentTimeMillis());
 
         TableFieldComment tableFieldComment = tableFieldCommentMapper.selectByPrimaryKey("gas_bottle_manager");
+        System.out.println(tableFieldComment.getFieldComment());
         return ServerResponse.createBySuccess("获取成功", tableFieldComment.getFieldComment(), pageResult);
     }
 }

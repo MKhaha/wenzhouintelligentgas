@@ -60,6 +60,9 @@ public class ServerResponse<T> implements Serializable {
     public String getMsg(){
         return msg;
     }
+    public String getFieldComments() {
+        return fieldComments;
+    }
 
 
     public static <T> ServerResponse<T> createBySuccess(){
