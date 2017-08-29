@@ -7,7 +7,7 @@ package com.ywGroup.ieCloud.wenZhouIntelligentGas.aop;
 
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.Const;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Log;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.UserVO;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.AdministatorVO;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.systemSettings.ILogService;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.DateUtil;
 import org.aspectj.lang.JoinPoint;
@@ -63,7 +63,7 @@ public class LogAspect{
         String StringIp = request.getRemoteAddr();
 
         //读取session中的用户
-        UserVO user = (UserVO) session.getAttribute(Const.CURRENT_USER);
+        AdministatorVO user = (AdministatorVO) session.getAttribute(Const.CURRENT_USER);
         System.out.println("user.getUserName = " + user.getUserName() );
         System.out.println("methodName = " + methodName );
         System.out.println("ip = " + StringIp );
