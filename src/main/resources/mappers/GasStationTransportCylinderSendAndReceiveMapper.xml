@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.GasStationTransportCylinderSendAndReceiveMapper" >
+  <resultMap id="BaseResultMap" type="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStationTransportCylinderSendAndReceive" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="transport_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="process_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="empty_type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="cylinder_barcode" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="cylinder_specifications" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="departure_location" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="car_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="destination" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="operator" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="manufacturing_unit" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="property_unit" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="serial_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="use_the_registration_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="filling_media" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="last_inspection_date" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="next_inspection_date" jdbcType="DATE" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, transport_date, process_name, empty_type, cylinder_barcode, cylinder_specifications, 
+    departure_location, car_number, destination, operator, manufacturing_unit, property_unit, 
+    serial_number, use_the_registration_code, filling_media, last_inspection_date, next_inspection_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from gas_station_transport_cylinder_send_and_receive
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gas_station_transport_cylinder_send_and_receive
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStationTransportCylinderSendAndReceive" >
+    insert into gas_station_transport_cylinder_send_and_receive (id, transport_date, process_name, 
+      empty_type, cylinder_barcode, cylinder_specifications, 
+      departure_location, car_number, destination, 
+      operator, manufacturing_unit, property_unit, 
+      serial_number, use_the_registration_code, filling_media, 
+      last_inspection_date, next_inspection_date)
+    values (#{id,jdbcType=INTEGER}, #{transportDate,jdbcType=TIMESTAMP}, #{processName,jdbcType=VARCHAR}, 
+      #{emptyType,jdbcType=VARCHAR}, #{cylinderBarcode,jdbcType=VARCHAR}, #{cylinderSpecifications,jdbcType=VARCHAR}, 
+      #{departureLocation,jdbcType=VARCHAR}, #{carNumber,jdbcType=VARCHAR}, #{destination,jdbcType=VARCHAR}, 
+      #{operator,jdbcType=VARCHAR}, #{manufacturingUnit,jdbcType=VARCHAR}, #{propertyUnit,jdbcType=VARCHAR}, 
+      #{serialNumber,jdbcType=VARCHAR}, #{useTheRegistrationCode,jdbcType=VARCHAR}, #{fillingMedia,jdbcType=VARCHAR}, 
+      #{lastInspectionDate,jdbcType=DATE}, #{nextInspectionDate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStationTransportCylinderSendAndReceive" >
+    insert into gas_station_transport_cylinder_send_and_receive
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="transportDate != null" >
+        transport_date,
+      </if>
+      <if test="processName != null" >
+        process_name,
+      </if>
+      <if test="emptyType != null" >
+        empty_type,
+      </if>
+      <if test="cylinderBarcode != null" >
+        cylinder_barcode,
+      </if>
+      <if test="cylinderSpecifications != null" >
+        cylinder_specifications,
+      </if>
+      <if test="departureLocation != null" >
+        departure_location,
+      </if>
+      <if test="carNumber != null" >
+        car_number,
+      </if>
+      <if test="destination != null" >
+        destination,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="manufacturingUnit != null" >
+        manufacturing_unit,
+      </if>
+      <if test="propertyUnit != null" >
+        property_unit,
+      </if>
+      <if test="serialNumber != null" >
+        serial_number,
+      </if>
+      <if test="useTheRegistrationCode != null" >
+        use_the_registration_code,
+      </if>
+      <if test="fillingMedia != null" >
+        filling_media,
+      </if>
+      <if test="lastInspectionDate != null" >
+        last_inspection_date,
+      </if>
+      <if test="nextInspectionDate != null" >
+        next_inspection_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="transportDate != null" >
+        #{transportDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="processName != null" >
+        #{processName,jdbcType=VARCHAR},
+      </if>
+      <if test="emptyType != null" >
+        #{emptyType,jdbcType=VARCHAR},
+      </if>
+      <if test="cylinderBarcode != null" >
+        #{cylinderBarcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cylinderSpecifications != null" >
+        #{cylinderSpecifications,jdbcType=VARCHAR},
+      </if>
+      <if test="departureLocation != null" >
+        #{departureLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="carNumber != null" >
+        #{carNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="destination != null" >
+        #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturingUnit != null" >
+        #{manufacturingUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyUnit != null" >
+        #{propertyUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="useTheRegistrationCode != null" >
+        #{useTheRegistrationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fillingMedia != null" >
+        #{fillingMedia,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInspectionDate != null" >
+        #{lastInspectionDate,jdbcType=DATE},
+      </if>
+      <if test="nextInspectionDate != null" >
+        #{nextInspectionDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStationTransportCylinderSendAndReceive" >
+    update gas_station_transport_cylinder_send_and_receive
+    <set >
+      <if test="transportDate != null" >
+        transport_date = #{transportDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="processName != null" >
+        process_name = #{processName,jdbcType=VARCHAR},
+      </if>
+      <if test="emptyType != null" >
+        empty_type = #{emptyType,jdbcType=VARCHAR},
+      </if>
+      <if test="cylinderBarcode != null" >
+        cylinder_barcode = #{cylinderBarcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cylinderSpecifications != null" >
+        cylinder_specifications = #{cylinderSpecifications,jdbcType=VARCHAR},
+      </if>
+      <if test="departureLocation != null" >
+        departure_location = #{departureLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="carNumber != null" >
+        car_number = #{carNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="destination != null" >
+        destination = #{destination,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturingUnit != null" >
+        manufacturing_unit = #{manufacturingUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyUnit != null" >
+        property_unit = #{propertyUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        serial_number = #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="useTheRegistrationCode != null" >
+        use_the_registration_code = #{useTheRegistrationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fillingMedia != null" >
+        filling_media = #{fillingMedia,jdbcType=VARCHAR},
+      </if>
+      <if test="lastInspectionDate != null" >
+        last_inspection_date = #{lastInspectionDate,jdbcType=DATE},
+      </if>
+      <if test="nextInspectionDate != null" >
+        next_inspection_date = #{nextInspectionDate,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStationTransportCylinderSendAndReceive" >
+    update gas_station_transport_cylinder_send_and_receive
+    set transport_date = #{transportDate,jdbcType=TIMESTAMP},
+      process_name = #{processName,jdbcType=VARCHAR},
+      empty_type = #{emptyType,jdbcType=VARCHAR},
+      cylinder_barcode = #{cylinderBarcode,jdbcType=VARCHAR},
+      cylinder_specifications = #{cylinderSpecifications,jdbcType=VARCHAR},
+      departure_location = #{departureLocation,jdbcType=VARCHAR},
+      car_number = #{carNumber,jdbcType=VARCHAR},
+      destination = #{destination,jdbcType=VARCHAR},
+      operator = #{operator,jdbcType=VARCHAR},
+      manufacturing_unit = #{manufacturingUnit,jdbcType=VARCHAR},
+      property_unit = #{propertyUnit,jdbcType=VARCHAR},
+      serial_number = #{serialNumber,jdbcType=VARCHAR},
+      use_the_registration_code = #{useTheRegistrationCode,jdbcType=VARCHAR},
+      filling_media = #{fillingMedia,jdbcType=VARCHAR},
+      last_inspection_date = #{lastInspectionDate,jdbcType=DATE},
+      next_inspection_date = #{nextInspectionDate,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="queryGasStationTransportCylinderSendAndReceive" resultMap="BaseResultMap" parameterType="map" >
+    select
+    <include refid="Base_Column_List" />
+    from gas_station_transport_cylinder_send_and_receive
+    where 1=1
+    <if test="cylinderBarcode != '' and cylinderBarcode != null" >
+      AND cylinder_barcode LIKE concat(concat('%',#{cylinderBarcode}),'%')
+    </if>
+    <if test="manufacturingUnit != '' and manufacturingUnit != null" >
+      AND manufacturing_unit LIKE concat(concat('%',#{manufacturingUnit}),'%')
+    </if>
+    <if test="beginDate != null and beginDate != ''">
+      AND transport_date &gt;= #{beginDate}
+    </if>
+    <if test="endDate != null and endDate != ''">
+      AND transport_date &lt;= #{endDate}
+    </if>
+  </select>
+</mapper>

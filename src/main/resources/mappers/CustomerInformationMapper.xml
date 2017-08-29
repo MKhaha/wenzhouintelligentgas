@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.CustomerInformationMapper" >
+  <resultMap id="BaseResultMap" type="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.CustomerInformation" >
+    <constructor >
+      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="gas" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="on_site" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="customer_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="client_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="gender" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="customer_type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="contact_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="contact_address" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="contact_person" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="business_license_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="manager" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="main" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="its_administrative_area" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="id_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="contact_telephone_2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="contact_telephone_3" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, gas, on_site, customer_code, client_name, gender, customer_type, contact_number, 
+    contact_address, contact_person, business_license_number, manager, main, its_administrative_area, 
+    id_number, contact_telephone_2, contact_telephone_3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from customer_information
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from customer_information
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.CustomerInformation" >
+    insert into customer_information (id, gas, on_site, 
+      customer_code, client_name, gender, 
+      customer_type, contact_number, contact_address, 
+      contact_person, business_license_number, manager, 
+      main, its_administrative_area, id_number, 
+      contact_telephone_2, contact_telephone_3)
+    values (#{id,jdbcType=BIGINT}, #{gas,jdbcType=VARCHAR}, #{onSite,jdbcType=VARCHAR}, 
+      #{customerCode,jdbcType=VARCHAR}, #{clientName,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
+      #{customerType,jdbcType=VARCHAR}, #{contactNumber,jdbcType=VARCHAR}, #{contactAddress,jdbcType=VARCHAR}, 
+      #{contactPerson,jdbcType=VARCHAR}, #{businessLicenseNumber,jdbcType=VARCHAR}, #{manager,jdbcType=VARCHAR}, 
+      #{main,jdbcType=VARCHAR}, #{itsAdministrativeArea,jdbcType=VARCHAR}, #{idNumber,jdbcType=VARCHAR}, 
+      #{contactTelephone2,jdbcType=VARCHAR}, #{contactTelephone3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.CustomerInformation" >
+    insert into customer_information
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gas != null" >
+        gas,
+      </if>
+      <if test="onSite != null" >
+        on_site,
+      </if>
+      <if test="customerCode != null" >
+        customer_code,
+      </if>
+      <if test="clientName != null" >
+        client_name,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="customerType != null" >
+        customer_type,
+      </if>
+      <if test="contactNumber != null" >
+        contact_number,
+      </if>
+      <if test="contactAddress != null" >
+        contact_address,
+      </if>
+      <if test="contactPerson != null" >
+        contact_person,
+      </if>
+      <if test="businessLicenseNumber != null" >
+        business_license_number,
+      </if>
+      <if test="manager != null" >
+        manager,
+      </if>
+      <if test="main != null" >
+        main,
+      </if>
+      <if test="itsAdministrativeArea != null" >
+        its_administrative_area,
+      </if>
+      <if test="idNumber != null" >
+        id_number,
+      </if>
+      <if test="contactTelephone2 != null" >
+        contact_telephone_2,
+      </if>
+      <if test="contactTelephone3 != null" >
+        contact_telephone_3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gas != null" >
+        #{gas,jdbcType=VARCHAR},
+      </if>
+      <if test="onSite != null" >
+        #{onSite,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCode != null" >
+        #{customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clientName != null" >
+        #{clientName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="customerType != null" >
+        #{customerType,jdbcType=VARCHAR},
+      </if>
+      <if test="contactNumber != null" >
+        #{contactNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddress != null" >
+        #{contactAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPerson != null" >
+        #{contactPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicenseNumber != null" >
+        #{businessLicenseNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="manager != null" >
+        #{manager,jdbcType=VARCHAR},
+      </if>
+      <if test="main != null" >
+        #{main,jdbcType=VARCHAR},
+      </if>
+      <if test="itsAdministrativeArea != null" >
+        #{itsAdministrativeArea,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null" >
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contactTelephone2 != null" >
+        #{contactTelephone2,jdbcType=VARCHAR},
+      </if>
+      <if test="contactTelephone3 != null" >
+        #{contactTelephone3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.CustomerInformation" >
+    update customer_information
+    <set >
+      <if test="gas != null" >
+        gas = #{gas,jdbcType=VARCHAR},
+      </if>
+      <if test="onSite != null" >
+        on_site = #{onSite,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCode != null" >
+        customer_code = #{customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clientName != null" >
+        client_name = #{clientName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="customerType != null" >
+        customer_type = #{customerType,jdbcType=VARCHAR},
+      </if>
+      <if test="contactNumber != null" >
+        contact_number = #{contactNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddress != null" >
+        contact_address = #{contactAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPerson != null" >
+        contact_person = #{contactPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicenseNumber != null" >
+        business_license_number = #{businessLicenseNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="manager != null" >
+        manager = #{manager,jdbcType=VARCHAR},
+      </if>
+      <if test="main != null" >
+        main = #{main,jdbcType=VARCHAR},
+      </if>
+      <if test="itsAdministrativeArea != null" >
+        its_administrative_area = #{itsAdministrativeArea,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null" >
+        id_number = #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contactTelephone2 != null" >
+        contact_telephone_2 = #{contactTelephone2,jdbcType=VARCHAR},
+      </if>
+      <if test="contactTelephone3 != null" >
+        contact_telephone_3 = #{contactTelephone3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.CustomerInformation" >
+    update customer_information
+    set gas = #{gas,jdbcType=VARCHAR},
+      on_site = #{onSite,jdbcType=VARCHAR},
+      customer_code = #{customerCode,jdbcType=VARCHAR},
+      client_name = #{clientName,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      customer_type = #{customerType,jdbcType=VARCHAR},
+      contact_number = #{contactNumber,jdbcType=VARCHAR},
+      contact_address = #{contactAddress,jdbcType=VARCHAR},
+      contact_person = #{contactPerson,jdbcType=VARCHAR},
+      business_license_number = #{businessLicenseNumber,jdbcType=VARCHAR},
+      manager = #{manager,jdbcType=VARCHAR},
+      main = #{main,jdbcType=VARCHAR},
+      its_administrative_area = #{itsAdministrativeArea,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      contact_telephone_2 = #{contactTelephone2,jdbcType=VARCHAR},
+      contact_telephone_3 = #{contactTelephone3,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="queryCustomerInformation" resultMap="BaseResultMap" parameterType="map" >
+    select
+    <include refid="Base_Column_List" />
+    from customer_information
+    where 1=1
+    <if test="gas != '' and gas != null" >
+      and gas LIKE concat(concat('%',#{gas}),'%')
+    </if>
+    <if test="onSite != '' and onSite != null">
+      and on_site LIke concat(concat('%',#{onSite}),'%')
+    </if>
+    <if test="clientName != '' and clientName != null">
+      and client_name LIke concat(concat('%',#{clientName}),'%')
+    </if>
+  </select>
+</mapper>

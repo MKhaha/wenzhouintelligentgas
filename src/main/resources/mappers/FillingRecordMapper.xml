@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.FillingRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.FillingRecord" >
+    <constructor >
+      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="machine_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="filling_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="cylinder_barcode" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="filling_media" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="cylinder_model" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="starting_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="end_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="tare" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="before_the_weight" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="charge_actual_value" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="set_actual_value" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="actual_filling_volume" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="spillage" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="own_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="manufacturing_unit" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="property_unit" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="serial_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="filling_worker" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, machine_number, filling_number, cylinder_barcode, filling_media, cylinder_model, 
+    starting_time, end_time, tare, before_the_weight, charge_actual_value, set_actual_value, 
+    actual_filling_volume, spillage, own_number, manufacturing_unit, property_unit, serial_number, 
+    filling_worker
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from filling_record
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from filling_record
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.FillingRecord" >
+    insert into filling_record (id, machine_number, filling_number, 
+      cylinder_barcode, filling_media, cylinder_model, 
+      starting_time, end_time, tare, 
+      before_the_weight, charge_actual_value, set_actual_value, 
+      actual_filling_volume, spillage, own_number, 
+      manufacturing_unit, property_unit, serial_number, 
+      filling_worker)
+    values (#{id,jdbcType=BIGINT}, #{machineNumber,jdbcType=VARCHAR}, #{fillingNumber,jdbcType=VARCHAR}, 
+      #{cylinderBarcode,jdbcType=VARCHAR}, #{fillingMedia,jdbcType=VARCHAR}, #{cylinderModel,jdbcType=VARCHAR}, 
+      #{startingTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{tare,jdbcType=REAL}, 
+      #{beforeTheWeight,jdbcType=REAL}, #{chargeActualValue,jdbcType=REAL}, #{setActualValue,jdbcType=REAL}, 
+      #{actualFillingVolume,jdbcType=REAL}, #{spillage,jdbcType=REAL}, #{ownNumber,jdbcType=VARCHAR}, 
+      #{manufacturingUnit,jdbcType=VARCHAR}, #{propertyUnit,jdbcType=VARCHAR}, #{serialNumber,jdbcType=VARCHAR}, 
+      #{fillingWorker,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.FillingRecord" >
+    insert into filling_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="machineNumber != null" >
+        machine_number,
+      </if>
+      <if test="fillingNumber != null" >
+        filling_number,
+      </if>
+      <if test="cylinderBarcode != null" >
+        cylinder_barcode,
+      </if>
+      <if test="fillingMedia != null" >
+        filling_media,
+      </if>
+      <if test="cylinderModel != null" >
+        cylinder_model,
+      </if>
+      <if test="startingTime != null" >
+        starting_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="tare != null" >
+        tare,
+      </if>
+      <if test="beforeTheWeight != null" >
+        before_the_weight,
+      </if>
+      <if test="chargeActualValue != null" >
+        charge_actual_value,
+      </if>
+      <if test="setActualValue != null" >
+        set_actual_value,
+      </if>
+      <if test="actualFillingVolume != null" >
+        actual_filling_volume,
+      </if>
+      <if test="spillage != null" >
+        spillage,
+      </if>
+      <if test="ownNumber != null" >
+        own_number,
+      </if>
+      <if test="manufacturingUnit != null" >
+        manufacturing_unit,
+      </if>
+      <if test="propertyUnit != null" >
+        property_unit,
+      </if>
+      <if test="serialNumber != null" >
+        serial_number,
+      </if>
+      <if test="fillingWorker != null" >
+        filling_worker,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="machineNumber != null" >
+        #{machineNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="fillingNumber != null" >
+        #{fillingNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cylinderBarcode != null" >
+        #{cylinderBarcode,jdbcType=VARCHAR},
+      </if>
+      <if test="fillingMedia != null" >
+        #{fillingMedia,jdbcType=VARCHAR},
+      </if>
+      <if test="cylinderModel != null" >
+        #{cylinderModel,jdbcType=VARCHAR},
+      </if>
+      <if test="startingTime != null" >
+        #{startingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tare != null" >
+        #{tare,jdbcType=REAL},
+      </if>
+      <if test="beforeTheWeight != null" >
+        #{beforeTheWeight,jdbcType=REAL},
+      </if>
+      <if test="chargeActualValue != null" >
+        #{chargeActualValue,jdbcType=REAL},
+      </if>
+      <if test="setActualValue != null" >
+        #{setActualValue,jdbcType=REAL},
+      </if>
+      <if test="actualFillingVolume != null" >
+        #{actualFillingVolume,jdbcType=REAL},
+      </if>
+      <if test="spillage != null" >
+        #{spillage,jdbcType=REAL},
+      </if>
+      <if test="ownNumber != null" >
+        #{ownNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturingUnit != null" >
+        #{manufacturingUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyUnit != null" >
+        #{propertyUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="fillingWorker != null" >
+        #{fillingWorker,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.FillingRecord" >
+    update filling_record
+    <set >
+      <if test="machineNumber != null" >
+        machine_number = #{machineNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="fillingNumber != null" >
+        filling_number = #{fillingNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cylinderBarcode != null" >
+        cylinder_barcode = #{cylinderBarcode,jdbcType=VARCHAR},
+      </if>
+      <if test="fillingMedia != null" >
+        filling_media = #{fillingMedia,jdbcType=VARCHAR},
+      </if>
+      <if test="cylinderModel != null" >
+        cylinder_model = #{cylinderModel,jdbcType=VARCHAR},
+      </if>
+      <if test="startingTime != null" >
+        starting_time = #{startingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tare != null" >
+        tare = #{tare,jdbcType=REAL},
+      </if>
+      <if test="beforeTheWeight != null" >
+        before_the_weight = #{beforeTheWeight,jdbcType=REAL},
+      </if>
+      <if test="chargeActualValue != null" >
+        charge_actual_value = #{chargeActualValue,jdbcType=REAL},
+      </if>
+      <if test="setActualValue != null" >
+        set_actual_value = #{setActualValue,jdbcType=REAL},
+      </if>
+      <if test="actualFillingVolume != null" >
+        actual_filling_volume = #{actualFillingVolume,jdbcType=REAL},
+      </if>
+      <if test="spillage != null" >
+        spillage = #{spillage,jdbcType=REAL},
+      </if>
+      <if test="ownNumber != null" >
+        own_number = #{ownNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturingUnit != null" >
+        manufacturing_unit = #{manufacturingUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyUnit != null" >
+        property_unit = #{propertyUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        serial_number = #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="fillingWorker != null" >
+        filling_worker = #{fillingWorker,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.FillingRecord" >
+    update filling_record
+    set machine_number = #{machineNumber,jdbcType=VARCHAR},
+      filling_number = #{fillingNumber,jdbcType=VARCHAR},
+      cylinder_barcode = #{cylinderBarcode,jdbcType=VARCHAR},
+      filling_media = #{fillingMedia,jdbcType=VARCHAR},
+      cylinder_model = #{cylinderModel,jdbcType=VARCHAR},
+      starting_time = #{startingTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      tare = #{tare,jdbcType=REAL},
+      before_the_weight = #{beforeTheWeight,jdbcType=REAL},
+      charge_actual_value = #{chargeActualValue,jdbcType=REAL},
+      set_actual_value = #{setActualValue,jdbcType=REAL},
+      actual_filling_volume = #{actualFillingVolume,jdbcType=REAL},
+      spillage = #{spillage,jdbcType=REAL},
+      own_number = #{ownNumber,jdbcType=VARCHAR},
+      manufacturing_unit = #{manufacturingUnit,jdbcType=VARCHAR},
+      property_unit = #{propertyUnit,jdbcType=VARCHAR},
+      serial_number = #{serialNumber,jdbcType=VARCHAR},
+      filling_worker = #{fillingWorker,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="queryFillingRecord" resultMap="BaseResultMap" parameterType="map" >
+    select
+    <include refid="Base_Column_List" />
+    from filling_record
+    where 1=1
+    <if test="cylinderBarcode != '' and cylinderBarcode != null" >
+      and cylinder_barcode LIKE concat(concat('%',#{cylinderBarcode}),'%')
+    </if>
+    <if test="fillingWorker != '' and fillingWorker != null">
+      and filling_worker LIke concat(concat('%',#{fillingWorker}),'%')
+    </if>
+  </select>
+</mapper>
