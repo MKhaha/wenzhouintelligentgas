@@ -1,14 +1,15 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.service.impl.systemSettings;
 
 import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.AliyunSms;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.Const;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.ServerResponse;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.AdministratorMapper;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.ResourceMapper;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.RoleResourceRelationMapper;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.*;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Administrator;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.AdministatorVO;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.Administrators;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.systemSettings.IUserService;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.MD5Util;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.PageHelperUtil;
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +34,10 @@ public class UserServiceImpl implements IUserService{
     private RoleResourceRelationMapper roleResourceRelationMapper;
     @Autowired
     private ResourceMapper resourceMapper;
+    @Autowired
+    private RoleMapper roleMapper;
+    @Autowired
+    private DepartmentMapper departmentMapper;
 
     @Override
     public ServerResponse<AdministatorVO> login(String phoneNumber, String password, HttpSession session) {
@@ -39,7 +45,6 @@ public class UserServiceImpl implements IUserService{
         if(administrator!=null){
             int count = administratorMapper.updateLoginCount(administrator.getId());
             if(count>0) {
-
                 return ServerResponse.createBySuccess("登陆成功", this.getAdministatorVO(administrator,session));
             }
         }
@@ -134,16 +139,53 @@ public class UserServiceImpl implements IUserService{
     }
 
     @Override
-    public ServerResponse<PageHelperUtil> getAdministrators(HttpSession httpSession,int pageNumber,int pageSize) {
-        AdministatorVO administatorVO = (AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);
-        List<Administrator> administrators = administratorMapper.getAdministrators(administatorVO.getCompany());
+    public ServerResponse<PageHelperUtil> getAdministrators(HttpSession httpSession,int pageNumber,int pageSize,
+                                                            String userName, String department, String roleNumber) {
+        //AdministatorVO administatorVO = (AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);administatorVO.getCompany()
+        PageHelper.startPage(pageNumber,pageSize);
+        List<Administrator> administrators = administratorMapper.getAdministrators("1",userName,department,roleNumber);
+        PageInfo pageInfo = new PageInfo(administrators);
+        List<Administrators> administratorsList = new ArrayList<>();
         if(!administrators.isEmpty()){
             for (Administrator administrator:administrators){
-                administrator.setPassword("");
+                Administrators administrators1 = new Administrators();
+                administrators1.setId(administrator.getId());
+                administrators1.setUserName(administrator.getUserName());
+                administrators1.setUserCode(administrator.getUserCode());
+                administrators1.setRealName(administrator.getRealName());
+                administrators1.setEmail(administrator.getEmail());
+                administrators1.setMobile(administrator.getMobile());
+                administrators1.setPhone(administrator.getPhone());
+                administrators1.setDepartment(administrator.getDepartment());
+                administrators1.setDepartmentName(departmentMapper.selectByDepartmentNumber(administrator.getDepartment()));
+                administrators1.setRoleNumber(administrator.getRoleNumber());
+                administrators1.setRoleName(roleMapper.selectByRoleNumber(administrator.getRoleNumber()));
+                administrators1.setRemark(administrator.getRemark());
+                administratorsList.add(administrators1);
             }
-            return ServerResponse.createBySuccess("获取成功", PageHelperUtil.getPageInfo(pageNumber,pageSize,administrators));
+            pageInfo.setList(administratorsList);
+            return ServerResponse.createBySuccess("获取成功", PageHelperUtil.toPageHeper(pageInfo));
         }
         return ServerResponse.createByErrorMessage("获取失败");
+    }
+
+    @Override
+    public ServerResponse<String> addAdministrator(Administrator administrator, HttpSession httpSession) {
+        int resultCount = administratorMapper.checkPhone(administrator.getMobile());
+        if(resultCount>0){
+            return ServerResponse.createByErrorMessage("手机号已被注册");
+        }
+        //AdministatorVO administatorVO = (AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);
+        administrator.setCompany("1");//administatorVO.getCompany()
+        administrator.setLoginCount(0);
+        administrator.setIsDelete(0);
+        administrator.setStatus(0);
+        administrator.setPassword(MD5Util.MD5EncodeUtf8(administrator.getPassword()));
+        int resultCount1 = administratorMapper.insert(administrator);
+        if (resultCount1 > 0) {
+            return ServerResponse.createBySuccessMessage("注册成功");
+        } else
+            return ServerResponse.createByErrorMessage("注册失败");
     }
 
     @Override
@@ -171,14 +213,17 @@ public class UserServiceImpl implements IUserService{
         administatorVO.setStatus(administrator.getStatus());
         administatorVO.setCompany(administrator.getCompany());
         administatorVO.setDepartment(administrator.getDepartment());
+        administatorVO.setDepartmentName(departmentMapper.selectByDepartmentNumber(administrator.getDepartment()));
         administatorVO.setParentCode(administrator.getParentCode());
         administatorVO.setRoleNumber(administrator.getRoleNumber());
+        administatorVO.setRoleName(roleMapper.selectByRoleNumber(administrator.getRoleNumber()));
         administatorVO.setRemark(administrator.getRemark());
         administatorVO.setResources(resources.toArray(new String[resources.size()]));
         session.setAttribute(Const.CURRENT_USER,administatorVO);
-        session.setAttribute(Const.Resource_URLS,resourceURLs);
+      //  session.setAttribute(Const.Resource_URLS,resourceURLs);
         return administatorVO;
     }
+
 
 
     public  ServerResponse<String> sendcode(String phone, String verificationCode) {

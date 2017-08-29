@@ -1,6 +1,9 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.dao;
 
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Department;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface DepartmentMapper {
     int deleteByPrimaryKey(Integer id);
@@ -15,7 +18,17 @@ public interface DepartmentMapper {
 
     int updateByPrimaryKey(Department record);
 
-    int checkDepartment(String number);
+    List<Department> selectDepartments(@Param("departmentName") String departmentName);
 
-    int deleteByDepartmentNumber(String departmentnumber);
+    int selectByParentNumbet(String departmentNumber);
+
+    int deleteByDepartmentNumber(String departmentNumber);
+
+    String selectByDepartmentNumber(String departmentNumber);
+
+    int selectID();
+
+    int checkByNumber(String departmentNumber);
+
+    String selectParentName(String parentName);
 }

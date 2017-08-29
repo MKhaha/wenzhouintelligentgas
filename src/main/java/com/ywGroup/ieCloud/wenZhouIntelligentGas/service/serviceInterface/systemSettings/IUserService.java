@@ -1,5 +1,6 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.systemSettings;
 
+import com.github.pagehelper.PageInfo;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.ServerResponse;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Administrator;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.AdministatorVO;
@@ -18,6 +19,10 @@ public interface IUserService {
     ServerResponse<String> sendResetPasswordVerificationCode(String phoneNumber,String verificationCode);
     ServerResponse<String> resetPassword(String phoneNumber,String password,String verificationCode,HttpSession httpSession);
     ServerResponse<AdministatorVO> setInformation(Administrator administrator,HttpSession session);
-    ServerResponse<PageHelperUtil> getAdministrators(HttpSession httpSession, int pageNumber, int pageSize);
+    ServerResponse<PageHelperUtil> getAdministrators(HttpSession httpSession, int pageNumber, int pageSize,
+                                               String userName, String department, String roleNumber);
+//ServerResponse<PageInfo> getAdministrators(HttpSession httpSession, int pageNumber, int pageSize,
+//                                                 String userName, String department, String roleNumber);
+    ServerResponse<String> addAdministrator(Administrator administrator,HttpSession httpSession);
     ServerResponse<String> delete(Integer userid);
 }
