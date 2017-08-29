@@ -8,17 +8,11 @@ import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFRichTextString;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import javax.servlet.http.HttpSession;
 import java.io.*;
+import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
-/**
- * Created by JianweiZhou from jianshu
- * Copy by lanmeiniu on 2017/8/22.
- *Excel 相关操作类(大数据量写入但受Excel数据行数限制)
- * 先写入Excel标题(writeExcelTitle)，再写入数据(writeExcelData)，最后释放资源(dispose)
- */
+import java.util.*;
 
 public class ExportExcel {
     //默认列宽度
@@ -34,6 +28,63 @@ public class ExportExcel {
     private OutputStream outputStream;
 
     /**
+     *
+     * @param session    HttpSession获取路径
+     * @param sheetName  工作簿名
+     * @param sheetTitle 工作簿首行标题
+     * @param tableName  数据库的表名
+     * @param list<T>    需要导出的数据
+     * @return
+     * @throws Exception
+     */
+    public static <T> String toExcel(HttpSession session, String sheetName, String sheetTitle, String tableName,List<T> list) {
+        //获取路径名
+        String filePath = session.getServletContext().getRealPath("/upload/");
+        //随机生成文件名
+        String fileName = UUID.randomUUID().toString().replace("-", "") + ".xlsx";
+        File fileDir = new File(filePath);
+        if (!fileDir.exists()) {
+            fileDir.setWritable(true);
+            fileDir.mkdirs();
+        }
+        File file = new File(filePath, fileName);
+        try {
+            file.createNewFile();
+
+            //通过实例化类获取属性，new,获得实体类的所有属性
+            Map<String, Map<String, String>> comments = GetTableFieldComment.getTableFieldComments();
+            Map<String, String> AdminsComments = comments.get(tableName);
+
+            //创建列名的英文名和中文名
+            List<String> columnNames = new LinkedList<>();
+            List<String> valesName = new LinkedList<>();
+            Field[] fields = list.get(0).getClass().getDeclaredFields();
+            //简单的for循环 遍历所有属性
+            for (int i = 0; i < fields.length; i++) {
+                columnNames.add(AdminsComments.get(fields[i].getName()));
+                valesName.add(fields[i].getName());
+            }
+            List<List<Object>> l = new ArrayList<>();
+            for (T t1 : list) {
+                List<Object> objects = new ArrayList<>();
+                for (int i = 0; i < valesName.size(); i++) {
+                    objects.add(ReflectionUtils.getFieldValue(t1, valesName.get(i)));
+                }
+                l.add(objects);
+            }
+            ExportExcel exportExcel2007 = new ExportExcel();
+            exportExcel2007.writeExcelTitle(file, sheetName, columnNames, sheetTitle);
+            exportExcel2007.writeExcelData(file, sheetName, l);
+            exportExcel2007.dispose();
+        }
+        catch (Exception e){
+            file.delete();
+            return null;
+        }
+        return "/upload/"+fileName;
+    }
+
+    /**
      * 日期转化为字符串,格式为yyyy-MM-dd HH:mm:ss
      */
     private String getCnDate(Date date) {
@@ -47,9 +98,7 @@ public class ExportExcel {
      * @param columnNames 列名集合
      * @param sheetTitle  表格标题
      */
-    public File writeExcelTitle(String sheetName, List<String> columnNames,String sheetTitle) throws IOException {
-        //创建临时文件
-        File tmpFile = File.createTempFile("excel", ".xlsx");
+    public File writeExcelTitle(File tmpFile,String sheetName, List<String> columnNames,String sheetTitle) throws IOException {
         exportExcelTitle(tmpFile, sheetName, columnNames, sheetTitle);
         //加载临时excel模板
         loadTplWorkbook(tmpFile);
@@ -62,10 +111,8 @@ public class ExportExcel {
      * @param sheetName sheetName
      * @param objects   数据信息
      */
-    public File writeExcelData(String sheetName, List<List<Object>> objects)
+    public File writeExcelData(File tmpFile,String sheetName, List<List<Object>> objects)
             throws IOException {
-        //创建临时文件
-        File tmpFile = File.createTempFile("excel", ".xlsx");
         outputStream = new FileOutputStream(tmpFile);
         //导出字符串数据
         exportExcelData(sheetName, objects);

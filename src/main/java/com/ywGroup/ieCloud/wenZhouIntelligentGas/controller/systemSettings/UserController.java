@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -166,4 +167,13 @@ public class UserController {
     public ServerResponse addAdministrator(Administrator administrator){
         return iUserService.addAdministrator(administrator,httpSession);
     }
+
+    @RequestMapping(value = "ToExcel.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse toExcel(@RequestParam(value = "userName",defaultValue = "") String userName,
+                                  @RequestParam(value = "department",defaultValue = "")String department,
+                                  @RequestParam(value = "roleNumber",defaultValue = "")String roleNumber) throws Exception {
+        return iUserService.toExcel(httpSession,userName,department,roleNumber);
+    }
+
 }

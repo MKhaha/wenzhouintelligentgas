@@ -25,4 +25,5 @@ public interface IUserService {
 //                                                 String userName, String department, String roleNumber);
     ServerResponse<String> addAdministrator(Administrator administrator, HttpSession httpSession);
     ServerResponse<String> delete(Integer userid);
+    ServerResponse<String> toExcel(HttpSession session,String userName,String department,String roleNumber) throws Exception;
 }

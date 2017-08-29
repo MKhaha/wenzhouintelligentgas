@@ -11,21 +11,23 @@ import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Administrator;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.AdministatorVO;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.Administrators;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.systemSettings.IUserService;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.MD5Util;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.PageHelperUtil;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.sql.SQLException;
+import java.util.*;
 
 /**
  * Created by Administrator on 2017-8-18.
  */
 @Service("iUserService")
 public class UserServiceImpl implements IUserService{
-
     @Autowired
     private AliyunSms aliyunSmsService;
     @Autowired
@@ -195,6 +197,25 @@ public class UserServiceImpl implements IUserService{
             return ServerResponse.createBySuccessMessage("删除成功");
         }
         return ServerResponse.createByErrorMessage("删除失败");
+    }
+
+    public File mkdir(String path) throws InterruptedException {
+        System.out.println(path);
+        File fileDir = new File(path);
+        if(!fileDir.exists()){
+            fileDir.setWritable(true);
+            fileDir.mkdirs();
+        }
+        return  fileDir;
+    }
+
+    @Override
+    public ServerResponse<String> toExcel(HttpSession session,String userName, String department, String roleNumber){
+        List<Administrator> administrators = administratorMapper.getAdministrators("1",userName,department,roleNumber);
+        String path = ExportExcel.toExcel(session,"sheet1","用户表","administrator",administrators);
+        if (org.apache.commons.lang3.StringUtils.isBlank(path))
+            return ServerResponse.createByErrorMessage("导出失败");
+        return ServerResponse.createBySuccess("导出成功",path);
     }
 
 
