@@ -1,17 +1,23 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.common;
 
+
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 
-//保证序列化json的时候,如果是null的对象,key也会消失
+/**
+ * Created by geely
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
+//保证序列化json的时候,如果是null的对象,key也会消失
 public class ServerResponse<T> implements Serializable {
 
     private int status;
     private String msg;
     private T data;
+    private String fieldComments;
 
     private ServerResponse(int status){
         this.status = status;
@@ -32,6 +38,13 @@ public class ServerResponse<T> implements Serializable {
         this.msg = msg;
     }
 
+    private ServerResponse(int status, String msg, String fieldComments, T data){
+        this.status = status;
+        this.msg = msg;
+        this.fieldComments = fieldComments;
+        this.data = data;
+    }
+
     @JsonIgnore
     //使之不在json序列化结果当中
     public boolean isSuccess(){
@@ -46,6 +59,9 @@ public class ServerResponse<T> implements Serializable {
     }
     public String getMsg(){
         return msg;
+    }
+    public String getFieldComments() {
+        return fieldComments;
     }
 
 
@@ -65,6 +81,9 @@ public class ServerResponse<T> implements Serializable {
         return new ServerResponse<T>(ResponseCode.SUCCESS.getCode(),msg,data);
     }
 
+    public static <T> ServerResponse<T> createBySuccess(String msg, String fieldComments, T data){
+        return new ServerResponse<T>(ResponseCode.SUCCESS.getCode(),msg,fieldComments, data);
+    }
 
     public static <T> ServerResponse<T> createByError(){
         return new ServerResponse<T>(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getDesc());
