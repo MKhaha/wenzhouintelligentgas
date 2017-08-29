@@ -24,5 +24,4 @@ public interface LogMapper {
     List<Log> selectByIp(String requestIp);
 
     List<Log> selectByMethodName(String methodName);
-
 }

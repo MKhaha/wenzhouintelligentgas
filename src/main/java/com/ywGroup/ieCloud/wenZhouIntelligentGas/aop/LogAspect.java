@@ -60,15 +60,13 @@ public class LogAspect{
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession();
         //得到的是ip地址192.168.1.8
-        String ip = request.getRemoteAddr();
-
-
+        String StringIp = request.getRemoteAddr();
 
         //读取session中的用户
         UserVO user = (UserVO) session.getAttribute(Const.CURRENT_USER);
         System.out.println("user.getUserName = " + user.getUserName() );
         System.out.println("methodName = " + methodName );
-        System.out.println("ip = " + ip );
+        System.out.println("ip = " + StringIp );
         System.out.println("setAccessTime = " + DateUtil.getCurrentDate() );
 
         //获取请求ip
@@ -76,7 +74,7 @@ public class LogAspect{
         Log log = new Log();
         log.setUser(user.getUserName());
         log.setMethodName(methodName);
-        log.setRequestIp(ip);
+        log.setRequestIp(StringIp);
         log.setAccessTime(DateUtil.getCurrentDate());
 
         iLogService.insertLogToDatabase(log);

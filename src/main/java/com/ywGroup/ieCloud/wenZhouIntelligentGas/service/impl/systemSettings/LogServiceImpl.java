@@ -77,7 +77,6 @@ public class LogServiceImpl implements ILogService{
     @Override
     public ServerResponse<PageInfo> getAllLogInfoByIp(String ip, int pageNum, int pageSize){
         PageHelper.startPage(pageNum, pageSize);
-
         List<Log> LogInfoList = logMapper.selectByIp(ip);
 
         if(CollectionUtils.isEmpty(LogInfoList)) {
