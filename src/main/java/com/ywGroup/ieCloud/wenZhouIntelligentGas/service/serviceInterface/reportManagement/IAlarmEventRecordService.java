@@ -6,6 +6,7 @@ import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.AlarmEventRecord;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by guotao on 2017/8/30.
@@ -15,5 +16,5 @@ import java.util.List;
 public interface IAlarmEventRecordService {
     ServerResponse<PageInfo> getAlarmEventRecord(AlarmEventRecord alarmEventRecord, int pageNumber, int pageSize);
 
-    ServerResponse<String> getCountAlarmEventRecordGroupByAdministrativeRegions();
+    ServerResponse<Map<String, Map<Integer, List<Integer>>>> getCountAlarmEventRecordGroupByAdministrativeRegions();
 }
