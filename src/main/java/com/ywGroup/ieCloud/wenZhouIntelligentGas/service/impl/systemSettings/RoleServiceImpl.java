@@ -10,6 +10,7 @@ import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.RoleResourceRelationMapper;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Role;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.AdministatorVO;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.systemSettings.IRoleService;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.ExportExcel;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.PageHelperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -82,5 +83,14 @@ public class RoleServiceImpl implements IRoleService {
         if(count>0)
             return ServerResponse.createBySuccessMessage("更新成功");
         return ServerResponse.createByErrorMessage("更新失败");
+    }
+
+    @Override
+    public ServerResponse<String> toExcel(HttpSession session, String roleName, String remark) {
+        List<Role> roles = roleMapper.getRoles("1",roleName,remark);//administatorVO.getCompany());
+        String path = ExportExcel.toExcel(session,"sheet1","角色表","system_role",roles);
+        if (org.apache.commons.lang3.StringUtils.isBlank(path))
+            return ServerResponse.createByErrorMessage("导出失败");
+        return ServerResponse.createBySuccess("导出成功",path);
     }
 }

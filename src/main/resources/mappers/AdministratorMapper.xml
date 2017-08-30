@@ -348,5 +348,11 @@
     FROM administrator
     WHERE department = #{department}
   </select>
+  
+  <select id="selectMobileByid" parameterType="int" resultType="string">
+    SELECT mobile
+    FROM administrator
+    WHERE id = #{id}
+  </select>
 
 </mapper>

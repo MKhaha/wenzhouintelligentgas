@@ -10,10 +10,12 @@ import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.RoleResourceRelation;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.ResourceVO;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.ResourceVO;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.systemSettings.IResourceService;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.ExportExcel;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.PageHelperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +59,15 @@ public class ResourceServiceImpl implements IResourceService{
             return ServerResponse.createBySuccessMessage("分配成功");
         }
         return ServerResponse.createByErrorMessage("分配失败");
+    }
+
+    @Override
+    public ServerResponse<String> toExcel(HttpSession httpSession, String resourceName, String remark) {
+        List<Resource> r1 = resourceMapper.selectByResourceNumber(resourceName,remark);
+        String path = ExportExcel.toExcel(httpSession,"sheet1","资源列表","system_resource",r1);
+        if (org.apache.commons.lang3.StringUtils.isBlank(path))
+            return ServerResponse.createByErrorMessage("导出失败");
+        return ServerResponse.createBySuccess("导出成功",path);
     }
 
     public List<ResourceVO> getResources(List<Resource> r1){

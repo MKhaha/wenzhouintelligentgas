@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.HandlerExceptionResolver;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by Administrator on 2017-8-28.
@@ -18,6 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value = "/systemSettings/departments/")
 public class DepartmentController {
 
+    @Autowired
+    HttpSession httpSession;
     @Autowired
     private IDepartmentService iDepartmentService;
 
@@ -67,5 +72,16 @@ public class DepartmentController {
     public ServerResponse updateDepartment(Department department){
         department.setIsDelete(0);
         return iDepartmentService.updateDepartment(department);
+    }
+
+    /**
+     * 导出部门表
+     * @param departmentName
+     * @return
+     */
+    @RequestMapping(value = "ToExcel.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse toExcel(@RequestParam(value = "departmentName",defaultValue = "")String departmentName){
+        return iDepartmentService.toExcel(httpSession,departmentName);
     }
 }

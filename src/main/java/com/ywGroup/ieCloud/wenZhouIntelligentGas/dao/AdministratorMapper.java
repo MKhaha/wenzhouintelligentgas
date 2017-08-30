@@ -39,4 +39,6 @@ public interface AdministratorMapper {
 
     int selectByDepartment(String department);
 
+    String selectMobileByid(Integer id);
+
 }
