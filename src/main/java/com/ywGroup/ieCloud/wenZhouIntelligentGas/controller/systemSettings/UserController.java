@@ -36,7 +36,7 @@ public class UserController {
      * @param password
      * @return
      */
-    @RequestMapping(value = "login.do",method = RequestMethod.GET)
+    @RequestMapping(value = "login.do",method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse login(String mobile, String password){
         AdministatorVO administatorVO = (AdministatorVO)httpSession.getAttribute(Const.CURRENT_USER);
@@ -172,7 +172,7 @@ public class UserController {
     @ResponseBody
     public ServerResponse toExcel(@RequestParam(value = "userName",defaultValue = "") String userName,
                                   @RequestParam(value = "department",defaultValue = "")String department,
-                                  @RequestParam(value = "roleNumber",defaultValue = "")String roleNumber) throws Exception {
+                                  @RequestParam(value = "roleNumber",defaultValue = "")String roleNumber) {
         return iUserService.toExcel(httpSession,userName,department,roleNumber);
     }
 

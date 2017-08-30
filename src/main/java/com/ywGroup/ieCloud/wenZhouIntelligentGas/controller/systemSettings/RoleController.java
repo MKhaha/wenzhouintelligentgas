@@ -93,4 +93,17 @@ public class RoleController {
         return iRoleService.updateRole(role);
     }
 
+    /**
+     * 导出角色列表
+     * @param roleName
+     * @param remark
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "ToExcel.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse toExcel(@RequestParam(value = "roleName",defaultValue = "")String roleName,
+                                  @RequestParam(value = "remark",defaultValue = "")String remark){
+        return iRoleService.toExcel(httpSession,remark,roleName);
+    }
 }

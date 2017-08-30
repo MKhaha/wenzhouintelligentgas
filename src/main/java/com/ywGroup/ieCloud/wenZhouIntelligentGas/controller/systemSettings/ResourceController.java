@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by Administrator on 2017-8-21.
  */
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/systemSettings/resources/")
 public class ResourceController {
 
+    @Autowired
+    HttpSession httpSession;
     @Autowired
     private IResourceService iResourceService;
 //    /**
@@ -48,6 +52,19 @@ public class ResourceController {
     @ResponseBody
     public ServerResponse setResources(@RequestParam("powerList") String[] powerList,@RequestParam("roleNumber") String roleNumber){
         return iResourceService.setResources(powerList,roleNumber);
+    }
+
+    /**
+     * 导出资源表
+     * @param resourceName
+     * @param remark
+     * @return
+     */
+    @RequestMapping(value = "ToExcel.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse toExcel(@RequestParam(value = "resourceName",defaultValue = "")String resourceName,
+                                  @RequestParam(value = "remark",defaultValue = "")String remark){
+        return iResourceService.toExcel(httpSession,resourceName,remark);
     }
 
 }

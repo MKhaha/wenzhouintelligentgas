@@ -8,10 +8,12 @@ import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.DepartmentMapper;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Department;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.DepartmentVO;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.systemSettings.IDepartmentService;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.ExportExcel;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.PageHelperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,6 +83,15 @@ public class DepartmentServiceImpl implements IDepartmentService{
         if (count>0)
             return ServerResponse.createBySuccessMessage("编辑成功");
         return ServerResponse.createByErrorMessage("编辑失败");
+    }
+
+    @Override
+    public ServerResponse<String> toExcel(HttpSession httpSession, String departmentName) {
+        List<Department > departments = departmentMapper.selectDepartments(departmentName);
+        String path = ExportExcel.toExcel(httpSession,"sheet1","部门表","system_department",departments);
+        if (org.apache.commons.lang3.StringUtils.isBlank(path))
+            return ServerResponse.createByErrorMessage("导出失败");
+        return ServerResponse.createBySuccess("导出成功",path);
     }
 
 }
