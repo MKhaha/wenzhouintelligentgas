@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.DeliverCarMapper" >
+  <resultMap id="BaseResultMap" type="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCar" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="deliver_car_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="car_license_plate" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="company" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="station" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="responsible" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="phone_responsible" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, deliver_car_code, car_license_plate, company, station, responsible, phone_responsible
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from deliver_car
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from deliver_car
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCar" >
+    insert into deliver_car (id, deliver_car_code, car_license_plate, 
+      company, station, responsible, 
+      phone_responsible)
+    values (#{id,jdbcType=INTEGER}, #{deliverCarCode,jdbcType=VARCHAR}, #{carLicensePlate,jdbcType=VARCHAR}, 
+      #{company,jdbcType=INTEGER}, #{station,jdbcType=INTEGER}, #{responsible,jdbcType=INTEGER}, 
+      #{phoneResponsible,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCar" >
+    insert into deliver_car
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="deliverCarCode != null" >
+        deliver_car_code,
+      </if>
+      <if test="carLicensePlate != null" >
+        car_license_plate,
+      </if>
+      <if test="company != null" >
+        company,
+      </if>
+      <if test="station != null" >
+        station,
+      </if>
+      <if test="responsible != null" >
+        responsible,
+      </if>
+      <if test="phoneResponsible != null" >
+        phone_responsible,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="deliverCarCode != null" >
+        #{deliverCarCode,jdbcType=VARCHAR},
+      </if>
+      <if test="carLicensePlate != null" >
+        #{carLicensePlate,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        #{company,jdbcType=INTEGER},
+      </if>
+      <if test="station != null" >
+        #{station,jdbcType=INTEGER},
+      </if>
+      <if test="responsible != null" >
+        #{responsible,jdbcType=INTEGER},
+      </if>
+      <if test="phoneResponsible != null" >
+        #{phoneResponsible,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCar" >
+    update deliver_car
+    <set >
+      <if test="deliverCarCode != null" >
+        deliver_car_code = #{deliverCarCode,jdbcType=VARCHAR},
+      </if>
+      <if test="carLicensePlate != null" >
+        car_license_plate = #{carLicensePlate,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        company = #{company,jdbcType=INTEGER},
+      </if>
+      <if test="station != null" >
+        station = #{station,jdbcType=INTEGER},
+      </if>
+      <if test="responsible != null" >
+        responsible = #{responsible,jdbcType=INTEGER},
+      </if>
+      <if test="phoneResponsible != null" >
+        phone_responsible = #{phoneResponsible,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCar" >
+    update deliver_car
+    set deliver_car_code = #{deliverCarCode,jdbcType=VARCHAR},
+      car_license_plate = #{carLicensePlate,jdbcType=VARCHAR},
+      company = #{company,jdbcType=INTEGER},
+      station = #{station,jdbcType=INTEGER},
+      responsible = #{responsible,jdbcType=INTEGER},
+      phone_responsible = #{phoneResponsible,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
