@@ -16,4 +16,5 @@ public interface IRoleService {
     ServerResponse<PageHelperUtil> getRoles(HttpSession session, int pageNumber, int pageSize, String roleName, String remark);
     ServerResponse<String> setRole(Integer userid, String roleNumber);
     ServerResponse<String> updateRole(Role role);
+    ServerResponse<String> toExcel(HttpSession session, String roleName, String remark);
 }

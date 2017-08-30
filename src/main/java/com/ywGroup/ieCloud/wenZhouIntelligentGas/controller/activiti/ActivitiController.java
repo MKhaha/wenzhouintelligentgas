@@ -244,6 +244,8 @@ public class ActivitiController {
     @ResponseBody
     public ServerResponse startProcess(Supervision supervision){
         AdministatorVO administatorVO=(AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);
+        if(org.apache.commons.lang3.StringUtils.isBlank(supervision.getDetails()))
+            return ServerResponse.createByErrorMessage("提交的问题为空");
         Map<String,Object> variables=new HashMap<String, Object>();
         variables.put("userid", administatorVO.getId());
         ProcessInstance ins=iActivitiService.startWorkflow(supervision, administatorVO.getId(), variables);
@@ -268,11 +270,11 @@ public class ActivitiController {
         pageHelperUtil.setTotal(0);
         //先做权限检查，对于没有"安全监管部，拟定方案"权限的用户,直接返回空
         AdministatorVO administatorVO=(AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);
-        String roleName = roleMapper.checkName(administatorVO.getRoleNumber());
+        String roleName = "监管部";//roleMapper.checkName(administatorVO.getRoleNumber());
         if (roleName.equals("监管部")){
             int firstrow=(pageNumber-1)*pageSize;
-            List<SupervisionTask> results=iActivitiService.getpagedepttask(administatorVO.getId().toString(),firstrow,pageSize,"监管部","拟定方案");
-            int totalsize=iActivitiService.getalldepttask(administatorVO.getId().toString(),"监管部","拟定方案");
+            List<SupervisionTask> results=iActivitiService.getpagedepttask(firstrow,pageSize,"监管部","拟定方案");
+            int totalsize=iActivitiService.getalldepttask("监管部","拟定方案");
             return ServerResponse.createBySuccess("获取成功",iActivitiService.getTask(pageHelperUtil,pageSize,pageNumber,results,totalsize));
         }
         return ServerResponse.createByErrorMessage("没有权限查看");
@@ -295,11 +297,11 @@ public class ActivitiController {
         pageHelperUtil.setTotal(0);
         //先做权限检查，对于没有"审核阶段"权限的用户,直接返回空
         AdministatorVO administatorVO=(AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);
-        String roleName = roleMapper.checkName(administatorVO.getRoleNumber());
+        String roleName = "总经理";//roleMapper.checkName(administatorVO.getRoleNumber());
         if (roleName.equals("总经理")){
             int firstrow=(pageNumber-1)*pageSize;
-            List<SupervisionTask> results=iActivitiService.getpagedepttask(administatorVO.getId().toString(),firstrow,pageSize,"总经理","上级领导审核");
-            int totalsize=iActivitiService.getalldepttask(administatorVO.getId().toString(),"总经理","上级领导审核");
+            List<SupervisionTask> results=iActivitiService.getpagedepttask(firstrow,pageSize,"总经理","上级领导审核");
+            int totalsize=iActivitiService.getalldepttask("总经理","上级领导审核");
             return ServerResponse.createBySuccess("获取成功",iActivitiService.getTask(pageHelperUtil,pageSize,pageNumber,results,totalsize));
         }
         return ServerResponse.createByErrorMessage("没有权限查看");
@@ -322,11 +324,11 @@ public class ActivitiController {
         pageHelperUtil.setTotal(0);
         //先做权限检查，对于没有"审核阶段"权限的用户,直接返回空
         AdministatorVO administatorVO=(AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);
-        String roleName = roleMapper.checkName(administatorVO.getRoleNumber());
+        String roleName = "实施部";//roleMapper.checkName(administatorVO.getRoleNumber());
         if (roleName.equals("实施部")){
             int firstrow=(pageNumber-1)*pageSize;
-            List<SupervisionTask> results=iActivitiService.getpagedepttask(administatorVO.getId().toString(),firstrow,pageSize,"实施部","执行部门实施");
-            int totalsize=iActivitiService.getalldepttask(administatorVO.getId().toString(),"实施部","执行部门实施");
+            List<SupervisionTask> results=iActivitiService.getpagedepttask(firstrow,pageSize,"实施部","执行部门实施");
+            int totalsize=iActivitiService.getalldepttask("实施部","执行部门实施");
             return ServerResponse.createBySuccess("获取成功",iActivitiService.getTask(pageHelperUtil,pageSize,pageNumber,results,totalsize));
         }
         return ServerResponse.createByErrorMessage("没有权限查看");
@@ -349,11 +351,11 @@ public class ActivitiController {
         pageHelperUtil.setTotal(0);
         //先做权限检查，对于没有"审核阶段"权限的用户,直接返回空
         AdministatorVO administatorVO=(AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);
-        String roleName = roleMapper.checkName(administatorVO.getRoleNumber());
+        String roleName = "总经理";//roleMapper.checkName(administatorVO.getRoleNumber());
         if (roleName.equals("总经理")){
             int firstrow=(pageNumber-1)*pageSize;
-            List<SupervisionTask> results=iActivitiService.getpagedepttask(administatorVO.getId().toString(),firstrow,pageSize,"总经理","处理结果审核");
-            int totalsize=iActivitiService.getalldepttask(administatorVO.getId().toString(),"总经理","处理结果审核");
+            List<SupervisionTask> results=iActivitiService.getpagedepttask(firstrow,pageSize,"总经理","处理结果审核");
+            int totalsize=iActivitiService.getalldepttask("总经理","处理结果审核");
             return ServerResponse.createBySuccess("获取成功",iActivitiService.getTask(pageHelperUtil,pageSize,pageNumber,results,totalsize));
         }
         return ServerResponse.createByErrorMessage("没有权限查看");
@@ -367,9 +369,9 @@ public class ActivitiController {
      */
     @RequestMapping(value = "/task/tijiaofa.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse tijiaofa(String taskid,String plan){
+    public ServerResponse tijiaofaTask(String taskid,String plan){
         AdministatorVO administatorVO=(AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);
-        String roleName = roleMapper.checkName(administatorVO.getRoleNumber());
+        String roleName = "监管部";//roleMapper.checkName(administatorVO.getRoleNumber());
         Task task=taskservice.createTaskQuery().taskId(taskid).singleResult();
         String instanceid=task.getProcessInstanceId();
         if(roleName.equals("监管部")&&iActivitiService.insertPlan(instanceid,plan)){
@@ -388,9 +390,9 @@ public class ActivitiController {
      */
     @RequestMapping(value = "/task/shenhefa.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse shenhefa(String taskid,String checkok){
+    public ServerResponse shenhefaTask(String taskid,String checkok){
         AdministatorVO administatorVO=(AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);
-        String roleName = roleMapper.checkName(administatorVO.getRoleNumber());
+        String roleName = "总经理";//roleMapper.checkName(administatorVO.getRoleNumber());
         Map<String,Object> variables=new HashMap<String,Object>();
         variables.put("checkok", checkok);
         if(roleName.equals("总经理")){
@@ -408,9 +410,9 @@ public class ActivitiController {
      */
     @RequestMapping(value = "/task/tiajiaojg.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse tiajiaojg(String taskid,String result){
+    public ServerResponse tiajiaojgTask(String taskid,String result){
         AdministatorVO administatorVO=(AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);
-        String roleName = roleMapper.checkName(administatorVO.getRoleNumber());
+        String roleName = "实施部";//roleMapper.checkName(administatorVO.getRoleNumber());
         Task task=taskservice.createTaskQuery().taskId(taskid).singleResult();
         String instanceid=task.getProcessInstanceId();
         if(roleName.equals("实施部")&&iActivitiService.insertResult(instanceid,result)){
@@ -429,9 +431,9 @@ public class ActivitiController {
      */
     @RequestMapping(value = "/task/shenhejg.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse shenhejg(String taskid,String chuliok){
+    public ServerResponse shenhejgTask(String taskid,String chuliok){
         AdministatorVO administatorVO=(AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);
-        String roleName = roleMapper.checkName(administatorVO.getRoleNumber());
+        String roleName = "总经理";//roleMapper.checkName(administatorVO.getRoleNumber());
         Map<String,Object> variables=new HashMap<String,Object>();
         variables.put("chuliok", chuliok);
         if(roleName.equals("总经理")){
@@ -441,6 +443,7 @@ public class ActivitiController {
         }
         return ServerResponse.createByErrorMessage("无权操作");
     }
+
 
 
 }

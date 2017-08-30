@@ -52,7 +52,7 @@ public class ActivitiServiceImpl implements IActivitiService{
     }
 
     @Override
-    public List<SupervisionTask> getpagedepttask(String userid, int firstrow, int rowcount,String group,String name) {
+    public List<SupervisionTask> getpagedepttask(int firstrow, int rowcount,String group,String name) {
         List<SupervisionTask> results=new ArrayList<SupervisionTask>();
         List<Task> tasks=taskservice.createTaskQuery().taskCandidateGroup(group).taskName(name).listPage(firstrow, rowcount);
         for(Task task:tasks){
@@ -71,7 +71,7 @@ public class ActivitiServiceImpl implements IActivitiService{
     }
 
     @Override
-    public int getalldepttask(String userid,String group,String name) {
+    public int getalldepttask(String group,String name) {
         List<Task> tasks=taskservice.createTaskQuery().taskCandidateGroup(group).taskName(name).list();
         return tasks.size();
     }

@@ -130,4 +130,9 @@
     where process_instance_id = #{processid}
   </update>
 
+  <select id="selectUseridByProsessid" resultType="int" parameterType="string">
+    SELECT user_id
+    FROM supervision
+    WHERE process_instance_id = #{processid}
+  </select>
 </mapper>
