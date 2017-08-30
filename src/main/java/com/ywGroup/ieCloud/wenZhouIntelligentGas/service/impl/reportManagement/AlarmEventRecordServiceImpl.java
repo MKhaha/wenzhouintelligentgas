@@ -44,7 +44,7 @@ public class AlarmEventRecordServiceImpl implements IAlarmEventRecordService {
     }
 
     @Override
-    public ServerResponse<String> getCountAlarmEventRecordGroupByAdministrativeRegions() {
+    public ServerResponse<Map<String, Map<Integer, List<Integer>>>> getCountAlarmEventRecordGroupByAdministrativeRegions() {
 
         Map<String, Map<Integer, List<Integer>>> mapCountAlarmEventRecord = new HashMap<>();
 
@@ -83,6 +83,6 @@ public class AlarmEventRecordServiceImpl implements IAlarmEventRecordService {
 //        System.out.println(mapCountAlarmEventRecord);
 //        System.out.println(mapCountAlarmEventRecordWenZhou);
 
-        return ServerResponse.createBySuccess("获取统计信息成功", mapCountAlarmEventRecord.toString());
+        return ServerResponse.createBySuccess("获取统计信息成功", mapCountAlarmEventRecord);
     }
 }

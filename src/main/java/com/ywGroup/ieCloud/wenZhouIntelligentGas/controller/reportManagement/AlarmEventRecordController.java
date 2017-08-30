@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by guotao on 2017/8/30.
  * com.ywGroup.ieCloud.wenZhouIntelligentGas.controller.reportManagement
@@ -34,7 +38,7 @@ public class AlarmEventRecordController {
 
     @RequestMapping(value = "getCountAlarmEventRecordGroupByAdministrativeRegions.do", method = RequestMethod.GET)
     @ResponseBody
-    public ServerResponse<String> getCountAlarmEventRecordGroupByAdministrativeRegions(){
+    public ServerResponse<Map<String, Map<Integer, List<Integer>>>> getCountAlarmEventRecordGroupByAdministrativeRegions(){
         return iAlarmEventRecordService.getCountAlarmEventRecordGroupByAdministrativeRegions();
     }
 
