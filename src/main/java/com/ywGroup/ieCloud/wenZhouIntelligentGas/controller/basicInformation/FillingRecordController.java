@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -24,10 +25,18 @@ public class FillingRecordController {
 
     @RequestMapping(value = "queryFillingRecord.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse queryGasBottleManager(@RequestParam(value = "pageNumber",defaultValue = "1") int pageNumber,
+    public ServerResponse queryFillingRecord(@RequestParam(value = "pageNumber",defaultValue = "1") int pageNumber,
                                                 @RequestParam(value = "pageSize",defaultValue = "10") int pageSize,
                                                 @RequestParam(value = "cylinderBarcode",defaultValue = "") String cylinderBarcode,
                                                 @RequestParam(value = "fillingWorker",defaultValue = "") String fillingWorker){
         return iFillingRecordService.queryFillingRecord(pageNumber,pageSize,cylinderBarcode,fillingWorker);
+    }
+
+    @RequestMapping(value = "toExcelFillingRecord.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse toExcelFillingRecord(HttpSession session,
+                                               @RequestParam(value = "cylinderBarcode",defaultValue = "") String cylinderBarcode,
+                                               @RequestParam(value = "fillingWorker",defaultValue = "") String fillingWorker){
+        return iFillingRecordService.toExcelFillingRecord(session,cylinderBarcode,fillingWorker);
     }
 }

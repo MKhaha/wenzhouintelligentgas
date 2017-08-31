@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by lenovo on 2017/8/26.
  */
@@ -28,5 +30,15 @@ public class GasStationDirectSaleCylinderSendAndReceiveController {
                                                                           @RequestParam(value = "beginDate",defaultValue = "") String beginDate,
                                                                           @RequestParam(value = "endDate",defaultValue = "") String endDate){
         return iGasStationDirectSaleCylinderSendAndReceiveService.queryGasStationDirectSaleCylinderSendAndReceive(pageNumber,pageSize,cylinderBarcode,manufacturingUnit,beginDate,endDate);
+    }
+
+    @RequestMapping(value = "toExcelGasStationDirectSaleCylinderSendAndReceive.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse toExcelGasStationDirectSaleCylinderSendAndReceive(HttpSession session,
+                                                                            @RequestParam(value = "cylinderBarcode",defaultValue = "") String cylinderBarcode,
+                                                                            @RequestParam(value = "manufacturingUnit",defaultValue = "") String manufacturingUnit,
+                                                                            @RequestParam(value = "beginDate",defaultValue = "") String beginDate,
+                                                                            @RequestParam(value = "endDate",defaultValue = "") String endDate){
+        return iGasStationDirectSaleCylinderSendAndReceiveService.toExcelGasStationDirectSaleCylinderSendAndReceive(session,cylinderBarcode,manufacturingUnit,beginDate,endDate);
     }
 }

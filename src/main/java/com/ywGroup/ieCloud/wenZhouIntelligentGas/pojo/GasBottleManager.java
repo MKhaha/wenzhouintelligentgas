@@ -53,7 +53,9 @@ public class GasBottleManager {
 
     private Float nominalOperatingPressure;
 
-    public GasBottleManager(Long id, String ownNumber, String cylinderBarcode, String propertyRights, String propertyUnit, String manufacturingUnit, Date landingDate, String useTheRegistrationCode, String serialNumber, Date yearOfManufacture, String fillingMedia, String cylinderModel, String equipmentVariety, Date lastInspectionDate, Date nextInspectionDate, String cylinderStatus, String inspectionNumber, Float originalWeight, Float volume, Float designWallThickness, Float pressureTestPressure, Float nominalOperatingPressure) {
+    private String sn;
+
+    public GasBottleManager(Long id, String ownNumber, String cylinderBarcode, String propertyRights, String propertyUnit, String manufacturingUnit, Date landingDate, String useTheRegistrationCode, String serialNumber, Date yearOfManufacture, String fillingMedia, String cylinderModel, String equipmentVariety, Date lastInspectionDate, Date nextInspectionDate, String cylinderStatus, String inspectionNumber, Float originalWeight, Float volume, Float designWallThickness, Float pressureTestPressure, Float nominalOperatingPressure, String sn) {
         this.id = id;
         this.ownNumber = ownNumber;
         this.cylinderBarcode = cylinderBarcode;
@@ -76,6 +78,7 @@ public class GasBottleManager {
         this.designWallThickness = designWallThickness;
         this.pressureTestPressure = pressureTestPressure;
         this.nominalOperatingPressure = nominalOperatingPressure;
+        this.sn = sn;
     }
 
     public GasBottleManager() {
@@ -256,5 +259,13 @@ public class GasBottleManager {
 
     public void setNominalOperatingPressure(Float nominalOperatingPressure) {
         this.nominalOperatingPressure = nominalOperatingPressure;
+    }
+
+    public String getSn() {
+        return sn;
+    }
+
+    public void setSn(String sn) {
+        this.sn = sn == null ? null : sn.trim();
     }
 }

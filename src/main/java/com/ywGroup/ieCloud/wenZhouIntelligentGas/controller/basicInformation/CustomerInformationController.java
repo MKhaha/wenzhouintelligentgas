@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+
 
 /**
  * Created by lenovo on 2017/8/26.
@@ -19,6 +21,7 @@ public class CustomerInformationController {
 
     @Autowired
     private ICustomerInformationService iCustomerInformationService;
+
     @RequestMapping(value = "queryCustomerInformation.do",method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse queryCustomerInformation(@RequestParam(value = "pageNumber",defaultValue = "1") int pageNumber,
@@ -27,5 +30,14 @@ public class CustomerInformationController {
                                                    @RequestParam(value = "onSite",defaultValue = "") String onSite,
                                                    @RequestParam(value = "clientName",defaultValue = "") String clientName){
         return iCustomerInformationService.queryCustomerInformation(pageNumber,pageSize,gas,onSite,clientName);
+    }
+
+    @RequestMapping(value = "toExcelCustomerInformation.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse toExcelCustomerInformation(HttpSession session,
+                                                     @RequestParam(value = "gas",defaultValue = "") String gas,
+                                                     @RequestParam(value = "onSite",defaultValue = "") String onSite,
+                                                     @RequestParam(value = "clientName",defaultValue = "") String clientName){
+        return iCustomerInformationService.toExcelCustomerInformation(session,gas,onSite,clientName);
     }
 }

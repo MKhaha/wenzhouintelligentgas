@@ -11,7 +11,8 @@ public class Const {
 
 
     public static final String CURRENT_USER = "currentUser";
-    public static final String Resource_URLS= "resourceUrls";
+    public static final String Resource_URLS = "resourceUrls";
+    public static final String NSJUDGE = "nsJudge";
     public static final String EMAIL = "email";
     public static final String USERNAME = "username";
 
@@ -30,6 +31,12 @@ public class Const {
     public interface Role{
         int ROLE_CUSTOMER = 0; //普通用户
         int ROLE_ADMIN = 1;//管理员
+    }
+
+    public interface NsJudge{
+        int NSJUDGE_UUID = 0; //使用uuid
+        int NSJUDGE_TIMEDATE = 1;//使用时间类型
+        int NSJUDGE_NOUSE = 2;//不使用
     }
 
     public enum ProductStatusEnum{

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+
 
 /**
  * Created by lenovo on 2017/8/28.
@@ -32,5 +34,11 @@ public class CylinderLocationController {
     public ServerResponse queryAllCylinderLocation(@RequestParam(value = "pageNumber",defaultValue = "1") int pageNumber,
                                                    @RequestParam(value = "pageSize",defaultValue = "10") int pageSize){
         return iCylinderLocationService.queryAllCylinderLocation(pageNumber,pageSize);
+    }
+
+    @RequestMapping(value = "toExcelAllCylinderLocation.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse toExcelAllCylinderLocation(HttpSession session){
+        return iCylinderLocationService.toExcelAllCylinderLocation(session);
     }
 }

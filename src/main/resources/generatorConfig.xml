@@ -72,7 +72,7 @@
         <!--<table tableName="system_department" domainObjectName="Department" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
         <!--<table tableName="system_resource" domainObjectName="Resource" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
         <!--<table tableName="system_role" domainObjectName="Role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
-        <table tableName="log" domainObjectName="Log" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+        <!--<table tableName="log" domainObjectName="Log" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
         <!--<table tableName="location" domainObjectName="GasCylinderLocation" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
         <table tableName="gas_cylinder_information" domainObjectName="GasCylinderInformation" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
         <table tableName="gas_cylinder_specification" domainObjectName="GasCylinderSpecification" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
@@ -86,9 +86,11 @@
        <!-- <table tableName="gas_station_direct_sale_cylinder_send_and_receive" domainObjectName="GasStationDirectSaleCylinderSendAndReceive" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
         <table tableName="gas_station_transport_cylinder_send_and_receive" domainObjectName="GasStationTransportCylinderSendAndReceive" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
         <table tableName="store_cylinder_send_and_receive" domainObjectName="StoreCylinderSendAndReceive" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
-        <table tableName="gas_station_transport_cylinder_send_and_receive" domainObjectName="GasStationTransportCylinderSendAndReceive" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-        <table tableName="gas_station_direct_sale_cylinder_send_and_receive" domainObjectName="GasStationDirectSaleCylinderSendAndReceive" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-
+        <!--<table tableName="gas_station_transport_cylinder_send_and_receive" domainObjectName="GasStationTransportCylinderSendAndReceive" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
+        <!--<table tableName="company" domainObjectName="Company" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
+        <!--<table tableName="alarm_event_record" domainObjectName="AlarmEventRecord" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
+        <!--<table tableName="deliver_car" domainObjectName="DeliverCar" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
+        <table tableName="gas_bottle_manager" domainObjectName="GasBottleManager" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
         <!-- geelynote mybatis插件的搭建 -->
     </context>
 </generatorConfiguration>

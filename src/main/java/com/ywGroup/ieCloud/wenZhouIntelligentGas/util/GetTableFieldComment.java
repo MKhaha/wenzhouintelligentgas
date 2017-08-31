@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class GetTableFieldComment {
 
-    private static String urlMysql = "jdbc:mysql://localhost:3306/";
+    private static String urlMysql = "jdbc:mysql://192.168.1.107:3306/";
     private static String dataBaseName = "wen_zhou_intelligent_gas";
     private static String username = "root";
     private static String passwordMysql = "MKhaha_05050909";
@@ -25,12 +25,12 @@ public class GetTableFieldComment {
     private static String tableFieldCommentTableName = "table_field_comment";
     private static String tableFieldCommentTableField1 = "table_name";
     private static String tableFieldCommentTableField2 = "field_comment";
-    private static Map<String, Map<String, String>> tableFiledComments = null;
+    private static Map<String, Map<String, String>> tableFiledComments = new HashMap<>();
 
     public static final char UNDERLINE='_';
 
     public static Map<String, Map<String, String>> getTableFieldComments() throws SQLException, ClassNotFoundException, IOException {
-        if (tableFiledComments == null) {
+        if (tableFiledComments.isEmpty()) {
             //调用Class.forName()方法加载驱动程序
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("成功加载MySQL驱动！");
@@ -49,7 +49,7 @@ public class GetTableFieldComment {
         String url = urlMysql + dataBaseName;    //JDBC的URL
         Connection conn;
 
-        conn = DriverManager.getConnection(url,    username,passwordMysql);
+        conn = DriverManager.getConnection(url,username,passwordMysql);
         System.out.println("成功连接到数据库！");
 
         PreparedStatement pstmt;
@@ -83,7 +83,6 @@ public class GetTableFieldComment {
         if (StringUtils.isBlank(param)){
             return "";
         }
-
         int len = param.length();
         StringBuilder sb = new StringBuilder(len);
         for (int i = 0; i < len; i++) {
@@ -103,19 +102,14 @@ public class GetTableFieldComment {
 
         String url = urlMysql + "information_schema";    //JDBC的URL
         Connection conn;
-
-        conn = DriverManager.getConnection(url,    username,passwordMysql);
+        conn = DriverManager.getConnection(url,username,passwordMysql);
         Statement stmt = conn.createStatement(); //创建Statement对象
         System.out.println("成功连接到数据库！");
-
         for (String tableName : tableNames) {
-
             if (tableName.startsWith("act_")) {
                 continue;
             }
-
             Map<String, String> filedComments = new HashMap<>();
-
             String sql = String.format("select COLUMN_NAME,column_comment from INFORMATION_SCHEMA.Columns where table_name='%s' and table_schema='%s'", tableName, dataBaseName);
             ResultSet rs = stmt.executeQuery(sql);//创建数据对象
             System.out.println("tableName = [" + tableName + "]");
@@ -125,9 +119,7 @@ public class GetTableFieldComment {
             }
             System.out.println("+++++++++++++++++++++++++++++");
             rs.close();
-
             tableFiledComments.put(tableName, filedComments);
-
         }
 
         stmt.close();
@@ -145,7 +137,7 @@ public class GetTableFieldComment {
         String url = urlMysql + dataBaseName;    //JDBC的URL
         Connection conn;
 
-        conn = DriverManager.getConnection(url,    username,passwordMysql);
+        conn = DriverManager.getConnection(url,username,passwordMysql);
         Statement stmt = conn.createStatement(); //创建Statement对象
         System.out.println("成功连接到数据库！");
 
@@ -155,21 +147,22 @@ public class GetTableFieldComment {
         while (rs.next()){
             System.out.print(rs.getString(1));
             tableNames.add(rs.getString(1));
-
             System.out.println();
-
         }
         rs.close();
         stmt.close();
         conn.close();
-
         return tableNames;
     }
 
     public static void main(String[] args){
         try {
-            getTableFieldComments();
-            insertFieldComments(tableFiledComments);
+            //getTableFieldComments();
+            //insertFieldComments(tableFiledComments);
+            List<String> str = new ArrayList<>();
+            str.add("system_role_resource_relation");
+           // str.add("system_role");
+            getFieldComments(str);
 
         } catch (Exception e) {
             e.printStackTrace();

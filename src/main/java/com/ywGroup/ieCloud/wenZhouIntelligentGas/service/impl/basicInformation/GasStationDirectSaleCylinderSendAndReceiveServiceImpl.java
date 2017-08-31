@@ -7,10 +7,12 @@ import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.GasStationDirectSaleCylinde
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.FillingRecord;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStationDirectSaleCylinderSendAndReceive;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.basicInformation.IGasStationDirectSaleCylinderSendAndReceiveService;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.ExportExcel;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
@@ -33,5 +35,18 @@ public class GasStationDirectSaleCylinderSendAndReceiveServiceImpl implements IG
         PageInfo pageResult = new PageInfo(gasStationDirectSaleCylinderSendAndReceiveList);
         pageResult.setList(gasStationDirectSaleCylinderSendAndReceiveList);
         return ServerResponse.createBySuccess("获取成功", pageResult);
+    }
+
+    @Override
+    public ServerResponse toExcelGasStationDirectSaleCylinderSendAndReceive(HttpSession session, String cylinderBarcode, String manufacturingUnit, String beginDate, String endDate) {
+        List<GasStationDirectSaleCylinderSendAndReceive> gasStationDirectSaleCylinderSendAndReceiveList = gasStationDirectSaleCylinderSendAndReceiveMapper.queryGasStationDirectSaleCylinderSendAndReceive(cylinderBarcode,manufacturingUnit,beginDate,endDate);
+        if(org.apache.commons.collections.CollectionUtils.isEmpty(gasStationDirectSaleCylinderSendAndReceiveList)) {
+            return ServerResponse.createByErrorMessage("获取失败");
+        }
+        String path = ExportExcel.toExcel(session,"sheet1","gas_station_direct_sale_cylinder_send_and_receive","gas_station_direct_sale_cylinder_send_and_receive",gasStationDirectSaleCylinderSendAndReceiveList);
+        if(org.apache.commons.lang3.StringUtils.isBlank(path)) {
+            return ServerResponse.createByErrorMessage("导出失败");
+        }
+        return ServerResponse.createBySuccess("导出成功",path);
     }
 }
