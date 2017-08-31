@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by lenovo on 2017/8/26.
  */
@@ -18,14 +20,25 @@ public class GasStationTransportCylinderSendAndReceiveController {
 
     @Autowired
     private IGasStationTransportCylinderSendAndReceiveService iGasStationTransportCylinderSendAndReceiveService;
+
     @RequestMapping(value = "queryGasStationTransportCylinderSendAndReceive.do",method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse queryGasStationTransportCylinderSendAndReceive(@RequestParam(value = "pageNumber",defaultValue = "1") int pageNumber,
-                                                                          @RequestParam(value = "pageSize",defaultValue = "10") int pageSize,
-                                                                          @RequestParam(value = "cylinderBarcode",defaultValue = "") String cylinderBarcode,
-                                                                          @RequestParam(value = "manufacturingUnit",defaultValue = "") String manufacturingUnit,
-                                                                          @RequestParam(value = "beginDate",defaultValue = "") String beginDate,
-                                                                          @RequestParam(value = "endDate",defaultValue = "") String endDate){
+                                                                         @RequestParam(value = "pageSize",defaultValue = "10") int pageSize,
+                                                                         @RequestParam(value = "cylinderBarcode",defaultValue = "") String cylinderBarcode,
+                                                                         @RequestParam(value = "manufacturingUnit",defaultValue = "") String manufacturingUnit,
+                                                                         @RequestParam(value = "beginDate",defaultValue = "") String beginDate,
+                                                                         @RequestParam(value = "endDate",defaultValue = "") String endDate){
         return iGasStationTransportCylinderSendAndReceiveService.queryGasStationTransportCylinderSendAndReceive(pageNumber,pageSize,cylinderBarcode,manufacturingUnit,beginDate,endDate);
+    }
+
+    @RequestMapping(value = "toExcelGasStationTransportCylinderSendAndReceive.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse toExcelGasStationTransportCylinderSendAndReceive(HttpSession session,
+                                                                           @RequestParam(value = "cylinderBarcode",defaultValue = "") String cylinderBarcode,
+                                                                           @RequestParam(value = "manufacturingUnit",defaultValue = "") String manufacturingUnit,
+                                                                           @RequestParam(value = "beginDate",defaultValue = "") String beginDate,
+                                                                           @RequestParam(value = "endDate",defaultValue = "") String endDate){
+        return iGasStationTransportCylinderSendAndReceiveService.toExcelGasStationTransportCylinderSendAndReceive(session,cylinderBarcode,manufacturingUnit,beginDate,endDate);
     }
 }

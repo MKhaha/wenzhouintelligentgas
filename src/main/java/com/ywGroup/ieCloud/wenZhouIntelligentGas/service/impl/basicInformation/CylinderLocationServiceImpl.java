@@ -4,12 +4,15 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.ServerResponse;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.CylinderLocationMapper;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.CustomerInformation;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.CylinderLocation;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.basicInformation.ICylinderLocationService;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.ExportExcel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.servlet.http.HttpSession;
 import java.util.Collections;
 import java.util.List;
 
@@ -40,5 +43,18 @@ public class CylinderLocationServiceImpl implements ICylinderLocationService {
         PageInfo pageResult = new PageInfo(cylinderLocationList);
         pageResult.setList(cylinderLocationList);
         return  ServerResponse.createByError("获取成功",pageResult);
+    }
+
+    @Override
+    public ServerResponse toExcelAllCylinderLocation(HttpSession session) {
+        List<CylinderLocation> cylinderLocationList = cylinderLocationMapper.queryAllCylinderLocation();
+        if(org.apache.commons.collections.CollectionUtils.isEmpty(cylinderLocationList)) {
+            return ServerResponse.createByErrorMessage("获取失败");
+        }
+        String path = ExportExcel.toExcel(session,"sheet1","cylinder_location","cylinder_location",cylinderLocationList);
+        if(org.apache.commons.lang3.StringUtils.isBlank(path)) {
+            return ServerResponse.createByErrorMessage("导出失败");
+        }
+        return ServerResponse.createBySuccess("导出成功",path);
     }
 }

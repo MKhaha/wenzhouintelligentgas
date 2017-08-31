@@ -48,7 +48,7 @@ public class GetTableFieldComment {
         String url = urlMysql + dataBaseName;    //JDBC的URL
         Connection conn;
 
-        conn = DriverManager.getConnection(url,    username,passwordMysql);
+        conn = DriverManager.getConnection(url,username,passwordMysql);
         //System.out.println("成功连接到数据库！");
 
         PreparedStatement pstmt;
@@ -82,7 +82,6 @@ public class GetTableFieldComment {
         if (StringUtils.isBlank(param)){
             return "";
         }
-
         int len = param.length();
         StringBuilder sb = new StringBuilder(len);
         for (int i = 0; i < len; i++) {
@@ -102,19 +101,14 @@ public class GetTableFieldComment {
 
         String url = urlMysql + "information_schema";    //JDBC的URL
         Connection conn;
-
-        conn = DriverManager.getConnection(url,    username,passwordMysql);
+        conn = DriverManager.getConnection(url,username,passwordMysql);
         Statement stmt = conn.createStatement(); //创建Statement对象
         //System.out.println("成功连接到数据库！");
-
         for (String tableName : tableNames) {
-
             if (tableName.startsWith("act_")) {
                 continue;
             }
-
             Map<String, String> filedComments = new HashMap<>();
-
             String sql = String.format("select COLUMN_NAME,column_comment from INFORMATION_SCHEMA.Columns where table_name='%s' and table_schema='%s'", tableName, dataBaseName);
             ResultSet rs = stmt.executeQuery(sql);//创建数据对象
             //System.out.println("tableName = [" + tableName + "]");
@@ -124,9 +118,7 @@ public class GetTableFieldComment {
             }
             //System.out.println("+++++++++++++++++++++++++++++");
             rs.close();
-
             tableFiledComments.put(tableName, filedComments);
-
         }
 
         stmt.close();
@@ -144,7 +136,7 @@ public class GetTableFieldComment {
         String url = urlMysql + dataBaseName;    //JDBC的URL
         Connection conn;
 
-        conn = DriverManager.getConnection(url,    username,passwordMysql);
+        conn = DriverManager.getConnection(url,username,passwordMysql);
         Statement stmt = conn.createStatement(); //创建Statement对象
         //System.out.println("成功连接到数据库！");
 
@@ -154,14 +146,10 @@ public class GetTableFieldComment {
         while (rs.next()){
             //System.out.print(rs.getString(1));
             tableNames.add(rs.getString(1));
-
-            //System.out.println();
-
         }
         rs.close();
         stmt.close();
         conn.close();
-
         return tableNames;
     }
 
