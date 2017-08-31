@@ -7,16 +7,14 @@ import java.util.Date;
  */
 public class SupervisionTaskVO {
     int id;
-    String process_instance_id;
     String user_id;
     String details;
     String plan;
     String result;
-    Date createTime;
+    Date   createTime;
     String taskid;
     String taskname;
     String processinstanceid;
-    String processdefid;
     Date taskcreatetime;
 
     public int getId() {
@@ -25,14 +23,6 @@ public class SupervisionTaskVO {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getProcess_instance_id() {
-        return process_instance_id;
-    }
-
-    public void setProcess_instance_id(String process_instance_id) {
-        this.process_instance_id = process_instance_id;
     }
 
     public String getUser_id() {
@@ -97,14 +87,6 @@ public class SupervisionTaskVO {
 
     public void setProcessinstanceid(String processinstanceid) {
         this.processinstanceid = processinstanceid;
-    }
-
-    public String getProcessdefid() {
-        return processdefid;
-    }
-
-    public void setProcessdefid(String processdefid) {
-        this.processdefid = processdefid;
     }
 
     public Date getTaskcreatetime() {

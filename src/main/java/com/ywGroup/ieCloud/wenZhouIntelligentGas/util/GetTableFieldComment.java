@@ -34,7 +34,6 @@ public class GetTableFieldComment {
             //调用Class.forName()方法加载驱动程序
             Class.forName("com.mysql.jdbc.Driver");
             //System.out.println("成功加载MySQL驱动！");
-
             tableFiledComments = new HashMap<>();
             List<String> tableNames = getTableName();
             return getFieldComments(tableNames);
@@ -147,7 +146,6 @@ public class GetTableFieldComment {
         while (rs.next()){
             //System.out.print(rs.getString(1));
             tableNames.add(rs.getString(1));
-            //System.out.println();
         }
         rs.close();
         stmt.close();
@@ -157,12 +155,12 @@ public class GetTableFieldComment {
 
     public static void main(String[] args){
         try {
-            //getTableFieldComments();
-            //insertFieldComments(tableFiledComments);
-            List<String> str = new ArrayList<>();
-            str.add("system_role_resource_relation");
+            getTableFieldComments();
+            insertFieldComments(tableFiledComments);
+//            List<String> str = new ArrayList<>();
+//            str.add("system_role_resource_relation");
            // str.add("system_role");
-            getFieldComments(str);
+//            getFieldComments(str);
 
         } catch (Exception e) {
             e.printStackTrace();

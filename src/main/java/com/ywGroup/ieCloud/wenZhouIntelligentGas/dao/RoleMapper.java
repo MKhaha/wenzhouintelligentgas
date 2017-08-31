@@ -1,6 +1,7 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.dao;
 
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Role;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -23,5 +24,9 @@ public interface RoleMapper {
 
     int deleteByRoleNumber(String roleNumber);
 
-    List<Role> getRoles(String company);
+    List<Role> getRoles(@Param("company") String company,@Param("roleName") String roleName,@Param("remark") String remark);
+
+    String selectByRoleNumber(String roleNumber);
+
+    int selectBylastID();
 }

@@ -11,54 +11,47 @@ import java.util.List;
  */
 public class PageHelperUtil {
 
-    private int pages;
+    private long Total;
     private int pageNum;
     private int pageSize;
     private List list;
 
-    public int getPages() {
-        return pages;
+    public long getTotal() {
+        return Total;
     }
-    public void setPages(int pages) {
-        this.pages = pages;
+
+    public void setTotal(long total) {
+        Total = total;
     }
+
     public int getPageNum() {
         return pageNum;
     }
+
     public void setPageNum(int pageNum) {
         this.pageNum = pageNum;
     }
+
     public int getPageSize() {
         return pageSize;
     }
+
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
     }
+
     public List getList() {
         return list;
     }
+
     public void setList(List list) {
         this.list = list;
-    }
-
-    /**
-     * 分页工具类
-     * @param pageNumber
-     * @param pageSize
-     * @param list
-     * @return
-     */
-    public static PageHelperUtil getPageInfo(int pageNumber, int pageSize, List list){
-        PageHelper.startPage(pageNumber, pageSize);
-        PageInfo pageResult = new PageInfo(list);
-        pageResult.setList(list);
-        return toPageHeper(pageResult);
     }
 
     public static PageHelperUtil toPageHeper(PageInfo pageInfo){
         PageHelperUtil pageHelperUtil = new PageHelperUtil();
         pageHelperUtil.setPageNum(pageInfo.getPageNum());
-        pageHelperUtil.setPages(pageInfo.getPages());
+        pageHelperUtil.setTotal(pageInfo.getTotal());
         pageHelperUtil.setPageSize(pageInfo.getPageSize());
         pageHelperUtil.setList(pageInfo.getList());
         return pageHelperUtil;

@@ -17,7 +17,7 @@ public class Supervision {
 
     private Date createTime;
 
-    public Supervision(Integer id, String processInstanceId, Integer userId, String details, String plan, String result, Date createTime) {
+    public Supervision(Integer id, String processInstanceId, Integer userId, String details, String plan, String result,  Date createTime) {
         this.id = id;
         this.processInstanceId = processInstanceId;
         this.userId = userId;

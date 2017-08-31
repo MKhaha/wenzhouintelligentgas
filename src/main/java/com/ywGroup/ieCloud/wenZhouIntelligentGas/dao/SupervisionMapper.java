@@ -16,7 +16,9 @@ public interface SupervisionMapper {
 
     int updateByPrimaryKey(Supervision record);
 
-    int updatePlanByProsessid(@Param("processid") String processid ,@Param("plan") String plan);
+    int updatePlanByProsessid(@Param("processid") String processid , @Param("plan") String plan);
 
     int updateResultByProsessid(@Param("processid") String processid ,@Param("result") String result);
+
+    int selectUseridByProsessid(String processid);
 }

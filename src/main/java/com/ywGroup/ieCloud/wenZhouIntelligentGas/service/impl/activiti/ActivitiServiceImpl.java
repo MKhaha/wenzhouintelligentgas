@@ -1,11 +1,11 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.service.impl.activiti;
 
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.SupervisionMapper;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.activitipo.DataGrid;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.activitipo.Supervision;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.activitipo.SupervisionTask;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.activitipo.SupervisionTaskVO;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.activiti.IActivitiService;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.PageHelperUtil;
 import org.activiti.engine.IdentityService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
@@ -44,7 +44,7 @@ public class ActivitiServiceImpl implements IActivitiService{
         String businesskey=String.valueOf(supervision.getId());
         identityservice.setAuthenticatedUserId(userid.toString());
         ProcessInstance instance=runtimeservice.startProcessInstanceByKey("process",businesskey,variables);
-        System.out.println(businesskey);
+            System.out.println(businesskey);
         String instanceid=instance.getId();
         supervision.setProcessInstanceId(instanceid);
         supervisionMapper.updateByPrimaryKeySelective(supervision);
@@ -52,7 +52,7 @@ public class ActivitiServiceImpl implements IActivitiService{
     }
 
     @Override
-    public List<SupervisionTask> getpagedepttask(String userid, int firstrow, int rowcount,String group,String name) {
+    public List<SupervisionTask> getpagedepttask(int firstrow, int rowcount,String group,String name) {
         List<SupervisionTask> results=new ArrayList<SupervisionTask>();
         List<Task> tasks=taskservice.createTaskQuery().taskCandidateGroup(group).taskName(name).listPage(firstrow, rowcount);
         for(Task task:tasks){
@@ -71,7 +71,7 @@ public class ActivitiServiceImpl implements IActivitiService{
     }
 
     @Override
-    public int getalldepttask(String userid,String group,String name) {
+    public int getalldepttask(String group,String name) {
         List<Task> tasks=taskservice.createTaskQuery().taskCandidateGroup(group).taskName(name).list();
         return tasks.size();
     }
@@ -136,9 +136,9 @@ public class ActivitiServiceImpl implements IActivitiService{
         return highFlows;
     }
 
-    public DataGrid<SupervisionTaskVO> getTask(DataGrid<SupervisionTaskVO> grid,
-                                               int rowCount,int current,
-                                               List<SupervisionTask> results,int totalsize ){
+    public PageHelperUtil getTask(PageHelperUtil grid,
+                                  int rowCount, int current,
+                                  List<SupervisionTask> results, int totalsize ){
         List<SupervisionTaskVO> tasks = new ArrayList<>();
         for(SupervisionTask supervisionTask:results){
             SupervisionTaskVO task=new SupervisionTaskVO();
@@ -146,8 +146,6 @@ public class ActivitiServiceImpl implements IActivitiService{
             task.setCreateTime(supervisionTask.getCreateTime());
             task.setDetails(supervisionTask.getDetails());
             task.setPlan(supervisionTask.getPlan());
-            task.setProcess_instance_id(supervisionTask.getProcessInstanceId());
-            task.setProcessdefid(supervisionTask.getTask().getParentTaskId());
             task.setProcessinstanceid(supervisionTask.getProcessInstanceId());
             task.setResult(supervisionTask.getResult());
             task.setTaskcreatetime(supervisionTask.getTask().getCreateTime());
@@ -157,10 +155,10 @@ public class ActivitiServiceImpl implements IActivitiService{
             tasks.add(task);
         }
 
-        grid.setRowCount(rowCount);
-        grid.setCurrent(current);
+        grid.setPageSize(rowCount);
+        grid.setPageNum(current);
         grid.setTotal(totalsize);
-        grid.setRows(tasks);
+        grid.setList(tasks);
         return grid;
     }
 }

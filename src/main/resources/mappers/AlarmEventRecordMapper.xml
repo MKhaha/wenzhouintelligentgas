@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.AlarmEventRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.AlarmEventRecord" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="event_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="grade" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="event_detail" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="event_picture_address" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="event_sponsor" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="event_start_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="status" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="event_end_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="administrative_regions" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, event_id, grade, event_detail, event_picture_address, event_sponsor, event_start_time, 
+    status, event_end_time, administrative_regions
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from alarm_event_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from alarm_event_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.AlarmEventRecord" >
+    insert into alarm_event_record (id, event_id, grade, 
+      event_detail, event_picture_address, event_sponsor, 
+      event_start_time, status, event_end_time, 
+      administrative_regions)
+    values (#{id,jdbcType=INTEGER}, #{eventId,jdbcType=VARCHAR}, #{grade,jdbcType=INTEGER}, 
+      #{eventDetail,jdbcType=VARCHAR}, #{eventPictureAddress,jdbcType=VARCHAR}, #{eventSponsor,jdbcType=VARCHAR}, 
+      #{eventStartTime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{eventEndTime,jdbcType=TIMESTAMP}, 
+      #{administrativeRegions,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.AlarmEventRecord" >
+    insert into alarm_event_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="eventId != null" >
+        event_id,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="eventDetail != null" >
+        event_detail,
+      </if>
+      <if test="eventPictureAddress != null" >
+        event_picture_address,
+      </if>
+      <if test="eventSponsor != null" >
+        event_sponsor,
+      </if>
+      <if test="eventStartTime != null" >
+        event_start_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="eventEndTime != null" >
+        event_end_time,
+      </if>
+      <if test="administrativeRegions != null" >
+        administrative_regions,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="eventId != null" >
+        #{eventId,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="eventDetail != null" >
+        #{eventDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="eventPictureAddress != null" >
+        #{eventPictureAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="eventSponsor != null" >
+        #{eventSponsor,jdbcType=VARCHAR},
+      </if>
+      <if test="eventStartTime != null" >
+        #{eventStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="eventEndTime != null" >
+        #{eventEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="administrativeRegions != null" >
+        #{administrativeRegions,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.AlarmEventRecord" >
+    update alarm_event_record
+    <set >
+      <if test="eventId != null" >
+        event_id = #{eventId,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="eventDetail != null" >
+        event_detail = #{eventDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="eventPictureAddress != null" >
+        event_picture_address = #{eventPictureAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="eventSponsor != null" >
+        event_sponsor = #{eventSponsor,jdbcType=VARCHAR},
+      </if>
+      <if test="eventStartTime != null" >
+        event_start_time = #{eventStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="eventEndTime != null" >
+        event_end_time = #{eventEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="administrativeRegions != null" >
+        administrative_regions = #{administrativeRegions,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.AlarmEventRecord" >
+    update alarm_event_record
+    set event_id = #{eventId,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=INTEGER},
+      event_detail = #{eventDetail,jdbcType=VARCHAR},
+      event_picture_address = #{eventPictureAddress,jdbcType=VARCHAR},
+      event_sponsor = #{eventSponsor,jdbcType=VARCHAR},
+      event_start_time = #{eventStartTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      event_end_time = #{eventEndTime,jdbcType=TIMESTAMP},
+      administrative_regions = #{administrativeRegions,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectMatchCondition" resultMap="BaseResultMap" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.AlarmEventRecord" >
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM alarm_event_record
+    WHERE 1 = 1
+    <if test="id != null and id != ''" >
+      AND id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="eventId != null and eventId != ''" >
+      AND event_id = #{eventId,jdbcType=VARCHAR}
+    </if>
+    <if test="grade != null and grade != ''" >
+      AND grade = #{grade,jdbcType=VARCHAR}
+    </if>
+    <if test="eventDetail != null and eventDetail != ''" >
+      AND event_detail LIKE concat('%',#{eventDetail,jdbcType=VARCHAR},'%')
+    </if>
+    <if test="eventSponsor != null and eventSponsor != ''" >
+      AND event_sponsor LIKE concat('%',#{eventSponsor,jdbcType=VARCHAR},'%')
+    </if>
+    <if test="status != null and status != ''" >
+      AND status LIKE concat('%',#{status,jdbcType=VARCHAR},'%')
+    </if>
+    <if test="administrativeRegions != null and administrativeRegions != ''" >
+      AND administrative_regions LIKE concat('%',#{administrativeRegions,jdbcType=VARCHAR},'%')
+    </if>
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM alarm_event_record
+  </select>
+
+
+  <select id="getCountAlarmEventInWenZhou" resultType="int" parameterType="java.lang.String" >
+    select COUNT(1)
+    from alarm_event_record
+    WHERE administrative_regions LIKE concat('%',#{administrativeRegions,jdbcType=VARCHAR},'%')
+  </select>
+</mapper>

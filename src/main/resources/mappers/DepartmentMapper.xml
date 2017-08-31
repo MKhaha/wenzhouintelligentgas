@@ -6,17 +6,14 @@
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="department_number" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="department_name" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="child_count" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="parent_number" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="depth_number" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="is_delete" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, department_number, department_name, child_count, parent_number, depth_number, 
-    is_delete, create_time, update_time
+    id, department_number, department_name, parent_number, is_delete, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -30,13 +27,11 @@
   </delete>
   <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Department" >
     insert into system_department (id, department_number, department_name, 
-      child_count, parent_number, depth_number, 
-      is_delete, create_time, update_time
-      )
+      parent_number, is_delete, create_time, 
+      update_time)
     values (#{id,jdbcType=INTEGER}, #{departmentNumber,jdbcType=VARCHAR}, #{departmentName,jdbcType=VARCHAR}, 
-      #{childCount,jdbcType=INTEGER}, #{parentNumber,jdbcType=VARCHAR}, #{depthNumber,jdbcType=INTEGER}, 
-      #{isDelete,jdbcType=INTEGER}, now(), now()
-      )
+      #{parentNumber,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, now(),
+      now())
   </insert>
   <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Department" >
     insert into system_department
@@ -50,14 +45,8 @@
       <if test="departmentName != null" >
         department_name,
       </if>
-      <if test="childCount != null" >
-        child_count,
-      </if>
       <if test="parentNumber != null" >
         parent_number,
-      </if>
-      <if test="depthNumber != null" >
-        depth_number,
       </if>
       <if test="isDelete != null" >
         is_delete,
@@ -79,23 +68,17 @@
       <if test="departmentName != null" >
         #{departmentName,jdbcType=VARCHAR},
       </if>
-      <if test="childCount != null" >
-        #{childCount,jdbcType=INTEGER},
-      </if>
       <if test="parentNumber != null" >
         #{parentNumber,jdbcType=VARCHAR},
-      </if>
-      <if test="depthNumber != null" >
-        #{depthNumber,jdbcType=INTEGER},
       </if>
       <if test="isDelete != null" >
         #{isDelete,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
-        now(),
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
-        now(),
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -108,24 +91,10 @@
       <if test="departmentName != null" >
         department_name = #{departmentName,jdbcType=VARCHAR},
       </if>
-      <if test="childCount != null" >
-        child_count = #{childCount,jdbcType=INTEGER},
-      </if>
       <if test="parentNumber != null" >
         parent_number = #{parentNumber,jdbcType=VARCHAR},
       </if>
-      <if test="depthNumber != null" >
-        depth_number = #{depthNumber,jdbcType=INTEGER},
-      </if>
-      <if test="isDelete != null" >
-        is_delete = #{isDelete,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null" >
-        create_time = now(),
-      </if>
-      <if test="updateTime != null" >
-        update_time = now(),
-      </if>
+        update_time = now()
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -133,25 +102,53 @@
     update system_department
     set department_number = #{departmentNumber,jdbcType=VARCHAR},
       department_name = #{departmentName,jdbcType=VARCHAR},
-      child_count = #{childCount,jdbcType=INTEGER},
       parent_number = #{parentNumber,jdbcType=VARCHAR},
-      depth_number = #{depthNumber,jdbcType=INTEGER},
       is_delete = #{isDelete,jdbcType=INTEGER},
-      create_time = now(),
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="checkDepartment" parameterType="string" resultType="int">
-    SELECT count(1)
+  <select id="selectDepartments" resultMap="BaseResultMap" parameterType="string">
+    SELECT
+    <include refid="Base_Column_List"/>
     FROM system_department
-    WHERE department_number = #{number}
+    WHERE 1=1
+    <if test="departmentName!=''">
+      AND department_name = #{departmentName}
+    </if>
+  </select>
+
+  <select id="selectByParentNumbet" parameterType="string" resultType="int">
+    SELECT COUNT(1)
+    FROM system_department
+    WHERE parent_number = #{departmentNumber}
   </select>
 
   <delete id="deleteByDepartmentNumber" parameterType="string" >
-    delete from system_department
-    where department_number = #{departmentnumber}
+    DELETE FROM system_department
+    WHERE department_number = #{departmentNumber}
   </delete>
 
+  <select id="selectByDepartmentNumber" parameterType="string" resultType="string">
+    SELECT department_name
+    FROM system_department
+    WHERE department_number = #{departmentNumber}
+  </select>
+  
+  <select id="selectID" resultType="int">
+    SELECT MAX(id)
+    FROM system_department;
+  </select>
 
+  <select id="checkByNumber" resultType="int" parameterType="string">
+    SELECT count(1)
+    FROM system_department
+    WHERE department_number = #{departmentNumber}
+  </select>
+
+  <select id="selectParentName" parameterType="string" resultType="string">
+    SELECT department_name
+    FROM system_department
+    WHERE department_number = #{parentName}
+  </select>
 </mapper>

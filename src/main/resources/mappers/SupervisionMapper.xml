@@ -26,13 +26,13 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.activitipo.Supervision"
-    useGeneratedKeys="true" keyProperty="id">
+    keyProperty="id" useGeneratedKeys="true">
     insert into supervision (id, process_instance_id, user_id, 
       details, plan, result, 
       create_time)
     values (#{id,jdbcType=INTEGER}, #{processInstanceId,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
       #{details,jdbcType=VARCHAR}, #{plan,jdbcType=VARCHAR}, #{result,jdbcType=VARCHAR}, 
-      now())
+     now())
   </insert>
   <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.activitipo.Supervision" >
     insert into supervision
@@ -113,7 +113,8 @@
       user_id = #{userId,jdbcType=INTEGER},
       details = #{details,jdbcType=VARCHAR},
       plan = #{plan,jdbcType=VARCHAR},
-      result = #{result,jdbcType=VARCHAR}
+      result = #{result,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 
@@ -129,4 +130,9 @@
     where process_instance_id = #{processid}
   </update>
 
+  <select id="selectUseridByProsessid" resultType="int" parameterType="string">
+    SELECT user_id
+    FROM supervision
+    WHERE process_instance_id = #{processid}
+  </select>
 </mapper>

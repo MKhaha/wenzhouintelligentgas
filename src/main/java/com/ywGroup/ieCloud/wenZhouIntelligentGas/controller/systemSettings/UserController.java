@@ -1,5 +1,7 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.controller.systemSettings;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.Const;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.ServerResponse;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Administrator;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -115,6 +118,9 @@ public class UserController {
         return iUserService.resetPassword(mobile,password,verificationCode,httpSession);
     }
 
+
+
+    //===========================================================================
     /**
      * 完善用户信息
      * @param administrator
@@ -133,18 +139,41 @@ public class UserController {
     @RequestMapping(value = "getAdministrators.do",method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse getAdministrators(@RequestParam(value = "pageNumber",defaultValue = "1")int pageNumber,
-                                            @RequestParam(value = "pageSize",defaultValue = "10") int pageSize){
-        return iUserService.getAdministrators(httpSession,pageNumber,pageSize);
+                                            @RequestParam(value = "pageSize",defaultValue = "10") int pageSize,
+                                            @RequestParam(value = "userName",defaultValue = "") String userName,
+                                            @RequestParam(value = "department",defaultValue = "")String department,
+                                            @RequestParam(value = "roleNumber",defaultValue = "")String roleNumber){
+        return iUserService.getAdministrators(httpSession,pageNumber,pageSize,userName,department,roleNumber);
     }
 
     /**
      * 删除用户，ie_delete=1
-     * @param userid
+     * @param id
      * @return
      */
     @RequestMapping(value = "delete.do",method =RequestMethod.POST)
     @ResponseBody
-    public ServerResponse delete(int userid){
-        return iUserService.delete(userid);
+    public ServerResponse delete(int id){
+        return iUserService.delete(id);
     }
+
+    /**
+     * 添加用户
+     * @param administrator
+     * @return
+     */
+    @RequestMapping(value = "add.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse addAdministrator(Administrator administrator){
+        return iUserService.addAdministrator(administrator,httpSession);
+    }
+
+    @RequestMapping(value = "ToExcel.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse toExcel(@RequestParam(value = "userName",defaultValue = "") String userName,
+                                  @RequestParam(value = "department",defaultValue = "")String department,
+                                  @RequestParam(value = "roleNumber",defaultValue = "")String roleNumber) {
+        return iUserService.toExcel(httpSession,userName,department,roleNumber);
+    }
+
 }
