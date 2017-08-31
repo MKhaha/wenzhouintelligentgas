@@ -33,7 +33,7 @@ public class GetTableFieldComment {
         if (tableFiledComments.isEmpty()) {
             //调用Class.forName()方法加载驱动程序
             Class.forName("com.mysql.jdbc.Driver");
-            System.out.println("成功加载MySQL驱动！");
+            //System.out.println("成功加载MySQL驱动！");
 
             tableFiledComments = new HashMap<>();
             List<String> tableNames = getTableName();
@@ -50,15 +50,15 @@ public class GetTableFieldComment {
         Connection conn;
 
         conn = DriverManager.getConnection(url,username,passwordMysql);
-        System.out.println("成功连接到数据库！");
+        //System.out.println("成功连接到数据库！");
 
         PreparedStatement pstmt;
         for (Map.Entry<String, Map<String, String>> fieldComments : tableFiledComments.entrySet()) {
 
             Gson gson = new Gson();
             String jsonComments = gson.toJson(fieldComments.getValue());
-            System.out.println("jsonComments.length = [" + jsonComments.length() + "]");
-            System.out.println("table_name.length = [" + fieldComments.getKey().length() + "]");
+            //System.out.println("jsonComments.length = [" + jsonComments.length() + "]");
+            //System.out.println("table_name.length = [" + fieldComments.getKey().length() + "]");
 
             String sql = String.format("INSERT INTO %s (table_name, field_comment) VALUES(?, ?); ",
                     tableFieldCommentTableName,
@@ -74,7 +74,7 @@ public class GetTableFieldComment {
 
         conn.close();
 
-        System.out.println(tableFiledComments.toString());
+        //System.out.println(tableFiledComments.toString());
         return;
     }
 
@@ -104,7 +104,7 @@ public class GetTableFieldComment {
         Connection conn;
         conn = DriverManager.getConnection(url,username,passwordMysql);
         Statement stmt = conn.createStatement(); //创建Statement对象
-        System.out.println("成功连接到数据库！");
+        //System.out.println("成功连接到数据库！");
         for (String tableName : tableNames) {
             if (tableName.startsWith("act_")) {
                 continue;
@@ -112,12 +112,12 @@ public class GetTableFieldComment {
             Map<String, String> filedComments = new HashMap<>();
             String sql = String.format("select COLUMN_NAME,column_comment from INFORMATION_SCHEMA.Columns where table_name='%s' and table_schema='%s'", tableName, dataBaseName);
             ResultSet rs = stmt.executeQuery(sql);//创建数据对象
-            System.out.println("tableName = [" + tableName + "]");
+            //System.out.println("tableName = [" + tableName + "]");
             while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2));
+                //System.out.println(rs.getString(1) + "\t" + rs.getString(2));
                 filedComments.put(underlineToCamel(rs.getString(1)), rs.getString(2));
             }
-            System.out.println("+++++++++++++++++++++++++++++");
+            //System.out.println("+++++++++++++++++++++++++++++");
             rs.close();
             tableFiledComments.put(tableName, filedComments);
         }
@@ -125,7 +125,7 @@ public class GetTableFieldComment {
         stmt.close();
         conn.close();
 
-        System.out.println(tableFiledComments.toString());
+        //System.out.println(tableFiledComments.toString());
         return tableFiledComments;
 
     }
@@ -139,15 +139,15 @@ public class GetTableFieldComment {
 
         conn = DriverManager.getConnection(url,username,passwordMysql);
         Statement stmt = conn.createStatement(); //创建Statement对象
-        System.out.println("成功连接到数据库！");
+        //System.out.println("成功连接到数据库！");
 
         String sql = "show tables";    //要执行的SQL
         ResultSet rs = stmt.executeQuery(sql);//创建数据对象
-        System.out.println("数据库名");
+        //System.out.println("数据库名");
         while (rs.next()){
-            System.out.print(rs.getString(1));
+            //System.out.print(rs.getString(1));
             tableNames.add(rs.getString(1));
-            System.out.println();
+            //System.out.println();
         }
         rs.close();
         stmt.close();
