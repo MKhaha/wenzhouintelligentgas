@@ -1,5 +1,6 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 public class GasBottleManager {
@@ -15,12 +16,14 @@ public class GasBottleManager {
 
     private String manufacturingUnit;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date landingDate;
 
     private String useTheRegistrationCode;
 
     private String serialNumber;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date yearOfManufacture;
 
     private String fillingMedia;
@@ -29,8 +32,10 @@ public class GasBottleManager {
 
     private String equipmentVariety;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date lastInspectionDate;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date nextInspectionDate;
 
     private String cylinderStatus;
