@@ -1,7 +1,5 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.util.Date;
 
 public class GasBottleManager {
@@ -17,14 +15,12 @@ public class GasBottleManager {
 
     private String manufacturingUnit;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date landingDate;
 
     private String useTheRegistrationCode;
 
     private String serialNumber;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date yearOfManufacture;
 
     private String fillingMedia;
@@ -33,10 +29,8 @@ public class GasBottleManager {
 
     private String equipmentVariety;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date lastInspectionDate;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date nextInspectionDate;
 
     private String cylinderStatus;
@@ -53,9 +47,9 @@ public class GasBottleManager {
 
     private Float nominalOperatingPressure;
 
-    private String sn;
+    private Integer administrativeRegion;
 
-    public GasBottleManager(Long id, String ownNumber, String cylinderBarcode, String propertyRights, String propertyUnit, String manufacturingUnit, Date landingDate, String useTheRegistrationCode, String serialNumber, Date yearOfManufacture, String fillingMedia, String cylinderModel, String equipmentVariety, Date lastInspectionDate, Date nextInspectionDate, String cylinderStatus, String inspectionNumber, Float originalWeight, Float volume, Float designWallThickness, Float pressureTestPressure, Float nominalOperatingPressure, String sn) {
+    public GasBottleManager(Long id, String ownNumber, String cylinderBarcode, String propertyRights, String propertyUnit, String manufacturingUnit, Date landingDate, String useTheRegistrationCode, String serialNumber, Date yearOfManufacture, String fillingMedia, String cylinderModel, String equipmentVariety, Date lastInspectionDate, Date nextInspectionDate, String cylinderStatus, String inspectionNumber, Float originalWeight, Float volume, Float designWallThickness, Float pressureTestPressure, Float nominalOperatingPressure, Integer administrativeRegion) {
         this.id = id;
         this.ownNumber = ownNumber;
         this.cylinderBarcode = cylinderBarcode;
@@ -78,7 +72,7 @@ public class GasBottleManager {
         this.designWallThickness = designWallThickness;
         this.pressureTestPressure = pressureTestPressure;
         this.nominalOperatingPressure = nominalOperatingPressure;
-        this.sn = sn;
+        this.administrativeRegion = administrativeRegion;
     }
 
     public GasBottleManager() {
@@ -261,11 +255,11 @@ public class GasBottleManager {
         this.nominalOperatingPressure = nominalOperatingPressure;
     }
 
-    public String getSn() {
-        return sn;
+    public Integer getAdministrativeRegion() {
+        return administrativeRegion;
     }
 
-    public void setSn(String sn) {
-        this.sn = sn == null ? null : sn.trim();
+    public void setAdministrativeRegion(Integer administrativeRegion) {
+        this.administrativeRegion = administrativeRegion;
     }
 }

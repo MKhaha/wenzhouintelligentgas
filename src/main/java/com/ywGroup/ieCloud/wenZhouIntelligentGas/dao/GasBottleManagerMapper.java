@@ -19,6 +19,4 @@ public interface GasBottleManagerMapper {
     int updateByPrimaryKey(GasBottleManager record);
 
     List<GasBottleManager> queryGasBottleManager(@Param("cylinderBarcode") String cylinderBarcode, @Param("manufacturingUnit") String manufacturingUnit, @Param("beginLandingDate") String beginLandingDate, @Param("endLandingDate") String endLandingDate, @Param("beginLastInspectionDate") String beginLastInspectionDate, @Param("endLastInspectionDate") String endLastInspectionDate, @Param("beginNextInspectionDate") String beginNextInspectionDate, @Param("endNextInspectionDate") String endNextInspectionDate);
-
-    int insertNs(String ns);
 }

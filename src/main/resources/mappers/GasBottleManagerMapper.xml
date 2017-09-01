@@ -25,18 +25,18 @@
       <arg column="design_wall_thickness" jdbcType="REAL" javaType="java.lang.Float" />
       <arg column="pressure_test_pressure" jdbcType="REAL" javaType="java.lang.Float" />
       <arg column="nominal_operating_pressure" jdbcType="REAL" javaType="java.lang.Float" />
-      <arg column="sn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+      <arg column="administrative_region" jdbcType="INTEGER" javaType="java.lang.Integer" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, own_number, cylinder_barcode, property_rights, property_unit, manufacturing_unit,
-    landing_date, use_the_registration_code, serial_number, year_of_manufacture, filling_media,
-    cylinder_model, equipment_variety, last_inspection_date, next_inspection_date, cylinder_status,
-    inspection_number, original_weight, volume, design_wall_thickness, pressure_test_pressure,
-    nominal_operating_pressure,sn
+    id, own_number, cylinder_barcode, property_rights, property_unit, manufacturing_unit, 
+    landing_date, use_the_registration_code, serial_number, year_of_manufacture, filling_media, 
+    cylinder_model, equipment_variety, last_inspection_date, next_inspection_date, cylinder_status, 
+    inspection_number, original_weight, volume, design_wall_thickness, pressure_test_pressure, 
+    nominal_operating_pressure, administrative_region
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select
+    select 
     <include refid="Base_Column_List" />
     from gas_bottle_manager
     where id = #{id,jdbcType=BIGINT}
@@ -46,22 +46,24 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasBottleManager" >
-    insert into gas_bottle_manager (id, own_number, cylinder_barcode,
-      property_rights, property_unit, manufacturing_unit,
-      landing_date, use_the_registration_code, serial_number,
-      year_of_manufacture, filling_media, cylinder_model,
-      equipment_variety, last_inspection_date, next_inspection_date,
-      cylinder_status, inspection_number, original_weight,
-      volume, design_wall_thickness, pressure_test_pressure,
-      nominal_operating_pressure,sn)
-    values (#{id,jdbcType=BIGINT}, #{ownNumber,jdbcType=VARCHAR}, #{cylinderBarcode,jdbcType=VARCHAR},
-      #{propertyRights,jdbcType=VARCHAR}, #{propertyUnit,jdbcType=VARCHAR}, #{manufacturingUnit,jdbcType=VARCHAR},
-      #{landingDate,jdbcType=DATE}, #{useTheRegistrationCode,jdbcType=VARCHAR}, #{serialNumber,jdbcType=VARCHAR},
-      #{yearOfManufacture,jdbcType=DATE}, #{fillingMedia,jdbcType=VARCHAR}, #{cylinderModel,jdbcType=VARCHAR},
-      #{equipmentVariety,jdbcType=VARCHAR}, #{lastInspectionDate,jdbcType=DATE}, #{nextInspectionDate,jdbcType=DATE},
-      #{cylinderStatus,jdbcType=VARCHAR}, #{inspectionNumber,jdbcType=VARCHAR}, #{originalWeight,jdbcType=REAL},
-      #{volume,jdbcType=REAL}, #{designWallThickness,jdbcType=REAL}, #{pressureTestPressure,jdbcType=REAL},
-      #{nominalOperatingPressure,jdbcType=REAL},#{sn,jdbcType=VARCHAR})
+    insert into gas_bottle_manager (id, own_number, cylinder_barcode, 
+      property_rights, property_unit, manufacturing_unit, 
+      landing_date, use_the_registration_code, serial_number, 
+      year_of_manufacture, filling_media, cylinder_model, 
+      equipment_variety, last_inspection_date, next_inspection_date, 
+      cylinder_status, inspection_number, original_weight, 
+      volume, design_wall_thickness, pressure_test_pressure, 
+      nominal_operating_pressure, administrative_region
+      )
+    values (#{id,jdbcType=BIGINT}, #{ownNumber,jdbcType=VARCHAR}, #{cylinderBarcode,jdbcType=VARCHAR}, 
+      #{propertyRights,jdbcType=VARCHAR}, #{propertyUnit,jdbcType=VARCHAR}, #{manufacturingUnit,jdbcType=VARCHAR}, 
+      #{landingDate,jdbcType=DATE}, #{useTheRegistrationCode,jdbcType=VARCHAR}, #{serialNumber,jdbcType=VARCHAR}, 
+      #{yearOfManufacture,jdbcType=DATE}, #{fillingMedia,jdbcType=VARCHAR}, #{cylinderModel,jdbcType=VARCHAR}, 
+      #{equipmentVariety,jdbcType=VARCHAR}, #{lastInspectionDate,jdbcType=DATE}, #{nextInspectionDate,jdbcType=DATE}, 
+      #{cylinderStatus,jdbcType=VARCHAR}, #{inspectionNumber,jdbcType=VARCHAR}, #{originalWeight,jdbcType=REAL}, 
+      #{volume,jdbcType=REAL}, #{designWallThickness,jdbcType=REAL}, #{pressureTestPressure,jdbcType=REAL}, 
+      #{nominalOperatingPressure,jdbcType=REAL}, #{administrativeRegion,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasBottleManager" >
     insert into gas_bottle_manager
@@ -129,8 +131,8 @@
       <if test="nominalOperatingPressure != null" >
         nominal_operating_pressure,
       </if>
-      <if test="sn != null" >
-        sn,
+      <if test="administrativeRegion != null" >
+        administrative_region,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -197,8 +199,8 @@
       <if test="nominalOperatingPressure != null" >
         #{nominalOperatingPressure,jdbcType=REAL},
       </if>
-      <if test="sn != null" >
-        #{sn,jdbcType=VARCHAR},
+      <if test="administrativeRegion != null" >
+        #{administrativeRegion,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -268,6 +270,9 @@
       <if test="nominalOperatingPressure != null" >
         nominal_operating_pressure = #{nominalOperatingPressure,jdbcType=REAL},
       </if>
+      <if test="administrativeRegion != null" >
+        administrative_region = #{administrativeRegion,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -293,10 +298,10 @@
       volume = #{volume,jdbcType=REAL},
       design_wall_thickness = #{designWallThickness,jdbcType=REAL},
       pressure_test_pressure = #{pressureTestPressure,jdbcType=REAL},
-      nominal_operating_pressure = #{nominalOperatingPressure,jdbcType=REAL}
+      nominal_operating_pressure = #{nominalOperatingPressure,jdbcType=REAL},
+      administrative_region = #{administrativeRegion,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
-
   <select id="queryGasBottleManager" resultMap="BaseResultMap" parameterType="map" >
     select
     <include refid="Base_Column_List" />
@@ -330,9 +335,4 @@
       AND next_inspection_date &lt;= #{endNextInspectionDate}
     </if>
   </select>
-
-  <insert id="insertNs" parameterType="string" >
-    insert into gas_bottle_manager (sn)
-    values (#{sn,jdbcType=VARCHAR})
-  </insert>
 </mapper>

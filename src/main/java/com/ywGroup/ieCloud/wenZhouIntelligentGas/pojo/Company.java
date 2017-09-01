@@ -29,9 +29,13 @@ public class Company {
 
     private Date updateTime;
 
+    private Integer administrativeRegion;
+
+    private String serialNumber;
+
     private String description;
 
-    public Company(Integer id, String companyNumber, String companyName, Integer companyType, String phone, String fax, String email, String contactName, String address, String createUser, Integer isDelete, Date createTime, Date updateTime, String description) {
+    public Company(Integer id, String companyNumber, String companyName, Integer companyType, String phone, String fax, String email, String contactName, String address, String createUser, Integer isDelete, Date createTime, Date updateTime, Integer administrativeRegion, String serialNumber, String description) {
         this.id = id;
         this.companyNumber = companyNumber;
         this.companyName = companyName;
@@ -45,6 +49,8 @@ public class Company {
         this.isDelete = isDelete;
         this.createTime = createTime;
         this.updateTime = updateTime;
+        this.administrativeRegion = administrativeRegion;
+        this.serialNumber = serialNumber;
         this.description = description;
     }
 
@@ -154,6 +160,22 @@ public class Company {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Integer getAdministrativeRegion() {
+        return administrativeRegion;
+    }
+
+    public void setAdministrativeRegion(Integer administrativeRegion) {
+        this.administrativeRegion = administrativeRegion;
+    }
+
+    public String getSerialNumber() {
+        return serialNumber;
+    }
+
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber == null ? null : serialNumber.trim();
     }
 
     public String getDescription() {

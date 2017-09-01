@@ -16,6 +16,8 @@
       <arg column="is_delete" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="administrative_region" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="serial_number" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Company" >
@@ -33,12 +35,15 @@
       <arg column="is_delete" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="administrative_region" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="serial_number" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="description" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
     id, company_number, company_name, company_type, phone, fax, email, contact_name, 
-    address, create_user, is_delete, create_time, update_time,description
+    address, create_user, is_delete, create_time, update_time, administrative_region, 
+    serial_number,description
   </sql>
   <sql id="Blob_Column_List" >
     description
@@ -60,19 +65,18 @@
       company_type, phone, fax, 
       email, contact_name, address, 
       create_user, is_delete, create_time, 
-      update_time, description)
+      update_time, administrative_region, serial_number, 
+      description)
     values (#{id,jdbcType=INTEGER}, #{companyNumber,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
       #{companyType,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{contactName,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
       #{createUser,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{description,jdbcType=LONGVARCHAR})
+      #{updateTime,jdbcType=TIMESTAMP}, #{administrativeRegion,jdbcType=INTEGER}, #{serialNumber,jdbcType=VARCHAR}, 
+      #{description,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Company" >
     insert into company
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="companyNumber != null" >
         company_number,
       </if>
@@ -103,20 +107,19 @@
       <if test="isDelete != null" >
         is_delete,
       </if>
-      <if test="createTime != null" >
         create_time,
-      </if>
-      <if test="updateTime != null" >
         update_time,
+      <if test="administrativeRegion != null" >
+        administrative_region,
+      </if>
+      <if test="serialNumber != null" >
+        serial_number,
       </if>
       <if test="description != null" >
         description,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="companyNumber != null" >
         #{companyNumber,jdbcType=VARCHAR},
       </if>
@@ -147,11 +150,13 @@
       <if test="isDelete != null" >
         #{isDelete,jdbcType=INTEGER},
       </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
+        now(),
+        now(),
+      <if test="administrativeRegion != null" >
+        #{administrativeRegion,jdbcType=INTEGER},
       </if>
-      <if test="updateTime != null" >
-        #{updateTime,jdbcType=TIMESTAMP},
+      <if test="serialNumber != null" >
+        #{serialNumber,jdbcType=VARCHAR},
       </if>
       <if test="description != null" >
         #{description,jdbcType=LONGVARCHAR},
@@ -197,6 +202,12 @@
       <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="administrativeRegion != null" >
+        administrative_region = #{administrativeRegion,jdbcType=INTEGER},
+      </if>
+      <if test="serialNumber != null" >
+        serial_number = #{serialNumber,jdbcType=VARCHAR},
+      </if>
       <if test="description != null" >
         description = #{description,jdbcType=LONGVARCHAR},
       </if>
@@ -217,6 +228,8 @@
       is_delete = #{isDelete,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
+      administrative_region = #{administrativeRegion,jdbcType=INTEGER},
+      serial_number = #{serialNumber,jdbcType=VARCHAR},
       description = #{description,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -233,7 +246,10 @@
       create_user = #{createUser,jdbcType=VARCHAR},
       is_delete = #{isDelete,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      administrative_region = #{administrativeRegion,jdbcType=INTEGER},
+      serial_number = #{serialNumber,jdbcType=VARCHAR},
+      description = #{description,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="queryCompany" resultMap="ResultMapWithBLOBs" parameterType="map" >
