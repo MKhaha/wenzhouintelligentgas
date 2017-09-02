@@ -3,7 +3,8 @@
 <mapper namespace="com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.DeliverCarLocationMapper" >
   <resultMap id="BaseResultMap" type="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCarLocation" >
     <constructor >
-      <arg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="deliver_car_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="task_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="timestamp" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="latitude" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
@@ -11,19 +12,34 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, task_id, timestamp, latitude, longitude
+    id, deliver_car_id, task_id, timestamp, latitude, longitude
   </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from deliver_car_location
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from deliver_car_location
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
   <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCarLocation" >
-    insert into deliver_car_location (id, task_id, timestamp, 
-      latitude, longitude)
-    values (#{id,jdbcType=INTEGER}, #{taskId,jdbcType=INTEGER}, #{timestamp,jdbcType=TIMESTAMP}, 
-      #{latitude,jdbcType=DECIMAL}, #{longitude,jdbcType=DECIMAL})
+    insert into deliver_car_location (id, deliver_car_id, task_id, 
+      timestamp, latitude, longitude
+      )
+    values (#{id,jdbcType=INTEGER}, #{deliverCarId,jdbcType=INTEGER}, #{taskId,jdbcType=INTEGER}, 
+      #{timestamp,jdbcType=TIMESTAMP}, #{latitude,jdbcType=DECIMAL}, #{longitude,jdbcType=DECIMAL}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCarLocation" >
     insert into deliver_car_location
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="deliverCarId != null" >
+        deliver_car_id,
       </if>
       <if test="taskId != null" >
         task_id,
@@ -42,6 +58,9 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="deliverCarId != null" >
+        #{deliverCarId,jdbcType=INTEGER},
+      </if>
       <if test="taskId != null" >
         #{taskId,jdbcType=INTEGER},
       </if>
@@ -56,18 +75,47 @@
       </if>
     </trim>
   </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCarLocation" >
+    update deliver_car_location
+    <set >
+      <if test="deliverCarId != null" >
+        deliver_car_id = #{deliverCarId,jdbcType=INTEGER},
+      </if>
+      <if test="taskId != null" >
+        task_id = #{taskId,jdbcType=INTEGER},
+      </if>
+      <if test="timestamp != null" >
+        timestamp = #{timestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="latitude != null" >
+        latitude = #{latitude,jdbcType=DECIMAL},
+      </if>
+      <if test="longitude != null" >
+        longitude = #{longitude,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCarLocation" >
+    update deliver_car_location
+    set deliver_car_id = #{deliverCarId,jdbcType=INTEGER},
+      task_id = #{taskId,jdbcType=INTEGER},
+      timestamp = #{timestamp,jdbcType=TIMESTAMP},
+      latitude = #{latitude,jdbcType=DECIMAL},
+      longitude = #{longitude,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 
-  <select id="selectByCarId" resultMap="BaseResultMap" parameterType="java.util.Map" >
+  <select id="select" parameterType="map" resultMap="BaseResultMap">
     SELECT
-    <include refid="Base_Column_List" />
-    FROM deliver_location
-    WHERE id = #{id,jdbcType=INTEGER}
-  </select>
-
-  <select id="selectByCarTimeSlot" resultMap="BaseResultMap" parameterType="java.util.Map">
-    SELECT
-    <include refid="Base_Column_List" />
-    FROM deliver_location WHERE timestamp
-    BETWEEN #{time1} AND #{time2}
+    <include refid="Base_Column_List"/>
+    FROM deliver_car_location
+    WHERE 1=1
+    <if test="deliverCarId != 0" >
+      AND deliver_car_id = #{deliverCarId}
+    </if>
+    <if test="beginTime!=null and endTime!=null">
+      AND timestamp BETWEEN #{beginTime} AND #{endTime}
+    </if>
   </select>
 </mapper>

@@ -1,6 +1,13 @@
-package com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo;
+package com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO;
 
-public class DeliverInformation {
+import java.math.BigDecimal;
+import java.util.Date;
+
+/**
+ * Created by lanmeiniu on 2017/9/2.
+ */
+public class DeliverInformationVO {
+    //table_name :deliverInformation
     private Integer id;
 
     private Integer locationId;
@@ -17,7 +24,17 @@ public class DeliverInformation {
 
     private String photoAddress;
 
-    public DeliverInformation(Integer id, Integer locationId, String name, Integer company, Integer station, String phone, String address, String photoAddress) {
+    //table_name: deliver_location
+
+    private Integer taskId;
+
+    private Date timestamp;
+
+    private BigDecimal latitude;
+
+    private BigDecimal longitude;
+
+    public DeliverInformationVO() {
         this.id = id;
         this.locationId = locationId;
         this.name = name;
@@ -26,10 +43,10 @@ public class DeliverInformation {
         this.phone = phone;
         this.address = address;
         this.photoAddress = photoAddress;
-    }
-
-    public DeliverInformation() {
-        super();
+        this.taskId = taskId;
+        this.timestamp = timestamp;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public Integer getId() {
@@ -53,7 +70,7 @@ public class DeliverInformation {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public Integer getCompany() {
@@ -77,7 +94,7 @@ public class DeliverInformation {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+        this.phone = phone;
     }
 
     public String getAddress() {
@@ -85,7 +102,7 @@ public class DeliverInformation {
     }
 
     public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
+        this.address = address;
     }
 
     public String getPhotoAddress() {
@@ -93,6 +110,38 @@ public class DeliverInformation {
     }
 
     public void setPhotoAddress(String photoAddress) {
-        this.photoAddress = photoAddress == null ? null : photoAddress.trim();
+        this.photoAddress = photoAddress;
+    }
+
+    public Integer getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(Integer taskId) {
+        this.taskId = taskId;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
+    }
+
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
     }
 }

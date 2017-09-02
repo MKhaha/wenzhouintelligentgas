@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCar" >
     <constructor >
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="location_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="deliver_car_code" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="car_license_plate" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="company" jdbcType="INTEGER" javaType="java.lang.Integer" />
@@ -13,7 +14,8 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, deliver_car_code, car_license_plate, company, station, responsible, phone_responsible
+    id, location_id, deliver_car_code, car_license_plate, company, station, responsible, 
+    phone_responsible
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -26,18 +28,21 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCar" >
-    insert into deliver_car (id, deliver_car_code, car_license_plate, 
-      company, station, responsible, 
-      phone_responsible)
-    values (#{id,jdbcType=INTEGER}, #{deliverCarCode,jdbcType=VARCHAR}, #{carLicensePlate,jdbcType=VARCHAR}, 
-      #{company,jdbcType=INTEGER}, #{station,jdbcType=INTEGER}, #{responsible,jdbcType=INTEGER}, 
-      #{phoneResponsible,jdbcType=VARCHAR})
+    insert into deliver_car (id, location_id, deliver_car_code, 
+      car_license_plate, company, station, 
+      responsible, phone_responsible)
+    values (#{id,jdbcType=INTEGER}, #{locationId,jdbcType=INTEGER}, #{deliverCarCode,jdbcType=VARCHAR}, 
+      #{carLicensePlate,jdbcType=VARCHAR}, #{company,jdbcType=INTEGER}, #{station,jdbcType=INTEGER}, 
+      #{responsible,jdbcType=INTEGER}, #{phoneResponsible,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCar" >
     insert into deliver_car
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="locationId != null" >
+        location_id,
       </if>
       <if test="deliverCarCode != null" >
         deliver_car_code,
@@ -62,6 +67,9 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="locationId != null" >
+        #{locationId,jdbcType=INTEGER},
+      </if>
       <if test="deliverCarCode != null" >
         #{deliverCarCode,jdbcType=VARCHAR},
       </if>
@@ -85,6 +93,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCar" >
     update deliver_car
     <set >
+      <if test="locationId != null" >
+        location_id = #{locationId,jdbcType=INTEGER},
+      </if>
       <if test="deliverCarCode != null" >
         deliver_car_code = #{deliverCarCode,jdbcType=VARCHAR},
       </if>
@@ -108,7 +119,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCar" >
     update deliver_car
-    set deliver_car_code = #{deliverCarCode,jdbcType=VARCHAR},
+    set location_id = #{locationId,jdbcType=INTEGER},
+      deliver_car_code = #{deliverCarCode,jdbcType=VARCHAR},
       car_license_plate = #{carLicensePlate,jdbcType=VARCHAR},
       company = #{company,jdbcType=INTEGER},
       station = #{station,jdbcType=INTEGER},
@@ -116,4 +128,14 @@
       phone_responsible = #{phoneResponsible,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectAllById" resultMap="BaseResultMap"  parameterType="java.util.Map" >
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM deliver_car
+    WHERE TRUE
+    <if test="id != 0">
+      AND id = #{id,jdbcType=INTEGER}
+    </if>
+  </select>
 </mapper>

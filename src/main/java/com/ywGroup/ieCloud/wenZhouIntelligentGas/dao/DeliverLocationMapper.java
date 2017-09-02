@@ -7,12 +7,17 @@ import java.util.Date;
 import java.util.List;
 
 public interface DeliverLocationMapper {
+    int deleteByPrimaryKey(Integer id);
+
     int insert(DeliverLocation record);
 
     int insertSelective(DeliverLocation record);
 
-    List<DeliverLocation> selectById (Integer id);
+    DeliverLocation selectByPrimaryKey(Integer id);
 
-    //将time1 time2 作为参数传递到mybatis中
-    List<DeliverLocation> selectByTimeSlot(@Param("time1") Date time1,@Param("time2") Date time2);
+    int updateByPrimaryKeySelective(DeliverLocation record);
+
+    int updateByPrimaryKey(DeliverLocation record);
+
+    List<DeliverLocation> select(@Param("deliverId") Integer deliverId, @Param("beginTime") Date beginTime, @Param("endTime") Date endTime);
 }
