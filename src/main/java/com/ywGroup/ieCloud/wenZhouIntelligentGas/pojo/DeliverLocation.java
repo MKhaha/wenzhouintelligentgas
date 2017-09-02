@@ -2,10 +2,11 @@ package com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 public class DeliverLocation {
     private Integer id;
+
+    private Integer deliverId;
 
     private Integer taskId;
 
@@ -15,8 +16,9 @@ public class DeliverLocation {
 
     private BigDecimal longitude;
 
-    public DeliverLocation(Integer id, Integer taskId, Date timestamp, BigDecimal latitude, BigDecimal longitude) {
+    public DeliverLocation(Integer id, Integer deliverId, Integer taskId, Date timestamp, BigDecimal latitude, BigDecimal longitude) {
         this.id = id;
+        this.deliverId = deliverId;
         this.taskId = taskId;
         this.timestamp = timestamp;
         this.latitude = latitude;
@@ -33,6 +35,14 @@ public class DeliverLocation {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getDeliverId() {
+        return deliverId;
+    }
+
+    public void setDeliverId(Integer deliverId) {
+        this.deliverId = deliverId;
     }
 
     public Integer getTaskId() {
