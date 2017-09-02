@@ -1,6 +1,13 @@
-package com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo;
+package com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO;
 
-public class DeliverCar {
+import java.math.BigDecimal;
+import java.util.Date;
+
+/**
+ * Created by lanmeiniu on 2017/9/2.
+ */
+public class DeliverCarVO {
+
     private Integer id;
 
     private Integer locationId;
@@ -17,28 +24,13 @@ public class DeliverCar {
 
     private String phoneResponsible;
 
-    public DeliverCar(Integer id, Integer locationId, String deliverCarCode, String carLicensePlate, Integer company, Integer station, Integer responsible, String phoneResponsible) {
-        this.id = id;
-        this.locationId = locationId;
-        this.deliverCarCode = deliverCarCode;
-        this.carLicensePlate = carLicensePlate;
-        this.company = company;
-        this.station = station;
-        this.responsible = responsible;
-        this.phoneResponsible = phoneResponsible;
-    }
-    public DeliverCar(Integer id, String deliverCarCode, String carLicensePlate, Integer company, Integer station, Integer responsible, String phoneResponsible) {
-        this.id = id;
-        this.deliverCarCode = deliverCarCode;
-        this.carLicensePlate = carLicensePlate;
-        this.company = company;
-        this.station = station;
-        this.responsible = responsible;
-        this.phoneResponsible = phoneResponsible;
-    }
-    public DeliverCar() {
-        super();
-    }
+    private Integer taskId;
+
+    private Date timestamp;
+
+    private BigDecimal latitude;
+
+    private BigDecimal longitude;
 
     public Integer getId() {
         return id;
@@ -61,7 +53,7 @@ public class DeliverCar {
     }
 
     public void setDeliverCarCode(String deliverCarCode) {
-        this.deliverCarCode = deliverCarCode == null ? null : deliverCarCode.trim();
+        this.deliverCarCode = deliverCarCode;
     }
 
     public String getCarLicensePlate() {
@@ -69,7 +61,7 @@ public class DeliverCar {
     }
 
     public void setCarLicensePlate(String carLicensePlate) {
-        this.carLicensePlate = carLicensePlate == null ? null : carLicensePlate.trim();
+        this.carLicensePlate = carLicensePlate;
     }
 
     public Integer getCompany() {
@@ -101,6 +93,38 @@ public class DeliverCar {
     }
 
     public void setPhoneResponsible(String phoneResponsible) {
-        this.phoneResponsible = phoneResponsible == null ? null : phoneResponsible.trim();
+        this.phoneResponsible = phoneResponsible;
+    }
+
+    public Integer getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(Integer taskId) {
+        this.taskId = taskId;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
+    }
+
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
     }
 }

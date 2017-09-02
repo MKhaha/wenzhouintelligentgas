@@ -6,6 +6,8 @@ import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCar;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCarLocation;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverInformation;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverLocation;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.DeliverCarVO;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.DeliverInformationVO;
 
 import java.util.Date;
 import java.util.List;
@@ -15,18 +17,8 @@ import java.util.List;
  */
 public interface ITrackViewService {
 
-    ServerResponse <List<DeliverLocation>> getAllTrackViewById(Integer id);
+    ServerResponse<List<DeliverCarVO>> searchTrackLatestById (Integer id);
 
-    List<DeliverLocation> getAllTrackViewByTimeSlot(Date time1, Date time2);
-
-    ServerResponse <List<DeliverCarLocation>> getAllTrackViewByCarId(Integer CarId);
-
-    List<DeliverCarLocation> getAllTrackViewByCarTimeSlot(Date time1, Date time2);
-
-    ServerResponse <List<DeliverCar>> getAllDeliverCarById(Integer id);
-
-    ServerResponse <List<DeliverInformation>> getAllDeliverInformationById(Integer id);
-
-
+    ServerResponse<List<DeliverInformationVO>> searchPersonLatestById(Integer id);
 
 }

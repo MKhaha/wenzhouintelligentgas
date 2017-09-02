@@ -89,8 +89,8 @@ public class getGPSData {
 
             Timestamp timestamp = Timestamp.valueOf(infos[5] + " " + infos[6]);
             pstmt.setTimestamp(2, timestamp);
-            pstmt.setString(3, infos[0]);
-            pstmt.setString(4, infos[1]);
+            pstmt.setString(3, infos[0]+10);
+            pstmt.setString(4, infos[1]+4);
             pstmt.executeUpdate();
             count++;
         }

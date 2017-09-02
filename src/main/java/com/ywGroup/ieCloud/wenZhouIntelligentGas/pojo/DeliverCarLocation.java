@@ -6,6 +6,8 @@ import java.util.Date;
 public class DeliverCarLocation {
     private Integer id;
 
+    private Integer deliverCarId;
+
     private Integer taskId;
 
     private Date timestamp;
@@ -14,13 +16,15 @@ public class DeliverCarLocation {
 
     private BigDecimal longitude;
 
-    public DeliverCarLocation(Integer id, Integer taskId, Date timestamp, BigDecimal latitude, BigDecimal longitude) {
+    public DeliverCarLocation(Integer id, Integer deliverCarId, Integer taskId, Date timestamp, BigDecimal latitude, BigDecimal longitude) {
         this.id = id;
+        this.deliverCarId = deliverCarId;
         this.taskId = taskId;
         this.timestamp = timestamp;
         this.latitude = latitude;
         this.longitude = longitude;
     }
+
 
     public DeliverCarLocation() {
         super();
@@ -32,6 +36,14 @@ public class DeliverCarLocation {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getDeliverCarId() {
+        return deliverCarId;
+    }
+
+    public void setDeliverCarId(Integer deliverCarId) {
+        this.deliverCarId = deliverCarId;
     }
 
     public Integer getTaskId() {

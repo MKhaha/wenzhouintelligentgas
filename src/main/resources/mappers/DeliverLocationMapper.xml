@@ -3,7 +3,8 @@
 <mapper namespace="com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.DeliverLocationMapper" >
   <resultMap id="BaseResultMap" type="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverLocation" >
     <constructor >
-      <arg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="deliver_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="task_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="timestamp" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="latitude" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
@@ -11,19 +12,37 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, task_id, timestamp, latitude, longitude
+    id, deliver_id, task_id, timestamp, latitude, longitude
   </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from deliver_location
+    where TRUE
+    <if test="id !=0">
+      AND id = #{id,jdbcType=INTEGER}
+    </if>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from deliver_location
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
   <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverLocation" >
-    insert into deliver_location (id, task_id, timestamp, 
-      latitude, longitude)
-    values (#{id,jdbcType=INTEGER}, #{taskId,jdbcType=INTEGER}, #{timestamp,jdbcType=TIMESTAMP}, 
-      #{latitude,jdbcType=DECIMAL}, #{longitude,jdbcType=DECIMAL})
+    insert into deliver_location (id, deliver_id, task_id, 
+      timestamp, latitude, longitude
+      )
+    values (#{id,jdbcType=INTEGER}, #{deliverId,jdbcType=INTEGER}, #{taskId,jdbcType=INTEGER}, 
+      #{timestamp,jdbcType=TIMESTAMP}, #{latitude,jdbcType=DECIMAL}, #{longitude,jdbcType=DECIMAL}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverLocation" >
     insert into deliver_location
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="deliverId != null" >
+        deliver_id,
       </if>
       <if test="taskId != null" >
         task_id,
@@ -42,6 +61,9 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="deliverId != null" >
+        #{deliverId,jdbcType=INTEGER},
+      </if>
       <if test="taskId != null" >
         #{taskId,jdbcType=INTEGER},
       </if>
@@ -56,17 +78,34 @@
       </if>
     </trim>
   </insert>
-  <select id="selectById" resultMap="BaseResultMap" parameterType="java.util.Map" >
-    SELECT
-    <include refid="Base_Column_List" />
-    FROM deliver_location
-    WHERE id = #{id,jdbcType=INTEGER}
-  </select>
-
-  <select id="selectByTimeSlot" resultMap="BaseResultMap" parameterType="java.util.Map">
-    SELECT
-    <include refid="Base_Column_List" />
-    FROM deliver_location WHERE timestamp
-   BETWEEN #{time1} AND #{time2}
-  </select>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverLocation" >
+    update deliver_location
+    <set >
+      <if test="deliverId != null" >
+        deliver_id = #{deliverId,jdbcType=INTEGER},
+      </if>
+      <if test="taskId != null" >
+        task_id = #{taskId,jdbcType=INTEGER},
+      </if>
+      <if test="timestamp != null" >
+        timestamp = #{timestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="latitude != null" >
+        latitude = #{latitude,jdbcType=DECIMAL},
+      </if>
+      <if test="longitude != null" >
+        longitude = #{longitude,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverLocation" >
+    update deliver_location
+    set deliver_id = #{deliverId,jdbcType=INTEGER},
+      task_id = #{taskId,jdbcType=INTEGER},
+      timestamp = #{timestamp,jdbcType=TIMESTAMP},
+      latitude = #{latitude,jdbcType=DECIMAL},
+      longitude = #{longitude,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>

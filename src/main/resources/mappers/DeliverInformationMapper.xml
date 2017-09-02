@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverInformation" >
     <constructor >
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="location_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="company" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="station" jdbcType="INTEGER" javaType="java.lang.Integer" />
@@ -13,31 +14,37 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, company, station, phone, address, photo_address
+    id, location_id, name, company, station, phone, address, photo_address
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from deliver_information
-    where id = #{id,jdbcType=INTEGER}
+    where true
+    <if test="id != 0">
+      AND id = #{id,jdbcType=INTEGER}
+    </if>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from deliver_information
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverInformation" >
-    insert into deliver_information (id, name, company, 
-      station, phone, address, 
-      photo_address)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{company,jdbcType=INTEGER}, 
-      #{station,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
-      #{photoAddress,jdbcType=VARCHAR})
+    insert into deliver_information (id, location_id, name, 
+      company, station, phone, 
+      address, photo_address)
+    values (#{id,jdbcType=INTEGER}, #{locationId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{company,jdbcType=INTEGER}, #{station,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{photoAddress,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverInformation" >
     insert into deliver_information
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="locationId != null" >
+        location_id,
       </if>
       <if test="name != null" >
         name,
@@ -62,6 +69,9 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="locationId != null" >
+        #{locationId,jdbcType=INTEGER},
+      </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
@@ -85,6 +95,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverInformation" >
     update deliver_information
     <set >
+      <if test="locationId != null" >
+        location_id = #{locationId,jdbcType=INTEGER},
+      </if>
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
@@ -108,7 +121,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverInformation" >
     update deliver_information
-    set name = #{name,jdbcType=VARCHAR},
+    set location_id = #{locationId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
       company = #{company,jdbcType=INTEGER},
       station = #{station,jdbcType=INTEGER},
       phone = #{phone,jdbcType=VARCHAR},
@@ -116,4 +130,14 @@
       photo_address = #{photoAddress,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectAllById" resultMap="BaseResultMap"  parameterType="java.util.Map" >
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM deliver_information
+    WHERE TRUE
+    <if test="id != 0">
+      AND id = #{id,jdbcType=INTEGER}
+    </if>
+  </select>
 </mapper>
