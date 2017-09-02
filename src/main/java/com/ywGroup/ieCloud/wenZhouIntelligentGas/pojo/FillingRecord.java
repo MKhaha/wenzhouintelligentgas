@@ -1,5 +1,6 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 public class FillingRecord {
@@ -15,8 +16,10 @@ public class FillingRecord {
 
     private String cylinderModel;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startingTime;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endTime;
 
     private Float tare;

@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by lenovo on 2017/8/26.
@@ -63,8 +62,6 @@ public class GasBottleManageServiceImpl implements IGasBottleManageService {
 
     @Override
     public ServerResponse insertGasBottleManager(GasBottleManager gasBottleManager) {
-        System.out.println("gasBottleManager"+gasBottleManager.getSn());
-        System.out.println("---------------------------------------");
         int resultCount = gasBottleManagerMapper.insertSelective(gasBottleManager);
         if(resultCount > 0) {
             return ServerResponse.createBySuccessMessage("插入成功");

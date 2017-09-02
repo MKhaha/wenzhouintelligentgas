@@ -4,7 +4,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.ServerResponse;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.CustomerInformationMapper;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Company;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.CustomerInformation;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.basicInformation.ICustomerInformationService;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.ExportExcel;

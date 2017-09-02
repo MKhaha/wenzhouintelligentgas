@@ -1,6 +1,5 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.controller.basicInformation;
 
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.Const;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.ServerResponse;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasBottleManager;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.basicInformation.IGasBottleManageService;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import java.util.Date;
-import java.util.UUID;
 
 
 /**
@@ -60,36 +57,7 @@ public class GasBottleManagerController {
 
     @RequestMapping(value = "insertGasBottleManager.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse insertGasBottleManager(GasBottleManager gasBottleManager,HttpSession session){
-        if(null != session.getAttribute(Const.NSJUDGE)) {
-            int status = (Integer) session.getAttribute(Const.NSJUDGE);
-            if(status == 0) {
-                gasBottleManager.setSn(UUID.randomUUID().toString().replaceAll("-",""));
-            } else {
-                gasBottleManager.setSn(String.valueOf(new Date().getTime()));
-            }
-        }
+    public ServerResponse insertGasBottleManager(GasBottleManager gasBottleManager){
         return iGasBottleManageService.insertGasBottleManager(gasBottleManager);
-    }
-
-    @RequestMapping(value = "useNsByUUID.do",method = RequestMethod.POST)
-    @ResponseBody
-    public ServerResponse useNsByUUID(HttpSession session){
-        session.setAttribute(Const.NSJUDGE,Const.NsJudge.NSJUDGE_UUID);
-        return ServerResponse.createBySuccessMessage("设置成功");
-    }
-
-    @RequestMapping(value = "useNsByTimeDate.do",method = RequestMethod.POST)
-    @ResponseBody
-    public ServerResponse useNsByTimeDate(HttpSession session){
-        session.setAttribute(Const.NSJUDGE,Const.NsJudge.NSJUDGE_TIMEDATE);
-        return ServerResponse.createBySuccessMessage("设置成功");
-    }
-
-    @RequestMapping(value = "useNsByNoUse.do",method = RequestMethod.POST)
-    @ResponseBody
-    public ServerResponse useNsByNoUse(HttpSession session){
-        session.removeAttribute(Const.NSJUDGE);
-        return ServerResponse.createBySuccessMessage("设置成功");
     }
 }
