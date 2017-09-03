@@ -90,7 +90,7 @@
         <!--<table tableName="company" domainObjectName="Company" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
         <!--<table tableName="alarm_event_record" domainObjectName="AlarmEventRecord" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
         <!--<table tableName="deliver_car" domainObjectName="DeliverCar" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />-->
-        <table tableName="gas_bottle_manager" domainObjectName="GasBottleManager" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+        <table tableName="deliver_information" domainObjectName="DeliverInformation" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
         <!-- geelynote mybatis插件的搭建 -->
     </context>
 </generatorConfiguration>

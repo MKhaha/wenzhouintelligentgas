@@ -1,6 +1,7 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.dao;
 
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCar;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -11,9 +12,11 @@ public interface DeliverCarMapper {
 
     int insertSelective(DeliverCar record);
 
-    List<DeliverCar> selectByPrimaryKey(Integer id);
+    DeliverCar selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(DeliverCar record);
 
     int updateByPrimaryKey(DeliverCar record);
+
+    List<DeliverCar> selectAllById(@Param("id") Integer id);
 }
