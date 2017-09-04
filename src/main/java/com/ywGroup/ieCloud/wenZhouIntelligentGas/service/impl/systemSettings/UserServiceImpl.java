@@ -145,7 +145,7 @@ public class UserServiceImpl implements IUserService{
                                                             String userName, String department, String roleNumber) {
         //AdministatorVO administatorVO = (AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);administatorVO.getCompany()
         PageHelper.startPage(pageNumber,pageSize);
-        List<Administrator> administrators = administratorMapper.getAdministrators("1",userName,department,roleNumber);
+        List<Administrator> administrators = administratorMapper.getAdministrators(userName,department,roleNumber);
         PageInfo pageInfo = new PageInfo(administrators);
         List<Administrators> administratorsList = new ArrayList<>();
         if(!administrators.isEmpty()){
@@ -158,6 +158,7 @@ public class UserServiceImpl implements IUserService{
                 administrators1.setEmail(administrator.getEmail());
                 administrators1.setMobile(administrator.getMobile());
                 administrators1.setPhone(administrator.getPhone());
+                administrators1.setDanwei(administrator.getCompany());
                 administrators1.setDepartment(administrator.getDepartment());
                 administrators1.setDepartmentName(departmentMapper.selectByDepartmentNumber(administrator.getDepartment()));
                 administrators1.setRoleNumber(administrator.getRoleNumber());
@@ -178,7 +179,7 @@ public class UserServiceImpl implements IUserService{
             return ServerResponse.createByErrorMessage("手机号已被注册");
         }
         //AdministatorVO administatorVO = (AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);
-        administrator.setCompany("1");//administatorVO.getCompany()
+        administrator.setCompany("温州燃气监管部门");//administatorVO.getCompany()
         administrator.setLoginCount(0);
         administrator.setIsDelete(0);
         administrator.setStatus(0);
@@ -211,7 +212,7 @@ public class UserServiceImpl implements IUserService{
 
     @Override
     public ServerResponse<String> toExcel(HttpSession session,String userName, String department, String roleNumber){
-        List<Administrator> administrators = administratorMapper.getAdministrators("1",userName,department,roleNumber);
+        List<Administrator> administrators = administratorMapper.getAdministrators(userName,department,roleNumber);
         String path = ExportExcel.toExcel(session,"sheet1","用户表","administrator",administrators);
         if (org.apache.commons.lang3.StringUtils.isBlank(path))
             return ServerResponse.createByErrorMessage("导出失败");
@@ -232,7 +233,7 @@ public class UserServiceImpl implements IUserService{
         administatorVO.setPhone(administrator.getPhone());
         administatorVO.setPicture(administrator.getPicture());
         administatorVO.setStatus(administrator.getStatus());
-        administatorVO.setCompany(administrator.getCompany());
+        administatorVO.setDanwei(administrator.getCompany());
         administatorVO.setDepartment(administrator.getDepartment());
         administatorVO.setDepartmentName(departmentMapper.selectByDepartmentNumber(administrator.getDepartment()));
         administatorVO.setParentCode(administrator.getParentCode());

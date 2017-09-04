@@ -28,8 +28,7 @@ public interface AdministratorMapper {
 
     int setRole(@Param("userid") Integer userid,@Param("roleNumber") String roleNumber);
 
-    List<Administrator> getAdministrators(@Param("company") String company,
-                                          @Param("userName") String userName,
+    List<Administrator> getAdministrators(@Param("userName") String userName,
                                           @Param("department") String department,
                                           @Param("roleNumber") String roleNumber);
 
@@ -40,5 +39,7 @@ public interface AdministratorMapper {
     int selectByDepartment(String department);
 
     String selectMobileByid(Integer id);
+
+    String selectName(Integer id);
 
 }

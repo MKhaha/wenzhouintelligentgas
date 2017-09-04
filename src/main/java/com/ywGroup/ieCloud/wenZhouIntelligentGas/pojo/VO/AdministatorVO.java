@@ -24,7 +24,8 @@ public class AdministatorVO {
 
     private Integer status;//状态
 
-    private String company;//公司
+    private String danwei;//公司
+
 
     private String department;//部门
 
@@ -112,12 +113,12 @@ public class AdministatorVO {
         this.status = status;
     }
 
-    public String getCompany() {
-        return company;
+    public String getDanwei() {
+        return danwei;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
+    public void setDanwei(String danwei) {
+        this.danwei = danwei;
     }
 
     public String getDepartment() {

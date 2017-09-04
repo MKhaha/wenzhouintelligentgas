@@ -21,8 +21,6 @@ public interface IUserService {
     ServerResponse<AdministatorVO> setInformation(Administrator administrator, HttpSession session);
     ServerResponse<PageHelperUtil> getAdministrators(HttpSession httpSession, int pageNumber, int pageSize,
                                                      String userName, String department, String roleNumber);
-//ServerResponse<PageInfo> getAdministrators(HttpSession httpSession, int pageNumber, int pageSize,
-//                                                 String userName, String department, String roleNumber);
     ServerResponse<String> addAdministrator(Administrator administrator, HttpSession httpSession);
     ServerResponse<String> delete(Integer userid);
     ServerResponse<String> toExcel(HttpSession session,String userName,String department,String roleNumber);
