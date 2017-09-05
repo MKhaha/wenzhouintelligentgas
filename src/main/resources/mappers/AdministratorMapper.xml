@@ -318,7 +318,7 @@
   <select id="getAdministrators" parameterType="map" resultMap="BaseResultMap">
     SELECT <include refid="Base_Column_List"/>
     FROM administrator
-    WHERE company = #{company}
+    WHERE 1=1
     <if test="userName!=''">
       AND user_name like '%${userName}%'
     </if>
@@ -351,6 +351,12 @@
   
   <select id="selectMobileByid" parameterType="int" resultType="string">
     SELECT mobile
+    FROM administrator
+    WHERE id = #{id}
+  </select>
+
+  <select id="selectName" parameterType="int" resultType="string">
+    SELECT user_name
     FROM administrator
     WHERE id = #{id}
   </select>

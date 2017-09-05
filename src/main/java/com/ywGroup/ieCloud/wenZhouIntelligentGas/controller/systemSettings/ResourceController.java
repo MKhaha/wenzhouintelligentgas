@@ -19,20 +19,11 @@ public class ResourceController {
     HttpSession httpSession;
     @Autowired
     private IResourceService iResourceService;
-//    /**
-//     * 递归获取资源树
-//     * @return
-//     */
-//    @RequestMapping(value = "get.do",method = RequestMethod.POST)
-//    @ResponseBody
-//    public ServerResponse getResources(@RequestParam(value = "resourceNumber",defaultValue = "0") String resourceNumber){
-//        return iResourceService.getResources(resourceNumber);
-//    }
 
     /**
-     //     * 获取资源列表
-     //     * @return
-     //     */
+     * 获取资源列表
+     * @return
+     */
     @RequestMapping(value = "get.do",method = RequestMethod.POST)
     @ResponseBody
     public ServerResponse getResources(@RequestParam(value = "pageNumber",defaultValue = "1")int pageNumber,

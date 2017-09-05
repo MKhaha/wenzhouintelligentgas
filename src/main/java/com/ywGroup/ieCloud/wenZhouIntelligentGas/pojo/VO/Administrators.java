@@ -21,6 +21,8 @@ public class Administrators {
 
     private String phone;//固定电话
 
+    private String danwei;//单位
+
     private String department;//部门
 
     private String departmentName;//部门id
@@ -135,5 +137,13 @@ public class Administrators {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getDanwei() {
+        return danwei;
+    }
+
+    public void setDanwei(String danwei) {
+        this.danwei = danwei;
     }
 }
