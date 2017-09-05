@@ -2,9 +2,7 @@ package com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.posit
 
 
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.ServerResponse;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCar;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverCarLocation;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverInformation;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverLocation;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.DeliverCarVO;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.DeliverInformationVO;
@@ -24,6 +22,8 @@ public interface ITrackViewService {
     ServerResponse <List<DeliverCarLocation>> getAllCarTrackView(Integer deliverCarId,Date beginTime, Date endTime);
 
     ServerResponse<List<DeliverCarVO>> searchTrackLatestById (Integer id);
+
+    ServerResponse numberOfDeliverInformationRegions();
 
 
 

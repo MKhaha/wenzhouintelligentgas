@@ -11,13 +11,14 @@
       <arg column="phone" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="address" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="photo_address" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="administrative_region" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, location_id, name, company, station, phone, address, photo_address
+    id, location_id, name, company, station, phone, address, photo_address, administrative_region
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from deliver_information
     where id = #{id,jdbcType=INTEGER}
@@ -27,12 +28,14 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverInformation" >
-    insert into deliver_information (id, location_id, name, 
-      company, station, phone, 
-      address, photo_address)
-    values (#{id,jdbcType=INTEGER}, #{locationId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{company,jdbcType=INTEGER}, #{station,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, 
-      #{address,jdbcType=VARCHAR}, #{photoAddress,jdbcType=VARCHAR})
+    insert into deliver_information (id, location_id, name,
+      company, station, phone,
+      address, photo_address, administrative_region
+      )
+    values (#{id,jdbcType=INTEGER}, #{locationId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
+      #{company,jdbcType=INTEGER}, #{station,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR},
+      #{address,jdbcType=VARCHAR}, #{photoAddress,jdbcType=VARCHAR}, #{administrativeRegion,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverInformation" >
     insert into deliver_information
@@ -61,6 +64,9 @@
       <if test="photoAddress != null" >
         photo_address,
       </if>
+      <if test="administrativeRegion != null" >
+        administrative_region,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -86,6 +92,9 @@
       </if>
       <if test="photoAddress != null" >
         #{photoAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="administrativeRegion != null" >
+        #{administrativeRegion,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -113,6 +122,9 @@
       <if test="photoAddress != null" >
         photo_address = #{photoAddress,jdbcType=VARCHAR},
       </if>
+      <if test="administrativeRegion != null" >
+        administrative_region = #{administrativeRegion,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -124,7 +136,8 @@
       station = #{station,jdbcType=INTEGER},
       phone = #{phone,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
-      photo_address = #{photoAddress,jdbcType=VARCHAR}
+      photo_address = #{photoAddress,jdbcType=VARCHAR},
+      administrative_region = #{administrativeRegion,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 
@@ -136,5 +149,12 @@
     <if test="id != 0">
       AND id = #{id,jdbcType=INTEGER}
     </if>
+  </select>
+
+  <select id="numberOfDeliverInformationRegions" resultType="map">
+    SELECT administrative_region,
+    COUNT(*)
+    FROM deliver_information
+    GROUP BY administrative_region
   </select>
 </mapper>

@@ -17,7 +17,9 @@ public class DeliverInformation {
 
     private String photoAddress;
 
-    public DeliverInformation(Integer id, Integer locationId, String name, Integer company, Integer station, String phone, String address, String photoAddress) {
+    private String administrativeRegion;
+
+    public DeliverInformation(Integer id, Integer locationId, String name, Integer company, Integer station, String phone, String address, String photoAddress, String administrativeRegion) {
         this.id = id;
         this.locationId = locationId;
         this.name = name;
@@ -26,6 +28,7 @@ public class DeliverInformation {
         this.phone = phone;
         this.address = address;
         this.photoAddress = photoAddress;
+        this.administrativeRegion = administrativeRegion;
     }
 
     public DeliverInformation() {
@@ -94,5 +97,13 @@ public class DeliverInformation {
 
     public void setPhotoAddress(String photoAddress) {
         this.photoAddress = photoAddress == null ? null : photoAddress.trim();
+    }
+
+    public String getAdministrativeRegion() {
+        return administrativeRegion;
+    }
+
+    public void setAdministrativeRegion(String administrativeRegion) {
+        this.administrativeRegion = administrativeRegion == null ? null : administrativeRegion.trim();
     }
 }

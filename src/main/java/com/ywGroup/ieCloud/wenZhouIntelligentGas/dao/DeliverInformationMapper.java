@@ -4,6 +4,7 @@ import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.DeliverInformation;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface DeliverInformationMapper {
     int deleteByPrimaryKey(Integer id);
@@ -19,6 +20,8 @@ public interface DeliverInformationMapper {
     int updateByPrimaryKey(DeliverInformation record);
 
     List<DeliverInformation> selectAllById(@Param("id") Integer id);
+
+    List<Map<String,String>> numberOfDeliverInformationRegions();
 
 
 }

@@ -67,6 +67,14 @@ public class PersonTrackController {
     (@RequestParam(value = "id",defaultValue = "0")Integer id) {
         return iTrackViewService.searchPersonLatestById(id);
     }
+    /**
+     *地区区域统计信息
+     */
+    @RequestMapping(value = "numberOfDeliverInformationRegions.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse numberOfDeliverInformationRegions(){
+        return iTrackViewService.numberOfDeliverInformationRegions();
+    }
 
 
 }
