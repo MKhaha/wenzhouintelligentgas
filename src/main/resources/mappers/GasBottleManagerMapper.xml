@@ -326,8 +326,8 @@
       AND last_inspection_date &gt;= #{beginLastInspectionDate}
     </if>
     <if test="endLastInspectionDate != null and endLastInspectionDate != ''">
-    </if>
       AND last_inspection_date &lt;= #{endLastInspectionDate}
+    </if>
     <if test="beginNextInspectionDate != null and beginNextInspectionDate != ''">
       AND next_inspection_date &gt;= #{beginNextInspectionDate}
     </if>
