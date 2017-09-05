@@ -1,6 +1,5 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.dao;
 
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStationDirectSaleCylinderSendAndReceive;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStationTransportCylinderSendAndReceive;
 import org.apache.ibatis.annotations.Param;
 

@@ -60,4 +60,22 @@ public class GasBottleManagerController {
     public ServerResponse insertGasBottleManager(GasBottleManager gasBottleManager){
         return iGasBottleManageService.insertGasBottleManager(gasBottleManager);
     }
+
+    @RequestMapping(value = "numberOfGasBottleManagerRegions.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse numberOfGasBottleManagerRegions(){
+        return iGasBottleManageService.numberOfGasBottleManagerRegions();
+    }
+
+    @RequestMapping(value = "due.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse due(){
+        return iGasBottleManageService.due();
+    }
+
+    @RequestMapping(value = "overdue.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse overdue(){
+        return iGasBottleManageService.overdue();
+    }
 }

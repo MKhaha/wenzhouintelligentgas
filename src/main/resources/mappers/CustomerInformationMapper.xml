@@ -250,4 +250,10 @@
       and client_name LIke concat(concat('%',#{clientName}),'%')
     </if>
   </select>
+  <select id="numberOfCustomerInformationRegions" resultType="map">
+    SELECT its_administrative_area,
+    COUNT(*)
+    FROM customer_information
+    GROUP BY its_administrative_area
+  </select>
 </mapper>

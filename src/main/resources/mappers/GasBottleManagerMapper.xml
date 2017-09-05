@@ -326,13 +326,38 @@
       AND last_inspection_date &gt;= #{beginLastInspectionDate}
     </if>
     <if test="endLastInspectionDate != null and endLastInspectionDate != ''">
-      AND last_inspection_date &lt;= #{endLastInspectionDate}
     </if>
+      AND last_inspection_date &lt;= #{endLastInspectionDate}
     <if test="beginNextInspectionDate != null and beginNextInspectionDate != ''">
       AND next_inspection_date &gt;= #{beginNextInspectionDate}
     </if>
     <if test="endNextInspectionDate != null and endNextInspectionDate != ''">
       AND next_inspection_date &lt;= #{endNextInspectionDate}
     </if>
+  </select>
+  <select id="numberOfGasBottleManagerRegions" resultType="map">
+    SELECT administrative_region,
+	COUNT(*)
+    FROM gas_bottle_manager
+    GROUP BY administrative_region
+  </select>
+
+  <select id="due" resultType="map">
+    SELECT
+    next_inspection_date,
+    COUNT(*)
+    FROM
+    gas_bottle_manager
+    WHERE
+    DATEDIFF(next_inspection_date,NOW()) &lt;= 30 AND DATEDIFF(next_inspection_date,NOW()) &gt;=0
+    GROUP BY
+    next_inspection_date
+  </select>
+
+  <select id="overdue" resultType="map">
+    SELECT
+    COUNT(*)
+    from gas_bottle_manager
+    where next_inspection_date &lt;= NOW()
   </select>
 </mapper>

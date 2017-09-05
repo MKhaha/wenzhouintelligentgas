@@ -15,4 +15,10 @@ public interface IGasBottleManageService {
     ServerResponse toExcelGasBottleManager(HttpSession session, String cylinderBarcode, String manufacturingUnit, String beginLandingDate, String endLandingDate, String beginLastInspectionDate, String endLastInspectionDate, String beginNextInspectionDate, String endNextInspectionDate);
 
     ServerResponse insertGasBottleManager(GasBottleManager gasBottleManager);
+
+    ServerResponse numberOfGasBottleManagerRegions();
+
+    ServerResponse due();
+
+    ServerResponse overdue();
 }

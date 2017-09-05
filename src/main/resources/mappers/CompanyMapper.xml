@@ -264,4 +264,10 @@
       and create_user LIKE concat(concat('%',#{createUser}),'%')
     </if>
   </select>
+  <select id="numberOfCompanyRegions" resultType="map">
+  SELECT administrative_region,
+  COUNT(*)
+  FROM company
+  GROUP BY administrative_region
+</select>
 </mapper>

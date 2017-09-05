@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.GasStationMapper" >
+  <resultMap id="BaseResultMap" type="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStation" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="parent_company" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="address" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="administrative_region" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="serial_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, parent_company, name, address, administrative_region, serial_number
+  </sql>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gas_station
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStation" >
+    insert into gas_station (id, code, parent_company, 
+      name, address, administrative_region, 
+      serial_number)
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{parentCompany,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{administrativeRegion,jdbcType=INTEGER}, 
+      #{serialNumber,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStation" >
+    insert into gas_station
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="parentCompany != null" >
+        parent_company,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="administrativeRegion != null" >
+        administrative_region,
+      </if>
+      <if test="serialNumber != null" >
+        serial_number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="parentCompany != null" >
+        #{parentCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="administrativeRegion != null" >
+        #{administrativeRegion,jdbcType=INTEGER},
+      </if>
+      <if test="serialNumber != null" >
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStation" >
+    update gas_station
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="parentCompany != null" >
+        parent_company = #{parentCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="administrativeRegion != null" >
+        administrative_region = #{administrativeRegion,jdbcType=INTEGER},
+      </if>
+      <if test="serialNumber != null" >
+        serial_number = #{serialNumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStation" >
+    update gas_station
+    set parent_company = #{parentCompany,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      administrative_region = #{administrativeRegion,jdbcType=INTEGER},
+      serial_number = #{serialNumber,jdbcType=VARCHAR}
+    where code = #{code,jdbcType=VARCHAR}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from gas_station
+  </select>
+  <delete id="deleteByCode" parameterType="java.lang.String" >
+    delete from gas_station
+    where code = #{code,jdbcType=VARCHAR}
+  </delete>
+  <select id="selectByCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from gas_station
+    where code = #{code,jdbcType=VARCHAR}
+  </select>
+</mapper>

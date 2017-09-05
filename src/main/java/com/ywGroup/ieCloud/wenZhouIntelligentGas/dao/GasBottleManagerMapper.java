@@ -4,6 +4,7 @@ import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasBottleManager;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface GasBottleManagerMapper {
     int deleteByPrimaryKey(Long id);
@@ -19,4 +20,10 @@ public interface GasBottleManagerMapper {
     int updateByPrimaryKey(GasBottleManager record);
 
     List<GasBottleManager> queryGasBottleManager(@Param("cylinderBarcode") String cylinderBarcode, @Param("manufacturingUnit") String manufacturingUnit, @Param("beginLandingDate") String beginLandingDate, @Param("endLandingDate") String endLandingDate, @Param("beginLastInspectionDate") String beginLastInspectionDate, @Param("endLastInspectionDate") String endLastInspectionDate, @Param("beginNextInspectionDate") String beginNextInspectionDate, @Param("endNextInspectionDate") String endNextInspectionDate);
+
+    List<Map<String, String>> numberOfGasBottleManagerRegions();
+
+    List<Map<String, String>> due();
+
+    List<Map<String, String>> overdue();
 }

@@ -14,4 +14,6 @@ public interface ICompanyService {
     ServerResponse insertCompany(Company company);
 
     ServerResponse toExcelCompany(HttpSession session, String companyName, String createUser);
+
+    ServerResponse numberOfCompanyRegions();
 }

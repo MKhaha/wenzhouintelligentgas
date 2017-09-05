@@ -3,7 +3,6 @@ package com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.repor
 import com.github.pagehelper.PageInfo;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.ServerResponse;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.AlarmEventRecord;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Map;
@@ -17,4 +16,8 @@ public interface IAlarmEventRecordService {
     ServerResponse<PageInfo> getAlarmEventRecord(AlarmEventRecord alarmEventRecord, int pageNumber, int pageSize);
 
     ServerResponse<Map<String, Map<Integer, List<Integer>>>> getCountAlarmEventRecordGroupByAdministrativeRegions();
+
+    ServerResponse numberOfAlarmEventRecordRegions();
+
+    ServerResponse stateLawEnforcement();
 }

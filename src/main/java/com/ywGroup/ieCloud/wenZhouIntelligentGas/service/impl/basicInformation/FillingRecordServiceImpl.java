@@ -4,7 +4,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.ServerResponse;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.FillingRecordMapper;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.CylinderLocation;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.FillingRecord;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.basicInformation.IFillingRecordService;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.ExportExcel;
@@ -39,7 +38,7 @@ public class FillingRecordServiceImpl implements IFillingRecordService {
     @Override
     public ServerResponse toExcelFillingRecord(HttpSession session, String cylinderBarcode, String fillingWorker) {
         List<FillingRecord> fillingRecordList = fillingRecordMapper.queryFillingRecord(cylinderBarcode,fillingWorker);
-        if(org.apache.commons.collections.CollectionUtils.isEmpty(fillingRecordList)) {
+        if(CollectionUtils.isEmpty(fillingRecordList)) {
             return ServerResponse.createByErrorMessage("获取失败");
         }
         String path = ExportExcel.toExcel(session,"sheet1","filling_record","filling_record",fillingRecordList);

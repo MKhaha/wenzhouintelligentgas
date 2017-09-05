@@ -44,4 +44,10 @@ public class CompanyController {
                                          @RequestParam(value = "createUser",defaultValue = "") String createUser){
         return iCompanyService.toExcelCompany(session,companyName,createUser);
     }
+
+    @RequestMapping(value = "numberOfCompanyRegions.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse numberOfCompanyRegions(){
+        return iCompanyService.numberOfCompanyRegions();
+    }
 }

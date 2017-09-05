@@ -4,7 +4,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.ServerResponse;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.GasStationTransportCylinderSendAndReceiveMapper;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStationDirectSaleCylinderSendAndReceive;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStationTransportCylinderSendAndReceive;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.basicInformation.IGasStationTransportCylinderSendAndReceiveService;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.ExportExcel;
@@ -19,7 +18,7 @@ import java.util.List;
  * Created by lenovo on 2017/8/26.
  */
 @Service("iGasStationTransportCylinderSendAndReceiveService")
-public class GasStationTransportCylinderSendAndReceiveServiceImpl implements IGasStationTransportCylinderSendAndReceiveService{
+public class GasStationTransportCylinderSendAndReceiveServiceImpl implements IGasStationTransportCylinderSendAndReceiveService {
 
     @Autowired
     private GasStationTransportCylinderSendAndReceiveMapper gasStationTransportCylinderSendAndReceiveMapper;
@@ -39,7 +38,7 @@ public class GasStationTransportCylinderSendAndReceiveServiceImpl implements IGa
     @Override
     public ServerResponse toExcelGasStationTransportCylinderSendAndReceive(HttpSession session, String cylinderBarcode, String manufacturingUnit, String beginDate, String endDate) {
         List<GasStationTransportCylinderSendAndReceive> gasStationTransportCylinderSendAndReceiveList = gasStationTransportCylinderSendAndReceiveMapper.queryGasStationTransportCylinderSendAndReceive(cylinderBarcode,manufacturingUnit,beginDate,endDate);
-        if(org.apache.commons.collections.CollectionUtils.isEmpty(gasStationTransportCylinderSendAndReceiveList)) {
+        if(CollectionUtils.isEmpty(gasStationTransportCylinderSendAndReceiveList)) {
             return ServerResponse.createByErrorMessage("获取失败");
         }
         String path = ExportExcel.toExcel(session,"sheet1","gas_station_transport_cylinder_send_and_receive","gas_station_transport_cylinder_send_and_receive",gasStationTransportCylinderSendAndReceiveList);

@@ -4,7 +4,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.ServerResponse;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.StoreCylinderSendAndReceiveMapper;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.GasStationTransportCylinderSendAndReceive;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.StoreCylinderSendAndReceive;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.basicInformation.IStoreCylinderSendAndReceiveService;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.ExportExcel;
@@ -19,7 +18,7 @@ import java.util.List;
  * Created by lenovo on 2017/8/26.
  */
 @Service("iStoreCylinderSendAndReceiveService")
-public class StoreCylinderSendAndReceiveServiceImpl implements IStoreCylinderSendAndReceiveService{
+public class StoreCylinderSendAndReceiveServiceImpl implements IStoreCylinderSendAndReceiveService {
 
     @Autowired
     private StoreCylinderSendAndReceiveMapper storeCylinderSendAndReceiveMapper;
@@ -39,7 +38,7 @@ public class StoreCylinderSendAndReceiveServiceImpl implements IStoreCylinderSen
     @Override
     public ServerResponse toExcelStoreCylinderSendAndReceive(HttpSession session, String cylinderBarcode, String beginDate, String endDate) {
         List<StoreCylinderSendAndReceive> storeCylinderSendAndReceiveList = storeCylinderSendAndReceiveMapper.queryStoreCylinderSendAndReceive(cylinderBarcode,beginDate,endDate);
-        if(org.apache.commons.collections.CollectionUtils.isEmpty(storeCylinderSendAndReceiveList)) {
+        if(CollectionUtils.isEmpty(storeCylinderSendAndReceiveList)) {
             return ServerResponse.createByErrorMessage("获取失败");
         }
         String path = ExportExcel.toExcel(session,"sheet1","store_cylinder_send_and_receive","store_cylinder_send_and_receive",storeCylinderSendAndReceiveList);

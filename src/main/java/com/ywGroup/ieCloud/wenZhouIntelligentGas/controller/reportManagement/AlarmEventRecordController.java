@@ -42,4 +42,15 @@ public class AlarmEventRecordController {
         return iAlarmEventRecordService.getCountAlarmEventRecordGroupByAdministrativeRegions();
     }
 
+    @RequestMapping(value = "numberOfAlarmEventRecordRegions.do", method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse numberOfAlarmEventRecordRegions(){
+        return iAlarmEventRecordService.numberOfAlarmEventRecordRegions();
+    }
+
+    @RequestMapping(value = "stateLawEnforcement.do", method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse stateLawEnforcement(){
+        return iAlarmEventRecordService.stateLawEnforcement();
+    }
 }

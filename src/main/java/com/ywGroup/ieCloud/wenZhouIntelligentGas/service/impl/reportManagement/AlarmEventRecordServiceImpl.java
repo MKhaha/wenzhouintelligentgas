@@ -85,4 +85,24 @@ public class AlarmEventRecordServiceImpl implements IAlarmEventRecordService {
 
         return ServerResponse.createBySuccess("获取统计信息成功", mapCountAlarmEventRecord);
     }
+
+    @Override
+    public ServerResponse numberOfAlarmEventRecordRegions() {
+        List<Map<String,String>>  map = alarmEventRecordMapper.numberOfAlarmEventRecordRegions();
+        if(CollectionUtils.isEmpty(map)) {
+            return ServerResponse.createByErrorMessage("获取失败");
+        }
+        return ServerResponse.createBySuccess("获取成功",map);
+    }
+
+    @Override
+    public ServerResponse stateLawEnforcement() {
+        List<Map<String,String>>  map = alarmEventRecordMapper.stateLawEnforcement();
+        if(CollectionUtils.isEmpty(map)) {
+            return ServerResponse.createByErrorMessage("获取失败");
+        }
+        return ServerResponse.createBySuccess("获取成功",map);
+    }
+
+
 }

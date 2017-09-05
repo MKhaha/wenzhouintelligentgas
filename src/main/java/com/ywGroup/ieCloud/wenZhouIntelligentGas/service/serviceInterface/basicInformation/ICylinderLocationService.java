@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 public interface ICylinderLocationService {
     ServerResponse<CylinderLocation> queryCylinderLocationByCylinderSerialNumber(String cylinderSerialNumber);
 
-    ServerResponse queryAllCylinderLocation(int pageNumber,int pageSize);
+    ServerResponse queryAllCylinderLocation(int pageNumber, int pageSize);
 
     ServerResponse toExcelAllCylinderLocation(HttpSession session);
 }

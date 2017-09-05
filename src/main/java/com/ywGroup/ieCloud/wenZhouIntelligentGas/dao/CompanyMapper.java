@@ -4,6 +4,7 @@ import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Company;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CompanyMapper {
     int deleteByPrimaryKey(Integer id);
@@ -21,4 +22,6 @@ public interface CompanyMapper {
     int updateByPrimaryKey(Company record);
 
     List<Company> queryCompany(@Param("companyName") String companyName, @Param("createUser") String createUser);
+
+    List<Map<String,String>> numberOfCompanyRegions();
 }

@@ -1,10 +1,7 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.dao;
 
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.AlarmEventRecord;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.reportManagement.IAlarmEventRecordService;
-import org.apache.ibatis.annotations.Param;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,4 +27,7 @@ public interface AlarmEventRecordMapper {
     // 根据行政区域统计报警数量
     int getCountAlarmEventInWenZhou(String administrativeRegions);
 
+    List<Map<String,String>> numberOfAlarmEventRecordRegions();
+
+    List<Map<String,String>> stateLawEnforcement();
 }

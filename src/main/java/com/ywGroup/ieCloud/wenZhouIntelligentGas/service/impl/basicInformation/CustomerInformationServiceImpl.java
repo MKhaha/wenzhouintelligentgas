@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by lenovo on 2017/8/26.
@@ -46,5 +47,14 @@ public class CustomerInformationServiceImpl implements ICustomerInformationServi
             return ServerResponse.createByErrorMessage("导出失败");
         }
         return ServerResponse.createBySuccess("导出成功",path);
+    }
+
+    @Override
+    public ServerResponse numberOfCustomerInformationRegions() {
+        List<Map<String,String>> map = customerInformationMapper.numberOfCustomerInformationRegions();
+        if(CollectionUtils.isEmpty(map)) {
+            return ServerResponse.createByErrorMessage("获取失败");
+        }
+        return ServerResponse.createBySuccess("获取成功",map);
     }
 }

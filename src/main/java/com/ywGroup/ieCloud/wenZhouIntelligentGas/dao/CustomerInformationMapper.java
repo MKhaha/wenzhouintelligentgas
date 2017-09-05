@@ -4,6 +4,7 @@ import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.CustomerInformation;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CustomerInformationMapper {
     int deleteByPrimaryKey(Long id);
@@ -20,4 +21,5 @@ public interface CustomerInformationMapper {
 
     List<CustomerInformation> queryCustomerInformation(@Param("gas") String gas, @Param("onSite") String onSite, @Param("clientName") String clientName);
 
+    List<Map<String, String>> numberOfCustomerInformationRegions();
 }

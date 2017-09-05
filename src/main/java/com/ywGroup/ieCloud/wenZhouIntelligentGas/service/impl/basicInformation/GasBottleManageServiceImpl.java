@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by lenovo on 2017/8/26.
@@ -67,6 +68,33 @@ public class GasBottleManageServiceImpl implements IGasBottleManageService {
             return ServerResponse.createBySuccessMessage("插入成功");
         }
         return ServerResponse.createByErrorMessage("插入失败");
+    }
+
+    @Override
+    public ServerResponse numberOfGasBottleManagerRegions() {
+        List<Map<String,String>> map = gasBottleManagerMapper.numberOfGasBottleManagerRegions();
+        if(CollectionUtils.isEmpty(map)) {
+            return ServerResponse.createByErrorMessage("获取失败");
+        }
+        return ServerResponse.createBySuccess("获取成功",map);
+    }
+
+    @Override
+    public ServerResponse due() {
+        List<Map<String,String>> map = gasBottleManagerMapper.due();
+        if(CollectionUtils.isEmpty(map)) {
+            return ServerResponse.createByErrorMessage("获取失败");
+        }
+        return ServerResponse.createBySuccess("获取成功",map);
+    }
+
+    @Override
+    public ServerResponse overdue() {
+        List<Map<String,String>> map = gasBottleManagerMapper.overdue();
+        if(CollectionUtils.isEmpty(map)) {
+            return ServerResponse.createByErrorMessage("获取失败");
+        }
+        return ServerResponse.createBySuccess("获取成功",map);
     }
 
 }

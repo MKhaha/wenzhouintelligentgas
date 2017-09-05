@@ -193,4 +193,16 @@
     from alarm_event_record
     WHERE administrative_regions LIKE concat('%',#{administrativeRegions,jdbcType=VARCHAR},'%')
   </select>
+  <select id="numberOfAlarmEventRecordRegions" resultType="map">
+  SELECT administrative_regions,
+  COUNT(*)
+  FROM alarm_event_record
+  GROUP BY administrative_regions
+</select>
+  <select id="stateLawEnforcement" resultType="map">
+    SELECT status,
+    COUNT(*)
+    FROM alarm_event_record
+    GROUP BY status
+ </select>
 </mapper>

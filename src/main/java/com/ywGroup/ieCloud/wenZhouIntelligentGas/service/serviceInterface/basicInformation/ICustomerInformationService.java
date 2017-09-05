@@ -11,4 +11,6 @@ public interface ICustomerInformationService {
     ServerResponse queryCustomerInformation(int pageNumber, int pageSize, String gas, String onSite, String clientName);
 
     ServerResponse toExcelCustomerInformation(HttpSession session, String gas, String onSite, String clientName);
+
+    ServerResponse numberOfCustomerInformationRegions();
 }

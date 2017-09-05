@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.EventTendencyMapper" >
+  <resultMap id="BaseResultMap" type="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.EventTendency" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="event_number" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="event_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="administrative_regions" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, event_number, event_time, administrative_regions
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from event_tendency
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from event_tendency
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.EventTendency" >
+    insert into event_tendency (id, event_number, event_time, 
+      administrative_regions)
+    values (#{id,jdbcType=INTEGER}, #{eventNumber,jdbcType=INTEGER}, #{eventTime,jdbcType=TIMESTAMP}, 
+      #{administrativeRegions,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.EventTendency" >
+    insert into event_tendency
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="eventNumber != null" >
+        event_number,
+      </if>
+      <if test="eventTime != null" >
+        event_time,
+      </if>
+      <if test="administrativeRegions != null" >
+        administrative_regions,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="eventNumber != null" >
+        #{eventNumber,jdbcType=INTEGER},
+      </if>
+      <if test="eventTime != null" >
+        #{eventTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="administrativeRegions != null" >
+        #{administrativeRegions,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.EventTendency" >
+    update event_tendency
+    <set >
+      <if test="eventNumber != null" >
+        event_number = #{eventNumber,jdbcType=INTEGER},
+      </if>
+      <if test="eventTime != null" >
+        event_time = #{eventTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="administrativeRegions != null" >
+        administrative_regions = #{administrativeRegions,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.EventTendency" >
+    update event_tendency
+    set event_number = #{eventNumber,jdbcType=INTEGER},
+      event_time = #{eventTime,jdbcType=TIMESTAMP},
+      administrative_regions = #{administrativeRegions,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from event_tendency
+  </select>
+  <select id="queryEventTendencyByAdministrativeRegions" resultMap="BaseResultMap"  parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from event_tendency
+    where 1=1
+    <if test="administrativeRegions != '' and administrativeRegions != null" >
+      and administrative_regions LIKE concat(concat('%',#{administrativeRegions}),'%')
+    </if>
+  </select>
+</mapper>

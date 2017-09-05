@@ -40,4 +40,10 @@ public class CustomerInformationController {
                                                      @RequestParam(value = "clientName",defaultValue = "") String clientName){
         return iCustomerInformationService.toExcelCustomerInformation(session,gas,onSite,clientName);
     }
+
+    @RequestMapping(value = "numberOfCustomerInformationRegions.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse numberOfCustomerInformationRegions(){
+        return iCustomerInformationService.numberOfCustomerInformationRegions();
+    }
 }
