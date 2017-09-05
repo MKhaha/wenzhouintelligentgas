@@ -126,7 +126,7 @@ public class ProcessServiceImpl implements IProcessService {
             processVO.setFounderId(process.getFounderId());
             processVO.setFounder(administratorMapper.selectName(process.getFounderId()));
             processVO.setCreatTime(process.getCreatTime());
-            processVO.setParties(process.getParty().split(","));
+            processVO.setParties(process.getParty());
             processVO.setDetails(process.getDetails());
             processVOS.add(processVO);
         }

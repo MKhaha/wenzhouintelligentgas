@@ -18,7 +18,7 @@ public class ProcessVO {
 
     private Date creatTime;
 
-    private String[] parties;
+    private String parties;
 
     private String details;
 
@@ -70,11 +70,11 @@ public class ProcessVO {
         this.creatTime = creatTime;
     }
 
-    public String[] getParties() {
+    public String getParties() {
         return parties;
     }
 
-    public void setParties(String[] parties) {
+    public void setParties(String parties) {
         this.parties = parties;
     }
 
