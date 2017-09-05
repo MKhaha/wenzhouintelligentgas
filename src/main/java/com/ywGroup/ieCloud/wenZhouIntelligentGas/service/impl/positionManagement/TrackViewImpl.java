@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by lanmeiniu on 2017/8/29.
@@ -139,4 +140,14 @@ public class TrackViewImpl implements ITrackViewService {
 
 
     }
+
+    @Override
+    public ServerResponse numberOfDeliverInformationRegions() {
+        List<Map<String,String>> map = deliverInformationMapper.numberOfDeliverInformationRegions();
+        if(org.apache.commons.collections.CollectionUtils.isEmpty(map)) {
+            return ServerResponse.createByErrorMessage("获取失败");
+        }
+        return ServerResponse.createBySuccess("获取成功",map);
+    }
+
 }
