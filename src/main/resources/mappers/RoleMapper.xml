@@ -6,7 +6,7 @@
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="role_number" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="role_name" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="company_number" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="department_number" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="is_delete" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
@@ -14,7 +14,7 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, role_number, role_name, company_number, is_delete, remark, create_time, update_time
+    id, role_number, role_name, department_number, is_delete, remark, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -28,10 +28,10 @@
   </delete>
   <insert id="insert" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Role" >
     insert into system_role (id, role_number, role_name, 
-      company_number, is_delete, remark, 
+      department_number, is_delete, remark, 
       create_time, update_time)
     values (#{id,jdbcType=INTEGER}, #{roleNumber,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, 
-      #{companyNumber,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{departmentNumber,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
       now(),now())
   </insert>
   <insert id="insertSelective" parameterType="com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Role" >
@@ -46,8 +46,8 @@
       <if test="roleName != null" >
         role_name,
       </if>
-      <if test="companyNumber != null" >
-        company_number,
+      <if test="departmentNumber != null" >
+        department_number,
       </if>
       <if test="isDelete != null" >
         is_delete,
@@ -72,8 +72,8 @@
       <if test="roleName != null" >
         #{roleName,jdbcType=VARCHAR},
       </if>
-      <if test="companyNumber != null" >
-        #{companyNumber,jdbcType=VARCHAR},
+      <if test="departmentNumber != null" >
+        #{departmentNumber,jdbcType=VARCHAR},
       </if>
       <if test="isDelete != null" >
         #{isDelete,jdbcType=INTEGER},
@@ -98,8 +98,8 @@
       <if test="roleName != null" >
         role_name = #{roleName,jdbcType=VARCHAR},
       </if>
-      <if test="companyNumber != null" >
-        company_number = #{companyNumber,jdbcType=VARCHAR},
+      <if test="departmentNumber != null" >
+        department_number = #{departmentNumber,jdbcType=VARCHAR},
       </if>
       <if test="isDelete != null" >
         is_delete = #{isDelete,jdbcType=INTEGER},
@@ -120,7 +120,7 @@
     update system_role
     set role_number = #{roleNumber,jdbcType=VARCHAR},
       role_name = #{roleName,jdbcType=VARCHAR},
-      company_number = #{companyNumber,jdbcType=VARCHAR},
+      department_number = #{departmentNumber,jdbcType=VARCHAR},
       is_delete = #{isDelete,jdbcType=INTEGER},
       remark = #{remark,jdbcType=VARCHAR},
       update_time = now()
@@ -148,7 +148,10 @@
     SELECT
     <include refid="Base_Column_List"/>
     FROM system_role
-    WHERE company_number = #{company}
+    WHERE TRUE
+    <if test="departmentnumber!=''">
+      AND department_number = #{departmentnumber}
+    </if>
     <if test="roleName!=''">
       AND role_name like '%${roleName}%'
     </if>
@@ -167,4 +170,5 @@
   <select id="selectBylastID" resultType="int">
     SELECT MAX(id) FROM system_role
   </select>
+
 </mapper>

@@ -24,7 +24,7 @@ public interface RoleMapper {
 
     int deleteByRoleNumber(String roleNumber);
 
-    List<Role> getRoles(@Param("company") String company,@Param("roleName") String roleName,@Param("remark") String remark);
+    List<Role> getRoles(@Param("departmentnumber") String departmentnumber, @Param("roleName") String roleName, @Param("remark") String remark);
 
     String selectByRoleNumber(String roleNumber);
 

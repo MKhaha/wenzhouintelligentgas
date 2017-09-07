@@ -52,7 +52,6 @@ public class RoleController {
     @ResponseBody
     public ServerResponse addRole(Role role){
         //AdministatorVO administatorVO = (AdministatorVO) httpSession.getAttribute(Const.CURRENT_USER);
-        role.setCompanyNumber("1");//administatorVO.getCompany());
         role.setIsDelete(0);
         return iRoleService.addRole(role);
     }
@@ -77,8 +76,9 @@ public class RoleController {
     public ServerResponse getRoles(@RequestParam(value = "pageNumber",defaultValue = "1")int pageNumber,
                                    @RequestParam(value = "pageSize",defaultValue = "10") int pageSize,
                                    @RequestParam(value = "roleName",defaultValue = "")String roleName,
-                                   @RequestParam(value = "remark",defaultValue = "")String remark){
-        return iRoleService.getRoles(httpSession,pageNumber,pageSize,roleName,remark);
+                                   @RequestParam(value = "remark",defaultValue = "")String remark,
+                                   @RequestParam(value = "departmentNumber",defaultValue = "")String departmentnumber){
+        return iRoleService.getRoles(httpSession,pageNumber,pageSize,roleName,remark,departmentnumber);
     }
 
 

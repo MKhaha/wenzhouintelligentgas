@@ -1,11 +1,14 @@
 package com.ywGroup.ieCloud.wenZhouIntelligentGas.service.impl.activiti;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.ServerResponse;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.AdministratorMapper;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.ProcessMapper;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Process;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.ProcessVO;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.activiti.IProcessService;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.PageHelperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -112,10 +115,9 @@ public class ProcessServiceImpl implements IProcessService {
     }
 
     @Override
-    public ServerResponse<List<ProcessVO>> select(String name, Integer founderId) {
+    public ServerResponse<PageHelperUtil> select(Integer pageSize,Integer pageNumber,String name, Integer founderId) {
+        PageHelper.startPage(pageNumber,pageSize);
         List<Process> processes = processMapper.selectByNameFounder(name,founderId);
-        if (processes.isEmpty())
-            return ServerResponse.createByErrorMessage("查询为空");
         List<ProcessVO> processVOS = new ArrayList<>();
         for(Process process:processes){
             ProcessVO processVO = new ProcessVO();
@@ -129,6 +131,8 @@ public class ProcessServiceImpl implements IProcessService {
             processVO.setDetails(process.getDetails());
             processVOS.add(processVO);
         }
-        return ServerResponse.createBySuccess("查询成功",processVOS);
+        PageInfo pageResult = new PageInfo(processes);
+        pageResult.setList(processVOS);
+        return ServerResponse.createBySuccess("查询成功", PageHelperUtil.toPageHeper(pageResult));
     }
 }
