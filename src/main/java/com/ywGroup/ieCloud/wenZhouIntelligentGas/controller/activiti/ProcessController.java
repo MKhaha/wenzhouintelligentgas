@@ -53,8 +53,10 @@ public class ProcessController {
 
     @RequestMapping(value = "select.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse selectProcess(@RequestParam(value = "name",defaultValue = "") String name,
+    public ServerResponse selectProcess(@RequestParam(value = "pageSize",defaultValue = "10")int pageSize,
+                                        @RequestParam(value = "pageNumber",defaultValue = "1")int pageNumber,
+                                        @RequestParam(value = "name",defaultValue = "") String name,
                                         @RequestParam(value = "founderId",defaultValue = "0")int founderId){
-        return iProcessService.select(name,founderId);
+        return iProcessService.select(pageSize,pageNumber,name,founderId);
     }
 }

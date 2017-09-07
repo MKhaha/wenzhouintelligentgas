@@ -5,10 +5,12 @@ import com.github.pagehelper.PageInfo;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.Const;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.ServerResponse;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.AdministratorMapper;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.DepartmentMapper;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.RoleMapper;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.dao.RoleResourceRelationMapper;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Role;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.AdministatorVO;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.RoleVO;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.systemSettings.IRoleService;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.ExportExcel;
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.PageHelperUtil;
@@ -16,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,6 +33,8 @@ public class RoleServiceImpl implements IRoleService {
     private RoleResourceRelationMapper roleResourceRelationMapper;
     @Autowired
     private AdministratorMapper administratorMapper;
+    @Autowired
+    private DepartmentMapper departmentMapper;
 
     @Override
     public ServerResponse<String> addRole(Role role) {
@@ -58,12 +63,26 @@ public class RoleServiceImpl implements IRoleService {
     }
 
     @Override
-    public ServerResponse<PageHelperUtil> getRoles(HttpSession session,int pageNumber,int pageSize,String roleName,String remark) {
+    public ServerResponse<PageHelperUtil> getRoles(HttpSession session,int pageNumber,int pageSize,String roleName,String remark,String departmentnumber) {
         //AdministatorVO administatorVO = (AdministatorVO) session.getAttribute(Const.CURRENT_USER);
         PageHelper.startPage(pageNumber,pageSize);
-        List<Role> roles = roleMapper.getRoles("1",roleName,remark);//administatorVO.getCompany());
+        List<Role> roles = roleMapper.getRoles(departmentnumber,roleName,remark);//administatorVO.getCompany());
+        List<RoleVO> roleVOS = new ArrayList<>();
+        for(Role role:roles){
+            RoleVO roleVO = new RoleVO();
+            roleVO.setId(role.getId());
+            roleVO.setCreateTime(role.getCreateTime());
+            roleVO.setDepartment(departmentMapper.selectByDepartmentNumber(role.getDepartmentNumber()));
+            roleVO.setDepartmentNumber(role.getDepartmentNumber());
+            roleVO.setIsDelete(role.getIsDelete());
+            roleVO.setRemark(role.getRemark());
+            roleVO.setRoleName(role.getRoleName());
+            roleVO.setRoleNumber(role.getRoleNumber());
+            roleVO.setUpdateTime(role.getUpdateTime());
+            roleVOS.add(roleVO);
+        }
         PageInfo pageResult = new PageInfo(roles);
-        pageResult.setList(roles);
+        pageResult.setList(roleVOS);
         if (!roles.isEmpty())
             return ServerResponse.createBySuccess("获取成功", PageHelperUtil.toPageHeper(pageResult));
         return ServerResponse.createByErrorMessage("获取失败");

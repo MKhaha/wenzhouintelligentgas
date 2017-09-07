@@ -3,7 +3,7 @@ package com.ywGroup.ieCloud.wenZhouIntelligentGas.service.serviceInterface.activ
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.common.ServerResponse;
 
 import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.Process;
-import com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO.ProcessVO;
+import com.ywGroup.ieCloud.wenZhouIntelligentGas.util.PageHelperUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,5 +17,5 @@ public interface IProcessService {
     ServerResponse<String> addProcess(Process process);
     ServerResponse<String> delProcess(Integer id);
     ServerResponse<String> updateProcess(Process process);
-    ServerResponse<List<ProcessVO>> select(String name, Integer founderId);
+    ServerResponse<PageHelperUtil> select(Integer pageSize, Integer pageNumber, String name, Integer founderId);
 }

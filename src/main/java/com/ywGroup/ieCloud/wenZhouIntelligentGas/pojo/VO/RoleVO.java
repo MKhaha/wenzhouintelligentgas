@@ -1,8 +1,11 @@
-package com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo;
+package com.ywGroup.ieCloud.wenZhouIntelligentGas.pojo.VO;
 
 import java.util.Date;
 
-public class Role {
+/**
+ * Created by Administrator on 2017-9-6.
+ */
+public class RoleVO {
     private Integer id;
 
     private String roleNumber;
@@ -11,6 +14,8 @@ public class Role {
 
     private String departmentNumber;
 
+    private String department;
+
     private Integer isDelete;
 
     private String remark;
@@ -18,21 +23,6 @@ public class Role {
     private Date createTime;
 
     private Date updateTime;
-
-    public Role(Integer id, String roleNumber, String roleName, String departmentNumber, Integer isDelete, String remark, Date createTime, Date updateTime) {
-        this.id = id;
-        this.roleNumber = roleNumber;
-        this.roleName = roleName;
-        this.departmentNumber = departmentNumber;
-        this.isDelete = isDelete;
-        this.remark = remark;
-        this.createTime = createTime;
-        this.updateTime = updateTime;
-    }
-
-    public Role() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -47,7 +37,7 @@ public class Role {
     }
 
     public void setRoleNumber(String roleNumber) {
-        this.roleNumber = roleNumber == null ? null : roleNumber.trim();
+        this.roleNumber = roleNumber;
     }
 
     public String getRoleName() {
@@ -55,7 +45,7 @@ public class Role {
     }
 
     public void setRoleName(String roleName) {
-        this.roleName = roleName == null ? null : roleName.trim();
+        this.roleName = roleName;
     }
 
     public String getDepartmentNumber() {
@@ -63,7 +53,15 @@ public class Role {
     }
 
     public void setDepartmentNumber(String departmentNumber) {
-        this.departmentNumber = departmentNumber == null ? null : departmentNumber.trim();
+        this.departmentNumber = departmentNumber;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
     public Integer getIsDelete() {
@@ -79,7 +77,7 @@ public class Role {
     }
 
     public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
+        this.remark = remark;
     }
 
     public Date getCreateTime() {
